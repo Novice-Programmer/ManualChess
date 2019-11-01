@@ -35,4 +35,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.mp3
+*.meta
 Assets/04.Models/Images/Background.png

@@ -34,4 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.mp3
 Assets/04.Models/Images/Background.png

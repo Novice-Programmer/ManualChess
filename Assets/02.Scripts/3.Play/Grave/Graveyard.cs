@@ -33,7 +33,8 @@ public class Graveyard : MonoBehaviour
     private Vector3 cardViewScale;
     private Vector3 cardAddScale;
 
-    private Vector3 graveCardV = new Vector3(0.0f, 0.1f, 0.0f);
+    private Vector3 graveCardV = new Vector3(-2.0f, 0.85f, 4.5f);
+    private Vector3 graveCardAddV = new Vector3(0.0f, 0.05f, 0.0f);
     private Vector3 graveViewQ = new Vector3(0.0f, 112.5f, 0.0f);
     private Vector3 graveViewTQ = new Vector3(0.0f,65.0f,0.0f);
 
@@ -305,16 +306,13 @@ public class Graveyard : MonoBehaviour
         }
 
         graveIntList.Add(_orderNum);
-        Vector3 graveCardAddV = graveCardV;
-        graveCardV.y *= graveNum;
         GameObject gVCard = Instantiate(gCard, cardTransform.transform);
         Quaternion randomQ = Quaternion.Euler(0.0f, Random.Range(0.0f, 360.0f), 0.0f);
         gVCard.transform.rotation = randomQ;
-        gVCard.transform.position += graveCardV;
-        graveCardV = graveCardAddV;
-        Vector3 graveAddV = new Vector3(0.0f, graveCardV.y * (graveNum + 2), 0.0f);
-        graveAdd.transform.position = graveAdd.transform.position + graveAddV;
-        graveText.GraveTextAddPos(graveAddV);
+        Vector3 randomV = new Vector3(Random.Range(-0.2f, 0.2f), 0.0f, Random.Range(-0.2f, 0.2f));
+        gVCard.transform.position = graveCardV + randomV + (graveCardAddV * graveNum);
+        graveAdd.transform.position += graveCardAddV;
+        graveText.GraveTextAddPos(graveCardAddV);
         GameObject _graveCardObj;
         _graveCardObj = Instantiate(graveCard, gravePosList[graveNum].transform);
         _graveCardObj.GetComponent<GraveCard>().GraveCardSet(_orderNum, graveNum);
@@ -334,9 +332,8 @@ public class Graveyard : MonoBehaviour
         {
             AlwaysObject.Instance.InfoStart("상대가 묘지에서 카드를 드로우 했습니다.");
         }
-        Vector3 graveAddV = new Vector3(0.0f, graveCardV.y * (graveNum + 2), 0.0f);
-        graveText.GraveTextAddPos(-graveAddV);
-        graveAdd.transform.position = graveAdd.transform.position - graveAddV;
+        graveText.GraveTextAddPos(-graveCardAddV);
+        graveAdd.transform.position = graveAdd.transform.position - graveCardAddV;
         graveIntList.RemoveAt(_selectNum);
         graveNum--;
         GraveNumSet(graveNum);

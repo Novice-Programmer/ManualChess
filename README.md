@@ -22,7 +22,7 @@ It can be awkward.
 
 This is a team project that's under way at the university.
 
-I'm making Unity. It's been about a year since I learned it.
+I'm making a game build from Unity. It's been about a year since I learned it.
 
 It's been about six months since I started making the project.
 

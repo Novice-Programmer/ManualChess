@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: c8c961044bc655f4e997ae5560e3630a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pieceSprite: {fileID: 21300000, guid: 6bfcc08ed8e521f458751f33aea8f5c5, type: 3}
+  - targetPSprite: {fileID: 21300000, guid: 6ef5c6dd4d5d02e498f1d3ac86f055cf, type: 3}
+  - targetPESprite: {fileID: 21300000, guid: 9dffb8533c417f4429b1ecab2329704a, type: 3}
+  - moveRangeSprite: {fileID: 21300000, guid: 1ba7ff04ae1cd2f4fad41029d35f1cb4, type: 3}
+  - attackRangeSprite: {fileID: 21300000, guid: 07cd024a6c1547f41a2f585ebd4dbdd6,
+      type: 3}
+  - skillRangeSprite: {fileID: 21300000, guid: 70790014882dea94094086c89eaf26ba, type: 3}
+  - maxRangeSprite: {fileID: 21300000, guid: e98f2db937273f44a862310795ae4b45, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

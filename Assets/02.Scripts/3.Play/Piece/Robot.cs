@@ -1,0 +1,191 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Robot : Piece
+{
+    public override void DataSetting()
+    {
+        ws = new WaitForSeconds(0.1f);
+        pieceTransform = transform;
+        piece_Name = "로봇";
+        piece_Dir = "마법으로 움직이는 골렘";
+        level = 0;
+        pieceHP = 24;
+        pieceMP = 0;
+
+        maxHP = 24;
+        maxMP = 4;
+
+        drowMana = 1;
+        fieldMana = 1;
+
+        moveMana = 1;
+        spaceMana = 0;
+        moveRange = 1;
+        spaceRange = 0;
+
+        attackMana = 1;
+        attackDamage = 10;
+        attackRange = 1;
+        targetRange = 1;
+
+        skillMana = 2;
+        skillDamage = 18;
+        skillRange = 1;
+        skillAttackRange = 1;
+        skillShakeRange = 30.0f;
+        skillShakeForce = 100.0f;
+
+        orderNum = 5;
+
+        piecePosition.y = -0.34f;
+        if (tag == "APiece")
+        {
+            barAddset.y = 1.4f;
+        }
+        else
+        {
+            barAddset.y = 0.8f;
+        }
+    }
+
+    public override bool[,] PossibleMove(Piece[,] pieces, int playerMana)
+    {
+        bool[,] move = new bool[9, 9];
+
+        if (moveMana <= playerMana || !isPlayer)
+        {
+            if (CurrentZ + 1 <= 8)
+            {
+                move[CurrentX, CurrentZ + 1] = ValidMove(pieces, CurrentX, CurrentZ + 1);
+            }
+
+            if (CurrentZ - 1 >= 0)
+            {
+                move[CurrentX, CurrentZ - 1] = ValidMove(pieces, CurrentX, CurrentZ - 1);
+            }
+
+            if(CurrentX + 1 <= 8)
+            {
+                move[CurrentX + 1, CurrentZ] = ValidMove(pieces, CurrentX + 1, CurrentZ);
+            }
+
+            if(CurrentX - 1 >= 0)
+            {
+                move[CurrentX - 1, CurrentZ] = ValidMove(pieces, CurrentX - 1, CurrentZ);
+            }
+        }
+        return move;
+    }
+
+    public override bool[,] PossibleAttack(Piece[,] pieces, int playerMana)
+    {
+        bool[,] attack = new bool[9, 9];
+
+        if (attackMana <= playerMana || !isPlayer)
+        {
+            if (CurrentZ + 1 <= 8)
+            {
+                attack[CurrentX, CurrentZ + 1] = ValidAttack(pieces, CurrentX, CurrentZ + 1);
+            }
+
+            if (CurrentZ - 1 >= 0)
+            {
+                attack[CurrentX, CurrentZ - 1] = ValidAttack(pieces, CurrentX, CurrentZ - 1);
+            }
+
+            if (CurrentX + 1 <= 8)
+            {
+                attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, CurrentX + 1, CurrentZ);
+            }
+
+            if (CurrentX - 1 >= 0)
+            {
+                attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, CurrentX - 1, CurrentZ);
+            }
+        }
+        return attack;
+    }
+
+    public override bool[,] PossibleSkill(Piece[,] pieces, int playerMana)
+    {
+        bool[,] skill = new bool[9, 9];
+
+        if (skillMana <= playerMana && pieceMP >= maxMP || !isPlayer)
+        {
+            if (tag == "APiece")
+            {
+                for (int z = 0; z <= 2; z++)
+                {
+                    if (CurrentZ + z <= 8)
+                    {
+                        skill[CurrentX, CurrentZ + z] = ValidSkill(pieces, CurrentX, CurrentZ + z);
+                    }
+                }
+            }
+
+            else
+            {
+                for (int z = 0; z <= 2; z++)
+                {
+                    if (CurrentZ - z >= 0)
+                    {
+                        skill[CurrentX, CurrentZ - z] = ValidSkill(pieces, CurrentX, CurrentZ - z);
+                    }
+                }
+            }
+        }
+        return skill;
+    }
+
+    public override bool[,] PossibleSkillRange(Piece[,] pieces)
+    {
+        bool[,] skillRange = new bool[9, 9];
+
+        if (TargetX - 1 >= 0)
+        {
+            skillRange[TargetX - 1, TargetZ] = ValidSkill(pieces, TargetX - 1, TargetZ);
+        }
+        if (TargetX + 1 <= 8)
+        {
+            skillRange[TargetX + 1, TargetZ] = ValidSkill(pieces, TargetX + 1, TargetZ);
+        }
+
+        skillRange[TargetX, TargetZ] = ValidSkill(pieces, TargetX, TargetZ);
+        return skillRange;
+    }
+
+    public override int[,] PossibleNoneRange(int action)
+    {
+        int[,] actionRange = new int[3, 3];
+        int pieceX = 1;
+        int pieceZ = 1;
+
+        if (action == 0)
+        {
+            actionRange[pieceX + 1, pieceZ] = 2;
+            actionRange[pieceX - 1, pieceZ] = 2;
+            actionRange[pieceX, pieceZ + 1] = 2;
+            actionRange[pieceX, pieceZ - 1] = 2;
+            actionRange[pieceX, pieceZ] = 1;
+        }
+
+        else if (action == 1)
+        {
+            actionRange[pieceX + 1, pieceZ] = 2;
+            actionRange[pieceX - 1, pieceZ] = 2;
+            actionRange[pieceX, pieceZ + 1] = 2;
+            actionRange[pieceX, pieceZ - 1] = 2;
+            actionRange[pieceX, pieceZ] = 1;
+        }
+
+        else if (action == 2)
+        {
+            actionRange[pieceX, pieceZ + 1] = 2;
+            actionRange[pieceX, pieceZ] = 1;
+        }
+
+        return actionRange;
+    }
+}

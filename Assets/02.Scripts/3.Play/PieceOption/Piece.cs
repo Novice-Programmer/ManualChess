@@ -153,6 +153,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
         DataSetting();
+        StartCoroutine(PosReset());
     }
 
     private void Start()
@@ -167,10 +168,13 @@ public abstract class Piece : MonoBehaviour
 
     IEnumerator PosReset()
     {
-        while (resetB)
+        if (pv.IsMine)
         {
-            yield return new WaitForSeconds(resetSeconds);
-            PieceSetting();
+            while (resetB)
+            {
+                yield return new WaitForSeconds(resetSeconds);
+                PieceSetting();
+            }
         }
     }
 

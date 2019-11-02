@@ -13,18 +13,24 @@ public class PieceBar : MonoBehaviour
     public Vector3 addset = Vector3.zero;
     public Transform targetTr;
 
-    public void StartSet()
+    // Start is called before the first frame update
+    void Start()
     {
         etcCanvas = GetComponentInParent<Canvas>();
         etcCamera = etcCanvas.worldCamera;
         rectParent = etcCanvas.GetComponent<RectTransform>();
         rectBar = this.gameObject.GetComponent<RectTransform>();
-        PosUpdate(Vector3.zero);
     }
 
-    public void PosUpdate(Vector3 addV)
+    // Update is called once per frame
+    void LateUpdate()
     {
-        var screenPos = Camera.main.WorldToScreenPoint(targetTr.position + offset + addset + addV);
+        if (targetTr == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        var screenPos = Camera.main.WorldToScreenPoint(targetTr.position + offset + addset);
         if (screenPos.z < 0.0f)
         {
             screenPos *= -1.0f;
@@ -32,10 +38,5 @@ public class PieceBar : MonoBehaviour
         var localPos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, etcCamera, out localPos);
         rectBar.localPosition = localPos;
-    }
-
-    public void DestroyTarget()
-    {
-        Destroy(gameObject);
     }
 }

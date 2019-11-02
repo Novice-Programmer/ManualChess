@@ -87,7 +87,7 @@ public abstract class Piece : MonoBehaviour
     public float skillShakeForce; // 스킬 흔들림 크기
 
     [Header("ETC")]
-    private readonly int turnCreaseMana = 1; // 턴마다 증가하는 마나량
+    private int turnCreaseMana = 1; // 턴마다 증가하는 마나량
     public int orderNum; // 카드로 바뀔때의 번호
 
     [Header("PieceSet")]
@@ -99,10 +99,12 @@ public abstract class Piece : MonoBehaviour
 
     // 체력,마나 게이지 바 변수
     [Header("Bar")]
-    public PieceBar pieceBar;
+    private GameObject bar;
     public GameObject barPrefabs;
     private Vector3 barOffset = new Vector3(0.0f, 0.9f, 0.0f);
     public Vector3 barAddset = Vector3.zero; // 캐릭터 크기에 따라 위치 설정 변경용
+    private Canvas etcCanvas;
+    private GameObject bars;
     private Image hpBarImage;
     private Image mpBarImage;
 
@@ -156,7 +158,7 @@ public abstract class Piece : MonoBehaviour
         FirstSetting();
     }
 
-    private void Update()
+    public void Update()
     {
         PointBar();
     }
@@ -428,8 +430,8 @@ public abstract class Piece : MonoBehaviour
         {
             gamePlayer = !GameManager.Instance.player;
         }
-        BarSetting();
         PieceSetting();
+        BarSetting();
         DamageSetting();
         PieceAdd();
     }
@@ -454,19 +456,18 @@ public abstract class Piece : MonoBehaviour
     // 체력 , 마나 바 UI 설정
     public void BarSetting()
     {
-        GameObject bars = GameObject.Find("Bars").gameObject;
-        GameObject bar = Instantiate<GameObject>(barPrefabs, bars.transform);
-        pieceBar = bar.GetComponent<PieceBar>();
-        pieceBar.targetTr = pieceTransform;
+        etcCanvas = GameObject.Find("EtcCanvas").GetComponent<Canvas>();
+        bars = GameObject.Find("Bars").gameObject;
+        bar = Instantiate<GameObject>(barPrefabs, bars.transform);
         hpBarImage = bar.GetComponentsInChildren<Image>()[0];
         mpBarImage = bar.GetComponentsInChildren<Image>()[1];
         bar.transform.position += barAddset;
 
-        var _bar = pieceBar;
+        var _bar = bar.GetComponent<PieceBar>();
+        _bar.targetTr = this.gameObject.transform;
         _bar.offset = barOffset;
         _bar.addset = barAddset;
 
-        pieceBar.StartSet();
         hpBarImage.fillAmount = 1.0f;
         mpBarImage.fillAmount = 0.0f;
     }
@@ -605,7 +606,6 @@ public abstract class Piece : MonoBehaviour
         {
             GameManager.Instance.bPiece.Remove(this);
         }
-        pieceBar.DestroyTarget();
         Board.Instance.boardPiece[CurrentX, CurrentZ] = null;
     }
 

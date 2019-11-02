@@ -36,4 +36,7 @@ sysinfo.txt
 *.unitypackage
 *.mp3
 *.meta
+*.fbx
+*.png
+*.jpg
 Assets/04.Models/Images/Background.png

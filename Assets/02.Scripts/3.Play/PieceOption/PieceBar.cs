@@ -19,11 +19,12 @@ public class PieceBar : MonoBehaviour
         etcCamera = etcCanvas.worldCamera;
         rectParent = etcCanvas.GetComponent<RectTransform>();
         rectBar = this.gameObject.GetComponent<RectTransform>();
+        PosUpdate(Vector3.zero);
     }
 
-    public void PosUpdate()
+    public void PosUpdate(Vector3 addV)
     {
-        var screenPos = Camera.main.WorldToScreenPoint(targetTr.position + offset + addset);
+        var screenPos = Camera.main.WorldToScreenPoint(targetTr.position + offset + addset + addV);
         if (screenPos.z < 0.0f)
         {
             screenPos *= -1.0f;

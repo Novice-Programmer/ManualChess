@@ -156,6 +156,11 @@ public abstract class Piece : MonoBehaviour
         FirstSetting();
     }
 
+    private void Update()
+    {
+        PointBar();
+    }
+
     #region 애니메이션
 
     public IEnumerator ActionAnim(int stateNum)
@@ -315,7 +320,6 @@ public abstract class Piece : MonoBehaviour
         animator.SetBool(hashAttack, false);
         animator.SetBool(hashSkill, false);
         animator.SetBool(hashDamage, false);
-        PointBar();
     }
 
     // 상대편쪽으로 바라봄
@@ -445,7 +449,6 @@ public abstract class Piece : MonoBehaviour
                 transform.rotation = bPieceRotate;
             }
         }
-        pieceBar.PosUpdate();
     }
 
     // 체력 , 마나 바 UI 설정

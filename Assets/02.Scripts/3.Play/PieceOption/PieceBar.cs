@@ -22,14 +22,8 @@ public class PieceBar : MonoBehaviour
         rectBar = this.gameObject.GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    public void PosUpdate()
     {
-        if (targetTr == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
         var screenPos = Camera.main.WorldToScreenPoint(targetTr.position + offset + addset);
         if (screenPos.z < 0.0f)
         {
@@ -38,5 +32,10 @@ public class PieceBar : MonoBehaviour
         var localPos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, etcCamera, out localPos);
         rectBar.localPosition = localPos;
+    }
+
+    public void DestroyTarget()
+    {
+        Destroy(gameObject);
     }
 }

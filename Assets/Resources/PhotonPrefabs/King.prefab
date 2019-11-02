@@ -5929,7 +5929,7 @@ MonoBehaviour:
   selectTexture: {fileID: 2800000, guid: a1949dcd186d3b84e95e0c863c4f6676, type: 3}
   piecePosition: {x: 0, y: -0.34, z: 0}
   aPieceRotate: {x: 0, y: 0, z: 0, w: 1}
-  bPieceRotate: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  bPieceRotate: {x: 0, y: 1, z: 0, w: 0}
   barPrefabs: {fileID: 4171373863332658753, guid: df8e740e559c642488c650ad614e9ebe,
     type: 3}
   barAddset: {x: 0, y: 0, z: 0}

@@ -11074,8 +11074,8 @@ MonoBehaviour:
   pieceMP: 0
   maxHP: 33
   maxMP: 5
-  drowMana: 2
-  fieldMana: 2
+  drowMana: 3
+  fieldMana: 1
   moveMana: 1
   spaceMana: 0
   moveRange: 2

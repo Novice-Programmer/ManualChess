@@ -87,7 +87,7 @@ public abstract class Piece : MonoBehaviour
     public float skillShakeForce; // 스킬 흔들림 크기
 
     [Header("ETC")]
-    private int turnCreaseMana = 1; // 턴마다 증가하는 마나량
+    private readonly int turnCreaseMana = 1; // 턴마다 증가하는 마나량
     public int orderNum; // 카드로 바뀔때의 번호
 
     [Header("PieceSet")]
@@ -99,6 +99,7 @@ public abstract class Piece : MonoBehaviour
 
     // 체력,마나 게이지 바 변수
     [Header("Bar")]
+    private PieceBar pieceBar;
     private GameObject bar;
     public GameObject barPrefabs;
     private Vector3 barOffset = new Vector3(0.0f, 0.9f, 0.0f);
@@ -451,6 +452,7 @@ public abstract class Piece : MonoBehaviour
                 transform.rotation = bPieceRotate;
             }
         }
+        pieceBar.PosUpdate();
     }
 
     // 체력 , 마나 바 UI 설정
@@ -459,6 +461,7 @@ public abstract class Piece : MonoBehaviour
         etcCanvas = GameObject.Find("EtcCanvas").GetComponent<Canvas>();
         bars = GameObject.Find("Bars").gameObject;
         bar = Instantiate<GameObject>(barPrefabs, bars.transform);
+        pieceBar = bar.GetComponent<PieceBar>();
         hpBarImage = bar.GetComponentsInChildren<Image>()[0];
         mpBarImage = bar.GetComponentsInChildren<Image>()[1];
         bar.transform.position += barAddset;
@@ -606,6 +609,7 @@ public abstract class Piece : MonoBehaviour
         {
             GameManager.Instance.bPiece.Remove(this);
         }
+        pieceBar.DestroyTarget();
         Board.Instance.boardPiece[CurrentX, CurrentZ] = null;
     }
 

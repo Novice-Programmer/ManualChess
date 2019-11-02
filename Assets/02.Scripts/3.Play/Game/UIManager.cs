@@ -28,10 +28,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Drow")]
     public Text drowViewTxt;
-    public Text drowHideViewTxt;
     public GameObject drowPanel;
     public GameObject drowGroup;
-    public GameObject drowHideViewBtn;
     public GameObject drowBtn;
     public GameObject drowViewBtn;
     public GameObject drowCard;
@@ -105,7 +103,6 @@ public class UIManager : MonoBehaviour
             drowBtn.SetActive(false);
         }
         TurnViewSet(_playerTurn);
-        drowHideViewTxt.text = "숨기기";
         drowViewTxt.text = "필드보기";
         TurnSet(_turnValue);
         ManaSet(_playerMana, _ableMana, 0);
@@ -299,7 +296,6 @@ public class UIManager : MonoBehaviour
                 drowPanel.SetActive(true);
                 drowGroup.SetActive(true);
                 drowViewBtn.SetActive(true);
-                drowHideViewTxt.text = "숨기기";
                 drowViewTxt.text = "필드보기";
                 DrowListView();
             }
@@ -320,7 +316,6 @@ public class UIManager : MonoBehaviour
                 GameManager.Instance.drowSelect = true;
                 drowPanel.SetActive(true);
                 drowGroup.SetActive(true);
-                drowHideViewTxt.text = "숨기기";
                 drowViewTxt.text = "필드보기";
             }
             else
@@ -330,20 +325,6 @@ public class UIManager : MonoBehaviour
                 drowGroup.SetActive(false);
                 drowViewTxt.text = "카드보기";
             }
-        }
-    }
-
-    public void BtnHideViewClick()
-    {
-        if (drowHideViewTxt.text == "숨기기")
-        {
-            drowGroup.SetActive(false);
-            drowHideViewTxt.text = "보이기";
-        }
-        else
-        {
-            drowGroup.SetActive(true);
-            drowHideViewTxt.text = "숨기기";
         }
     }
 

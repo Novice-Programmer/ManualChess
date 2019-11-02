@@ -87,6 +87,7 @@ public class UIManager : MonoBehaviour
             enemyManaOn[i] = enemyManas[i].transform.GetChild(1).gameObject;
             enemyManaAble[i] = enemyManas[i].transform.GetChild(2).gameObject;
         }
+        pieceSet.GetComponent<CanvasGroup>().alpha = 0.0f;
     }
 
     #region 셋팅관련

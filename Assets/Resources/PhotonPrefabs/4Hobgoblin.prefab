@@ -1318,6 +1318,8 @@ MonoBehaviour:
   actionPiece: {fileID: 0}
   gamePlayer: 0
   isPlayer: 0
+  resetB: 0
+  resetSeconds: 0
   piece_Name: "\uD649 \uACE0\uBE14\uB9B0"
   piece_Dir: "\uACE0\uBE14\uB9B0\uC5D0\uC11C \uC9C4\uD654\uD55C \uAC1D\uCCB4!"
   level: 0
@@ -1349,7 +1351,7 @@ MonoBehaviour:
   selectTexture: {fileID: 2800000, guid: e8fc19196985385429c325ee71d1be4a, type: 3}
   piecePosition: {x: 0, y: -0.34, z: 0}
   aPieceRotate: {x: 0, y: 0, z: 0, w: 1}
-  bPieceRotate: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  bPieceRotate: {x: 0, y: 1, z: 0, w: 0}
   barPrefabs: {fileID: 4171373863332658753, guid: df8e740e559c642488c650ad614e9ebe,
     type: 3}
   barAddset: {x: 0, y: 0.85, z: 0}

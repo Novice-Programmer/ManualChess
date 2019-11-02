@@ -5898,6 +5898,8 @@ MonoBehaviour:
   actionPiece: {fileID: 0}
   gamePlayer: 0
   isPlayer: 0
+  resetB: 0
+  resetSeconds: 0
   piece_Name: 
   piece_Dir: 
   level: 0

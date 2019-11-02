@@ -11065,6 +11065,8 @@ MonoBehaviour:
   actionPiece: {fileID: 0}
   gamePlayer: 0
   isPlayer: 0
+  resetB: 0
+  resetSeconds: 0
   piece_Name: "\uAE30\uC0AC"
   piece_Dir: "\uC655\uC744 \uC704\uD558\uC5EC \uD53C\uB97C!"
   level: 0

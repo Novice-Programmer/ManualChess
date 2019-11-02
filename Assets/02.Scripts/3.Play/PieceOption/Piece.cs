@@ -48,6 +48,8 @@ public abstract class Piece : MonoBehaviour
     // 소유 확인
     public bool gamePlayer; // 플레이어 확인용
     public bool isPlayer; // 사용 확인용
+    public bool resetB; // 포지션 초기화
+    public float resetSeconds; // 초기화 시간
 
     [Header("State")]
     public string piece_Name; // 이름
@@ -87,7 +89,7 @@ public abstract class Piece : MonoBehaviour
     public float skillShakeForce; // 스킬 흔들림 크기
 
     [Header("ETC")]
-    private int turnCreaseMana = 1; // 턴마다 증가하는 마나량
+    private readonly int turnCreaseMana = 1; // 턴마다 증가하는 마나량
     public int orderNum; // 카드로 바뀔때의 번호
 
     [Header("PieceSet")]
@@ -161,6 +163,15 @@ public abstract class Piece : MonoBehaviour
     public void Update()
     {
         PointBar();
+    }
+
+    IEnumerator PosReset()
+    {
+        while (resetB)
+        {
+            yield return new WaitForSeconds(resetSeconds);
+            PieceSetting();
+        }
     }
 
     #region 애니메이션

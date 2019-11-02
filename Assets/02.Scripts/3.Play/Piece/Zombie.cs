@@ -10,6 +10,8 @@ public class Zombie : Piece
         pieceTransform = transform;
         piece_Name = "좀비";
         piece_Dir = "좀비도 인간입니다만?";
+        resetB = true;
+        resetSeconds = 5.0f;
         level = 0;
         pieceHP = 23;
         pieceMP = 0;

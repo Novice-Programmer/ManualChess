@@ -19,7 +19,7 @@ public class PlayerSetting : MonoBehaviour
     // 플레이어 설정
     Vector3 cameraV = new Vector3(5.0f, 17.0f, 21.0f);
     Vector3 lightV = new Vector3(0.0f, 50.0f, 0.0f);
-    Vector3 graveV = new Vector3(5.0f, 10.7f, 14.7f);
+    Vector3 graveV = new Vector3(5.0f, 10.7f, 14.1f);
     Vector3 graveTextV = new Vector3(0.5f, 0.0f, 1.4f);
     Vector3 noneV = new Vector3(4.5f, 2.0f, 4.2f);
 

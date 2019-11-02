@@ -11,7 +11,6 @@ public class Graveyard : MonoBehaviour
     public GameObject graveView;
     public GameObject graveCardViewC;
     public GameObject graveGroup;
-    public GameObject graveEffect;
     public GameObject cardTransform;
     public GameObject gCard;
     public GameObject graveCard;
@@ -280,7 +279,6 @@ public class Graveyard : MonoBehaviour
         graveGroup.transform.rotation = graveViewF;
         graveViewB = true;
         graveGroup.SetActive(true);
-        graveEffect.SetActive(true);
         selectNum = 0;
         GameManager.Instance.uiManager.GraveNumSet(selectNum, graveNum);
     }
@@ -290,7 +288,6 @@ public class Graveyard : MonoBehaviour
     {
         graveViewB = false;
         graveGroup.SetActive(false);
-        graveEffect.SetActive(false);
         GraveCardReset();
         graveGroup.transform.rotation = graveViewF;
     }

@@ -21213,22 +21213,22 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Attack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Move
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Skill
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Damage
   - Type: 4
     SynchronizeType: 0
     Name: Die
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!65 &3013827918767220559
 BoxCollider:

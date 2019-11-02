@@ -281,8 +281,9 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        else if (animator.GetBool(hashDie))
+        if (animator.GetBool(hashDie))
         {
+            _die = true;
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
             {
                 yield return null;
@@ -292,7 +293,6 @@ public abstract class Piece : MonoBehaviour
             {
                 yield return null;
             }
-            _die = true;
         }
 
         if (_die)

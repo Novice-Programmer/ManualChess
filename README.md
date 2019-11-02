@@ -10,7 +10,11 @@ Kr
 
 카드를 접목한 보드게임입니다.
 
-무료 에셋을 사용했기 때문에 저작권에 걸릴 경우 내리겠습니다.
+프리 에셋을 사용했습니다.
+
+현재 저작권 문제로 이미지나 사운드가 없습니다.
+
+저작권 문제가 추가로 생기면 그 부분을 지우겠습니다.
 
 
 
@@ -28,4 +32,8 @@ It's been about six months since I started making the project.
 
 This is a board game with a card.
 
-I used a free asset, so I'll get off if I get copyrighted.
+I used free asset
+
+Currently, there is no image or sound due to copyright issues.
+
+If there is any additional copyright problem, I will erase that part.

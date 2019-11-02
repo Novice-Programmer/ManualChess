@@ -99,13 +99,10 @@ public abstract class Piece : MonoBehaviour
 
     // 체력,마나 게이지 바 변수
     [Header("Bar")]
-    private PieceBar pieceBar;
-    private GameObject bar;
+    public PieceBar pieceBar;
     public GameObject barPrefabs;
     private Vector3 barOffset = new Vector3(0.0f, 0.9f, 0.0f);
     public Vector3 barAddset = Vector3.zero; // 캐릭터 크기에 따라 위치 설정 변경용
-    private Canvas etcCanvas;
-    private GameObject bars;
     private Image hpBarImage;
     private Image mpBarImage;
 
@@ -157,11 +154,6 @@ public abstract class Piece : MonoBehaviour
     private void Start()
     {
         FirstSetting();
-    }
-
-    public void Update()
-    {
-        PointBar();
     }
 
     #region 애니메이션
@@ -323,6 +315,7 @@ public abstract class Piece : MonoBehaviour
         animator.SetBool(hashAttack, false);
         animator.SetBool(hashSkill, false);
         animator.SetBool(hashDamage, false);
+        PointBar();
     }
 
     // 상대편쪽으로 바라봄
@@ -431,8 +424,8 @@ public abstract class Piece : MonoBehaviour
         {
             gamePlayer = !GameManager.Instance.player;
         }
-        PieceSetting();
         BarSetting();
+        PieceSetting();
         DamageSetting();
         PieceAdd();
     }
@@ -458,19 +451,19 @@ public abstract class Piece : MonoBehaviour
     // 체력 , 마나 바 UI 설정
     public void BarSetting()
     {
-        etcCanvas = GameObject.Find("EtcCanvas").GetComponent<Canvas>();
-        bars = GameObject.Find("Bars").gameObject;
-        bar = Instantiate<GameObject>(barPrefabs, bars.transform);
+        GameObject bars = GameObject.Find("Bars").gameObject;
+        GameObject bar = Instantiate<GameObject>(barPrefabs, bars.transform);
         pieceBar = bar.GetComponent<PieceBar>();
+        pieceBar.targetTr = pieceTransform;
         hpBarImage = bar.GetComponentsInChildren<Image>()[0];
         mpBarImage = bar.GetComponentsInChildren<Image>()[1];
         bar.transform.position += barAddset;
 
-        var _bar = bar.GetComponent<PieceBar>();
-        _bar.targetTr = this.gameObject.transform;
+        var _bar = pieceBar;
         _bar.offset = barOffset;
         _bar.addset = barAddset;
 
+        pieceBar.StartSet();
         hpBarImage.fillAmount = 1.0f;
         mpBarImage.fillAmount = 0.0f;
     }

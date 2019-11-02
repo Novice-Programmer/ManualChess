@@ -144,6 +144,7 @@ public class Board : MonoBehaviour
             boardPiece[x1, y1] = null;
             selectPiece.CurrentX = x2;
             selectPiece.CurrentZ = y2;
+            selectPiece.pieceBar.PosUpdate();
             selectPiece.move = false;
         }
         else if(action == 1)

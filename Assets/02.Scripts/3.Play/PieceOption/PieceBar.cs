@@ -13,8 +13,7 @@ public class PieceBar : MonoBehaviour
     public Vector3 addset = Vector3.zero;
     public Transform targetTr;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartSet()
     {
         etcCanvas = GetComponentInParent<Canvas>();
         etcCamera = etcCanvas.worldCamera;

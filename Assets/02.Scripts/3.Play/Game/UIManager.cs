@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
     public Text graveNumTxt;
     public GameObject gravePanel;
     public GameObject graveExitBtn;
+    public CanvasGroup graveBackground;
 
     [Header("State")]
     public GameObject kingHP;
@@ -383,11 +384,13 @@ public class UIManager : MonoBehaviour
         if (graveHVTxt.text == "숨기기")
         {
             Graveyard.Instance.GraveyardViewHide();
+            graveBackground.alpha = 0.1f;
             graveHVTxt.text = "보이기";
         }
         else
         {
             Graveyard.Instance.GraveyardView();
+            graveBackground.alpha = 1.0f;
             graveHVTxt.text = "숨기기";
         }
     }

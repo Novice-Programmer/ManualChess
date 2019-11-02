@@ -40,4 +40,7 @@ sysinfo.txt
 *.png
 *.jpg
 *.ttf
-Assets/04.Models/Images/Background.png
+Assets/04.Models/
+Assets/05.Sounds/
+Assets/06.Animations/
+Assets/07.Util/

@@ -474,8 +474,8 @@ public abstract class Piece : MonoBehaviour
         etcCanvas = GameObject.Find("EtcCanvas").GetComponent<Canvas>();
         bars = GameObject.Find("Bars").gameObject;
         bar = Instantiate<GameObject>(barPrefabs, bars.transform);
-        hpBarImage = bar.GetComponentsInChildren<Image>()[0];
-        mpBarImage = bar.GetComponentsInChildren<Image>()[1];
+        hpBarImage = bar.GetComponentsInChildren<Image>()[2];
+        mpBarImage = bar.GetComponentsInChildren<Image>()[3];
         bar.transform.position += barAddset;
 
         var _bar = bar.GetComponent<PieceBar>();

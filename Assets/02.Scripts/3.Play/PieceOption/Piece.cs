@@ -221,8 +221,6 @@ public abstract class Piece : MonoBehaviour
         bool _action = true;
         bool _die = false;
 
-        Debug.Log("Damage:" + animDamage + "/Die:" + animDie);
-
         if (animDie)
         {
             ActionBoolReset();

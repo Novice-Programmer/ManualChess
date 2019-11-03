@@ -256,14 +256,17 @@ public class AlwaysObject : MonoBehaviour
     {
         cg_info.alpha = 1.0f;
         infoAnimator.SetBool("InfoMove", true);
-        float fadeSpeed = cg_info.alpha / fadeDuration;
-        while (!Mathf.Approximately(cg_info.alpha, 0.0f))
+        while (!infoAnimator.GetCurrentAnimatorStateInfo(0).IsName("InfoUpdown"))
         {
-            cg_info.alpha = Mathf.MoveTowards(cg_info.alpha, 0.0f, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-        infoAnimator.SetBool("InfoMove", false);
+
+        while (infoAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.75f)
+        {
+            yield return null;
+        }
         txt_info.text = "";
+        infoAnimator.SetBool("InfoMove", false);
     }
 
     #endregion

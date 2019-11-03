@@ -66,44 +66,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void ReadySet()
     {
-        Vector3 kingA = new Vector3(4.5f, 1.8f, 3.5f);
-        Vector3 kingB = new Vector3(4.5f, 1.8f, 5.5f);
+        Vector3 kingA = new Vector3(4.5f, 1.8f, 0.5f);
+        Vector3 kingB = new Vector3(4.5f, 1.8f, 8.5f);
         Vector3 kingQ = new Vector3(0.0f, 180.0f, 0.0f);
         if (PhotonNetwork.IsMasterClient)
         {
             GameObject _kingA = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingA, Quaternion.identity);
-            kingA.x += 1.0f;
-            GameObject _test1 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "1Zombie"), kingA, Quaternion.identity);
-            kingA.x += 1.0f;
-            GameObject _test2 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "2Skeleton"), kingA, Quaternion.identity);
-            kingA.x -= 3.0f;
-            GameObject _test3 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "3Knight"), kingA, Quaternion.identity);
-            kingA.x -= 1.0f;
-            GameObject _test4 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "4Hobgoblin"), kingA, Quaternion.identity);
-            kingA.x -= 1.0f;
-            GameObject _test5 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "5Robot"), kingA, Quaternion.identity);
-            kingA.x -= 1.0f;
-            GameObject _test6 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "6Troll"), kingA, Quaternion.identity);
-            kingA.x = 7.5f;
-            GameObject _test7 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "0Goblin"), kingA, Quaternion.identity);
         }
         else
         {
             GameObject _kingB = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingB, Quaternion.identity);
-            kingB.x += 1.0f;
-            GameObject _test1 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "1Zombie"), kingB, Quaternion.identity);
-            kingB.x += 1.0f;
-            GameObject _test2 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "2Skeleton"), kingB, Quaternion.identity);
-            kingB.x -= 3.0f;
-            GameObject _test3 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "3Knight"), kingB, Quaternion.identity);
-            kingB.x -= 1.0f;
-            GameObject _test4 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "4Hobgoblin"), kingB, Quaternion.identity);
-            kingB.x -= 1.0f;
-            GameObject _test5 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "5Robot"), kingB, Quaternion.identity);
-            kingB.x -= 1.0f;
-            GameObject _test6 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "6Troll"), kingB, Quaternion.identity);
-            kingB.x = 7.5f;
-            GameObject _test7 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "0Goblin"), kingB, Quaternion.identity);
         }
     }
 

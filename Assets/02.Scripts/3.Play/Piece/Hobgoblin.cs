@@ -42,9 +42,10 @@ public class Hobgoblin : Piece
         orderNum = 4;
 
         piecePosition.y = -0.34f;
+        barAddset.x = 0.1f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.25f;
+            barAddset.y = 0.7f;
         }
         else
         {

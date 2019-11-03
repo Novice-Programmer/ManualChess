@@ -44,11 +44,11 @@ public class Zombie : Piece
         piecePosition.y = -0.34f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.2f;
+            barAddset.y = 1.3f;
         }
         else
         {
-            barAddset.y = 0.8f;
+            barAddset.y = 1.1f;
         }
     }
 

@@ -42,11 +42,12 @@ public class Skeleton : Piece
         piecePosition.y = -0.34f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.3f;
+            barAddset.x = -0.1f;
+            barAddset.y = 1.1f;
         }
         else
         {
-            barAddset.y = 0.7f;
+            barAddset.y = 0.5f;
         }
     }
 

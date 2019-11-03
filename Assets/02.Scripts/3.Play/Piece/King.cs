@@ -67,7 +67,7 @@ public class King : Piece
         piecePosition.y = -0.34f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.5f;
+            barAddset.y = 1.4f;
         }
         else
         {

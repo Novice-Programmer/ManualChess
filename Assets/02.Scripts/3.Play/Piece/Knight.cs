@@ -42,11 +42,11 @@ public class Knight : Piece
         piecePosition.y = -0.34f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.25f;
+            barAddset.y = 1.05f;
         }
         else
         {
-            barAddset.y = 0.85f;
+            barAddset.y = 0.9f;
         }
     }
 

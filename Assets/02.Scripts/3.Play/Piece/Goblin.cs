@@ -42,9 +42,10 @@ public class Goblin : Piece
         orderNum = 0;
 
         piecePosition.y = -0.34f;
+        barAddset.x = -0.1f;
         if (tag == "APiece")
         {
-            barAddset.y = 1.4f;
+            barAddset.y = 0.95f;
         }
         else
         {

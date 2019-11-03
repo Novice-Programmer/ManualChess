@@ -27,10 +27,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public bool gamePlay;
 
-    private Vector3 kingA = new Vector3(4.5f, 1.8f, 3.5f);
-    private Vector3 kingB = new Vector3(4.5f, 1.8f, 5.5f);
-    private Vector3 kingQ = new Vector3(0.0f, 180.0f, 0.0f);
-
     public float time;
 
     private void Awake()
@@ -70,9 +66,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void ReadySet()
     {
+        Vector3 kingA = new Vector3(4.5f, 1.8f, 3.5f);
+        Vector3 kingB = new Vector3(4.5f, 1.8f, 5.5f);
+        Vector3 kingQ = new Vector3(0.0f, 180.0f, 0.0f);
         if (PhotonNetwork.IsMasterClient)
         {
-            GameObject _kingA = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "0Goblin"), kingA, Quaternion.identity);
+            GameObject _kingA = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingA, Quaternion.identity);
             kingA.x += 1.0f;
             GameObject _test1 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "1Zombie"), kingA, Quaternion.identity);
             kingA.x += 1.0f;
@@ -85,6 +84,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             GameObject _test5 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "5Robot"), kingA, Quaternion.identity);
             kingA.x -= 1.0f;
             GameObject _test6 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "6Troll"), kingA, Quaternion.identity);
+            kingA.x = 7.5f;
+            GameObject _test7 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "0Goblin"), kingA, Quaternion.identity);
         }
         else
         {
@@ -101,6 +102,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             GameObject _test5 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "5Robot"), kingB, Quaternion.identity);
             kingB.x -= 1.0f;
             GameObject _test6 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "6Troll"), kingB, Quaternion.identity);
+            kingB.x = 7.5f;
+            GameObject _test7 = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "0Goblin"), kingB, Quaternion.identity);
         }
     }
 

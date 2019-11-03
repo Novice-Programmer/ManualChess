@@ -33,9 +33,11 @@ public class Zombie : Piece
         targetRange = 1;
 
         skillMana = 1;
-        skillDamage = 14;
+        skillDamage = 18;
         skillRange = 1;
         skillAttackRange = 1;
+        skillReduce = true;
+        skillReduceDamage = 9;
         skillShakeRange = 30.0f;
         skillShakeForce = 100.0f;
 
@@ -180,6 +182,35 @@ public class Zombie : Piece
     public override bool[,] PossibleSkillRange(Piece[,] pieces)
     {
         bool[,] _skillRange = new bool[9, 9];
+        for (int z = 0; z <= 1; z++)
+        {
+            for (int x = 0; x <= 1; x++)
+            {
+                if (CurrentZ + z <= 8)
+                {
+                    if (CurrentX - x >= 0)
+                    {
+                        _skillRange[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, CurrentX - x, CurrentZ + z);
+                    }
+
+                    if (CurrentX + x <= 8)
+                    {
+                        _skillRange[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, CurrentX + x, CurrentZ + z);
+                    }
+                }
+                if (CurrentZ - z >= 0)
+                {
+                    if (CurrentX + x <= 8)
+                    {
+                        _skillRange[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, CurrentX + x, CurrentZ - z);
+                    }
+                    if (CurrentX - x >= 0)
+                    {
+                        _skillRange[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, CurrentX - x, CurrentZ - z);
+                    }
+                }
+            }
+        }
         return _skillRange;
     }
 

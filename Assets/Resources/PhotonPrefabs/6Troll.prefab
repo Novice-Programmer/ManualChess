@@ -601,8 +601,8 @@ MonoBehaviour:
   action: 1
   pieceHP: 37
   pieceMP: 0
-  maxHP: 0
-  maxMP: 0
+  maxHP: 37
+  maxMP: 7
   drowMana: 3
   fieldMana: 2
   moveMana: 1
@@ -628,7 +628,7 @@ MonoBehaviour:
   bPieceRotate: {x: 0, y: 1, z: 0, w: 0}
   barPrefabs: {fileID: 4171373863332658753, guid: df8e740e559c642488c650ad614e9ebe,
     type: 3}
-  barAddset: {x: 0, y: 0.8, z: 0}
+  barAddset: {x: 0, y: 1, z: 0}
   damagePrefabs: {fileID: 7090749480454283877, guid: b877db675d3df2c4d828b1ac07c4a4fa,
     type: 3}
   damageAddset: {x: 0, y: 0.5, z: 0}
@@ -7695,7 +7695,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7975,7 +7975,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -8393,7 +8393,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -8446,7 +8446,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -12259,7 +12259,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -12375,7 +12375,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16983,7 +16983,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -21475,7 +21475,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -21591,7 +21591,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.16
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2

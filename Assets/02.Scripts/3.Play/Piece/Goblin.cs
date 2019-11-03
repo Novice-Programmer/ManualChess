@@ -43,13 +43,27 @@ public class Goblin : Piece
 
         piecePosition.y = -0.34f;
         barAddset.x = -0.1f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.y = 0.95f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 0.95f;
+            }
+            else
+            {
+                barAddset.y = 0.8f;
+            }
         }
         else
         {
-            barAddset.y = 0.8f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 0.8f;
+            }
+            else
+            {
+                barAddset.y = 0.95f;
+            }
         }
     }
 

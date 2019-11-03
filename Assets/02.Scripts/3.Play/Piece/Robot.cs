@@ -40,14 +40,29 @@ public class Robot : Piece
         orderNum = 5;
 
         piecePosition.y = -0.34f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.x = 0.15f;
-            barAddset.y = 1.2f;
+            if (tag == "APiece")
+            {
+                barAddset.x = 0.15f;
+                barAddset.y = 1.2f;
+            }
+            else
+            {
+                barAddset.y = 1.25f;
+            }
         }
         else
         {
-            barAddset.y = 1.25f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.25f;
+            }
+            else
+            {
+                barAddset.x = 0.15f;
+                barAddset.y = 1.2f;
+            }
         }
     }
 

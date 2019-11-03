@@ -65,13 +65,29 @@ public class King : Piece
         orderNum = -1;
 
         piecePosition.y = -0.34f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.y = 1.4f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.4f;
+            }
+            else
+            {
+                barAddset.y = 1.3f;
+
+            }
         }
         else
         {
-            barAddset.y = 1.3f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.3f;
+            }
+            else
+            {
+                barAddset.y = 1.4f;
+
+            }
         }
     }
 

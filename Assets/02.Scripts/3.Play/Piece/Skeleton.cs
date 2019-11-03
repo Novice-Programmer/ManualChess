@@ -40,14 +40,29 @@ public class Skeleton : Piece
         orderNum = 2;
 
         piecePosition.y = -0.34f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.x = -0.1f;
-            barAddset.y = 1.1f;
+            if (tag == "APiece")
+            {
+                barAddset.x = -0.1f;
+                barAddset.y = 1.1f;
+            }
+            else
+            {
+                barAddset.y = 0.5f;
+            }
         }
         else
         {
-            barAddset.y = 0.5f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 0.5f;
+            }
+            else
+            {
+                barAddset.x = -0.1f;
+                barAddset.y = 1.1f;
+            }
         }
     }
 

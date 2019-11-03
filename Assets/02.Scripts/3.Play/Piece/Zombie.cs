@@ -42,13 +42,27 @@ public class Zombie : Piece
         orderNum = 1;
 
         piecePosition.y = -0.34f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.y = 1.3f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.3f;
+            }
+            else
+            {
+                barAddset.y = 1.1f;
+            }
         }
         else
         {
-            barAddset.y = 1.1f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.1f;
+            }
+            else
+            {
+                barAddset.y = 1.3f;
+            }
         }
     }
 

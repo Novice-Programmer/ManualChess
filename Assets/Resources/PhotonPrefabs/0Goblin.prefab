@@ -46819,7 +46819,7 @@ MonoBehaviour:
   bPieceRotate: {x: 0, y: 1, z: 0, w: 0}
   barPrefabs: {fileID: 4171373863332658753, guid: df8e740e559c642488c650ad614e9ebe,
     type: 3}
-  barAddset: {x: 0, y: 0.8, z: 0}
+  barAddset: {x: 0, y: 0.5, z: 0}
   damagePrefabs: {fileID: 7090749480454283877, guid: b877db675d3df2c4d828b1ac07c4a4fa,
     type: 3}
   damageAddset: {x: 0, y: 0, z: 0}

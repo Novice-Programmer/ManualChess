@@ -40,13 +40,27 @@ public class Knight : Piece
         orderNum = 1;
 
         piecePosition.y = -0.34f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.y = 1.05f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.05f;
+            }
+            else
+            {
+                barAddset.y = 0.9f;
+            }
         }
         else
         {
-            barAddset.y = 0.9f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 0.9f;
+            }
+            else
+            {
+                barAddset.y = 1.05f;
+            }
         }
     }
 

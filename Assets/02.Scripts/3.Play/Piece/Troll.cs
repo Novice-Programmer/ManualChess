@@ -40,14 +40,29 @@ public class Troll : Piece
         orderNum = 6;
 
         piecePosition.y = -0.31f;
-        if (tag == "APiece")
+        if (GameManager.Instance.player)
         {
-            barAddset.x = 0.35f;
-            barAddset.y = 1.2f;
+            if (tag == "APiece")
+            {
+                barAddset.x = 0.35f;
+                barAddset.y = 1.2f;
+            }
+            else
+            {
+                barAddset.y = 1.0f;
+            }
         }
         else
         {
-            barAddset.y = 1.0f;
+            if (tag == "APiece")
+            {
+                barAddset.y = 1.0f;
+            }
+            else
+            {
+                barAddset.x = 0.35f;
+                barAddset.y = 1.2f;
+            }
         }
     }
 

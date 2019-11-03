@@ -40,8 +40,10 @@ public class Shake : MonoBehaviour
         foreach (var coll in colls2)
         {
             var _rb = coll.GetComponent<Rigidbody>();
+            var _bx = coll.GetComponent<BoxCollider>();
             _rb.mass = 0.1f;
             _rb.isKinematic = false;
+            _bx.isTrigger = false;
             _rb.AddExplosionForce(1000.0f, _tr.position, 1000.0f, 30.0f);
         }
     }

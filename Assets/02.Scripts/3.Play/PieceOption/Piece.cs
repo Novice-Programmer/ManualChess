@@ -297,6 +297,7 @@ public abstract class Piece : MonoBehaviour
 
         if (_die)
         {
+            ActionBoolReset();
             PhotonNetwork.Destroy(pieceTransform.gameObject);
         }
         else
@@ -362,7 +363,7 @@ public abstract class Piece : MonoBehaviour
         DamageCheck(_damage);
         DamageEffectView(_piece, _atk);
         damage.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.0f);
         damage.SetActive(false);
     }
 
@@ -405,8 +406,9 @@ public abstract class Piece : MonoBehaviour
     public virtual void DamageCheck(int _damage)
     {
         pieceHP -= _damage;
-        if(pieceHP < 0)
+        if(pieceHP <= 0)
         {
+            Debug.Log("발동:" + gameObject.name);
             pieceHP = 0;
             PieceDead();
         }
@@ -479,7 +481,7 @@ public abstract class Piece : MonoBehaviour
         bar.transform.position += barAddset;
 
         var _bar = bar.GetComponent<PieceBar>();
-        _bar.targetTr = this.gameObject.transform;
+        _bar.targetTr = gameObject.transform;
         _bar.offset = barOffset;
         _bar.addset = barAddset;
 
@@ -520,7 +522,6 @@ public abstract class Piece : MonoBehaviour
         if (pieceHP <= 0)
         {
             fmh = 0.0f;
-            PieceDead();
         }
         else
         {

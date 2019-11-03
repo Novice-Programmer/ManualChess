@@ -6008,7 +6008,7 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: Die
   m_SynchronizeLayers:
-  - SynchronizeType: 2
+  - SynchronizeType: 1
     LayerIndex: 0
 --- !u!65 &1986027120866202176
 BoxCollider:
@@ -6018,7 +6018,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3658929526391067916}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2, z: 0.5}

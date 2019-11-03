@@ -910,7 +910,7 @@ public class GameManager : MonoBehaviour
             {
                 if (!board.AllowedAttacks[(int)endDrag.x, (int)endDrag.y])
                 {
-                    AlwaysObject.Instance.InfoStart("배치할 수 없는 구역입니다.");
+                    AlwaysObject.Instance.InfoStart("공격 범위가 아닙니다.");
                 }
             }
             PieceReset();
@@ -926,7 +926,7 @@ public class GameManager : MonoBehaviour
             {
                 if (!board.AllowedSkills[(int)endDrag.x, (int)endDrag.y])
                 {
-                    AlwaysObject.Instance.InfoStart("배치할 수 없는 구역입니다.");
+                    AlwaysObject.Instance.InfoStart("스킬 범위가 아닙니다.");
                 }
             }
             PieceReset();

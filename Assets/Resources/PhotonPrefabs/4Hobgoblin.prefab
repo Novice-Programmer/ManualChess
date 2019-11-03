@@ -1303,15 +1303,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceTransform: {fileID: 272046077259716400}
   animator: {fileID: 272046077250402444}
+  animAttack: 0
+  animSkill: 0
+  animMove: 0
+  animDamage: 0
+  animDie: 0
   eff_AttackTarget: {fileID: 748088735799589347, guid: 33f0198748e10374eb641b3a1df82776,
     type: 3}
-  eff_AttackTargetV: {x: 0, y: 0, z: 0}
+  eff_AttackTargetV: {x: 0, y: 1, z: 0}
   eff_AttackTargetQ: {x: 0, y: 0, z: 0, w: 0}
   eff_AttackTargetT: 0
   eff_AttackTargetDT: 0
   eff_SkillTarget: {fileID: 6081929093965996616, guid: dc84138b7fe3eff41bf2a49f12ed55ff,
     type: 3}
-  eff_SkillTargetV: {x: 0, y: 0, z: 0}
+  eff_SkillTargetV: {x: 0, y: 1, z: 0}
   eff_SkillTargetQ: {x: 0, y: 0, z: 0, w: 0}
   eff_SkillTargetT: 0
   eff_SkillTargetDT: 0
@@ -1327,8 +1332,8 @@ MonoBehaviour:
   action: 1
   pieceHP: 33
   pieceMP: 0
-  maxHP: 33
-  maxMP: 5
+  maxHP: 0
+  maxMP: 0
   drowMana: 2
   fieldMana: 2
   moveMana: 2
@@ -1357,7 +1362,7 @@ MonoBehaviour:
   barAddset: {x: 0, y: 0.85, z: 0}
   damagePrefabs: {fileID: 7090749480454283877, guid: b877db675d3df2c4d828b1ac07c4a4fa,
     type: 3}
-  damageAddset: {x: 0, y: 0, z: 0}
+  damageAddset: {x: 0, y: 0.5, z: 0}
   pv: {fileID: 0}
 --- !u!114 &7470400547778365334
 MonoBehaviour:
@@ -1425,7 +1430,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Damage
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Die
   m_SynchronizeLayers:
   - SynchronizeType: 1

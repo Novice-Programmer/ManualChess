@@ -15,11 +15,11 @@ public abstract class Piece : MonoBehaviour
 
     public WaitForSeconds ws;
 
-    private readonly int hashMove = Animator.StringToHash("Move");
-    private readonly int hashAttack = Animator.StringToHash("Attack");
-    private readonly int hashSkill = Animator.StringToHash("Skill");
-    private readonly int hashDamage = Animator.StringToHash("Damage");
-    private readonly int hashDie = Animator.StringToHash("Die");
+    public bool animAttack;
+    public bool animSkill;
+    public bool animMove;
+    public bool animDamage;
+    public bool animDie;
 
     [Header("Particle")]
     public GameObject eff_AttackTarget; // 공격시 상대방 위에 뜰 이펙트
@@ -61,8 +61,8 @@ public abstract class Piece : MonoBehaviour
     public float pieceHP; // 현재 체력
     public float pieceMP; // 현재 마나
 
-    public float maxHP; // 최대 체력
-    public float maxMP; // 최대 마나
+    public int maxHP; // 최대 체력
+    public int maxMP; // 최대 마나
 
     [Header("Mana")]
     public int drowMana; // 드로우할때 마나
@@ -189,21 +189,26 @@ public abstract class Piece : MonoBehaviour
             switch (stateNum)
             {
                 case 1:
-                    animator.SetBool(hashMove, true);
+                    animator.SetTrigger("Move");
+                    animMove = true;
                     break;
                 case 2:
                     ActionRotate();
-                    animator.SetBool(hashAttack, true);
+                    animator.SetTrigger("Attack");
+                    animAttack = true;
                     break;
                 case 3:
                     ActionRotate();
-                    animator.SetBool(hashSkill, true);
+                    animator.SetTrigger("Skill");
+                    animSkill = true;
                     break;
                 case 4:
-                    animator.SetBool(hashDamage, true);
+                    animator.SetTrigger("Damage");
+                    animDamage = true;
                     break;
                 case 5:
-                    animator.SetBool(hashDie, true);
+                    animator.SetTrigger("Die");
+                    animDie = true;
                     break;
             }
             StartCoroutine(ActionReset());
@@ -212,10 +217,28 @@ public abstract class Piece : MonoBehaviour
 
     public IEnumerator ActionReset()
     {
-        float exitTime = 0.3f;
+        float exitTime = 0.8f;
         bool _action = true;
         bool _die = false;
-        if (animator.GetBool(hashMove))
+
+        Debug.Log("Damage:" + animDamage + "/Die:" + animDie);
+
+        if (animDie)
+        {
+            ActionBoolReset();
+            _die = true;
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+            {
+                yield return null;
+            }
+
+            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
+            {
+                yield return null;
+            }
+        }
+
+        if (animMove)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
             {
@@ -231,7 +254,7 @@ public abstract class Piece : MonoBehaviour
             //애니메이션 끝나고 난 후 실행되는 부분
         }
 
-        else if (animator.GetBool(hashAttack))
+        if (animAttack)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
@@ -249,7 +272,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        else if (animator.GetBool(hashSkill))
+        if (animSkill)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
             {
@@ -268,7 +291,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        else if (animator.GetBool(hashDamage))
+        if (animDamage)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
             {
@@ -281,23 +304,8 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        else if (animator.GetBool(hashDie))
-        {
-            _die = true;
-            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
-            {
-                yield return null;
-            }
-
-            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
-            {
-                yield return null;
-            }
-        }
-
         if (_die)
         {
-            Debug.Log("발동");
             ActionBoolReset();
             PhotonNetwork.Destroy(pieceTransform.gameObject);
         }
@@ -335,10 +343,10 @@ public abstract class Piece : MonoBehaviour
 
     private void ActionBoolReset()
     {
-        animator.SetBool(hashMove, false);
-        animator.SetBool(hashAttack, false);
-        animator.SetBool(hashSkill, false);
-        animator.SetBool(hashDamage, false);
+        animMove = false;
+        animAttack = false;
+        animSkill = false;
+        animDamage = false;
     }
 
     // 상대편쪽으로 바라봄
@@ -395,7 +403,7 @@ public abstract class Piece : MonoBehaviour
             _effect = Instantiate(_effect, pieceTransform.position + _effectV, pieceTransform.rotation, pieceTransform);
             if (_effectT == 0)
             {
-                Destroy(_effect, 1.0f);
+                Destroy(_effect, 3.0f);
             }
             else
             {
@@ -409,9 +417,11 @@ public abstract class Piece : MonoBehaviour
         pieceHP -= _damage;
         if(pieceHP <= 0)
         {
-            Debug.Log("발동:" + gameObject.name);
             pieceHP = 0;
-            PieceDead();
+            if (pv.IsMine)
+            {
+                PieceDead();
+            }
         }
     }
 
@@ -610,7 +620,6 @@ public abstract class Piece : MonoBehaviour
     // 말이 죽을경우
     public void PieceDead()
     {
-        ActionBoolReset();
         StartCoroutine(ActionAnim(5));
     }
 
@@ -640,7 +649,7 @@ public abstract class Piece : MonoBehaviour
             piece_Name = piece_Name,
             piece_Dir = piece_Dir,
             piece_Damage = attackDamage,
-            piece_HP = (int)maxHP,
+            piece_HP = maxHP,
             piece_DrowMana = drowMana,
             piece_FieldMana = fieldMana,
             moveRange = PossibleNoneRange(0),

@@ -12,6 +12,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public GameObject namePanel;
     public InputField txt_playerNameInput;
     public Text txt_lobbyState;
+    public Button btn_loading;
     public Button btn_lobbyEntry;
 
     [Header("LobbyPanel")]
@@ -108,6 +109,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+
+        btn_loading.gameObject.SetActive(false);
 
         btn_lobbyEntry.gameObject.SetActive(true);
 

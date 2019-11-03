@@ -281,7 +281,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        if (animator.GetBool(hashDie))
+        else if (animator.GetBool(hashDie))
         {
             _die = true;
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
@@ -297,6 +297,7 @@ public abstract class Piece : MonoBehaviour
 
         if (_die)
         {
+            Debug.Log("발동");
             ActionBoolReset();
             PhotonNetwork.Destroy(pieceTransform.gameObject);
         }
@@ -609,6 +610,7 @@ public abstract class Piece : MonoBehaviour
     // 말이 죽을경우
     public void PieceDead()
     {
+        ActionBoolReset();
         StartCoroutine(ActionAnim(5));
     }
 

@@ -26,12 +26,12 @@ public class Knight : Piece
         spaceRange = 0;
 
         attackMana = 2;
-        attackDamage = 18;
+        attackDamage = 20;
         attackRange = 2;
         targetRange = 1;
 
         skillMana = 2;
-        skillDamage = 19;
+        skillDamage = 29;
         skillRange = 2;
         skillAttackRange = 1;
         skillShakeRange = 30.0f;

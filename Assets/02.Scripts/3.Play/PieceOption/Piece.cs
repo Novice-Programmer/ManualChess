@@ -241,6 +241,7 @@ public abstract class Piece : MonoBehaviour
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
+                ActionRotate();
                 yield return null;
             }
 
@@ -248,6 +249,7 @@ public abstract class Piece : MonoBehaviour
             {
                 if (_action)
                 {
+                    ActionRotate();
                     _action = false;
                     ActionTarget(true);
                 }
@@ -259,6 +261,7 @@ public abstract class Piece : MonoBehaviour
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
             {
+                ActionRotate();
                 yield return null;
             }
 
@@ -266,6 +269,7 @@ public abstract class Piece : MonoBehaviour
             {
                 if (_action)
                 {
+                    ActionRotate();
                     _action = false;
                     Shake.shake.ShakeTarget(pieceTransform, skillShakeRange, skillShakeForce);
                     ActionTarget(false);

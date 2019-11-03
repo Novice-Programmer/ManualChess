@@ -48,8 +48,6 @@ public abstract class Piece : MonoBehaviour
     // 소유 확인
     public bool gamePlayer; // 플레이어 확인용
     public bool isPlayer; // 사용 확인용
-    public bool resetB; // 포지션 초기화
-    public float resetSeconds; // 초기화 시간
 
     [Header("State")]
     public string piece_Name; // 이름
@@ -153,7 +151,6 @@ public abstract class Piece : MonoBehaviour
             }
         }
         DataSetting();
-        StartCoroutine(PosReset());
     }
 
     private void Start()
@@ -164,18 +161,6 @@ public abstract class Piece : MonoBehaviour
     public void Update()
     {
         PointBar();
-    }
-
-    IEnumerator PosReset()
-    {
-        if (pv.IsMine)
-        {
-            while (resetB)
-            {
-                yield return new WaitForSeconds(resetSeconds);
-                PieceSetting();
-            }
-        }
     }
 
     #region 애니메이션
@@ -217,7 +202,7 @@ public abstract class Piece : MonoBehaviour
 
     public IEnumerator ActionReset()
     {
-        float exitTime = 0.8f;
+        float exitTime = 0.3f;
         bool _action = true;
         bool _die = false;
 
@@ -236,7 +221,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        if (animMove)
+        else if (animMove)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
             {
@@ -252,7 +237,7 @@ public abstract class Piece : MonoBehaviour
             //애니메이션 끝나고 난 후 실행되는 부분
         }
 
-        if (animAttack)
+        else if (animAttack)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
@@ -270,7 +255,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        if (animSkill)
+        else if (animSkill)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
             {
@@ -289,7 +274,7 @@ public abstract class Piece : MonoBehaviour
             }
         }
 
-        if (animDamage)
+        else if (animDamage)
         {
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
             {

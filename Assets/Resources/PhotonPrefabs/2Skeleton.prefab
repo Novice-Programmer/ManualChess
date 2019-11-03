@@ -14529,8 +14529,6 @@ MonoBehaviour:
   actionPiece: {fileID: 0}
   gamePlayer: 0
   isPlayer: 0
-  resetB: 0
-  resetSeconds: 0
   piece_Name: "\uD574\uACE8"
   piece_Dir: "\uAC15\uB825\uD55C \uD574\uACE8\uAE30\uC0AC \uC785\uB2C8\uB2E4."
   level: 0

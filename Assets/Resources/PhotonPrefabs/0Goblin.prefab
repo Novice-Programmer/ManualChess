@@ -46788,8 +46788,6 @@ MonoBehaviour:
   actionPiece: {fileID: 0}
   gamePlayer: 0
   isPlayer: 0
-  resetB: 0
-  resetSeconds: 0
   piece_Name: "\uACE0\uBE14\uB9B0"
   piece_Dir: "\uC7A5\uB09C\uC744 \uC88B\uC544\uD558\uB294 \uC885\uC871"
   level: 0

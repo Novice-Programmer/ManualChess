@@ -222,6 +222,7 @@ public class TutorialManager : MonoBehaviour
         {
             playB = false;
             handB = true;
+            drowPanel.alpha = 0.0f;
             manaPanel.alpha = 0.0f;
         }
         

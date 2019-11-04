@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5652614654503466722}
   - component: {fileID: 7849674058640275448}
   - component: {fileID: 158885132321315793}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Flint_Lock_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

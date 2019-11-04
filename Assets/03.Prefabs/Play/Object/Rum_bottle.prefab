@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 7212297689171807889}
   - component: {fileID: 5467166592637602492}
   - component: {fileID: 2124205767259796037}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Rum_bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

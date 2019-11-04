@@ -422,11 +422,11 @@ public class GameManager : MonoBehaviour
     {
         if (selectPiece != null)
         {
-            uiManager.PieceSetView(true, selectPiece, playerMana);
+            uiManager.PieceSetView(true, selectPiece, playerMana, playerTurn);
         }
         else
         {
-            uiManager.PieceSetView(false, null, playerMana);
+            uiManager.PieceSetView(false, null, playerMana, playerTurn);
         }
     }
 
@@ -936,7 +936,10 @@ public class GameManager : MonoBehaviour
     // 이동
     public void MovePiece(Piece p, float x, float z)
     {
-        p.transform.position = (Vector3.right * x) + (Vector3.forward * z) + boardOffset + p.piecePosition;
+        if (p.pv.IsMine)
+        {
+            p.transform.position = (Vector3.right * x) + (Vector3.forward * z) + boardOffset + p.piecePosition;
+        }
         p.CurrentX = (int)x;
         p.CurrentZ = (int)z;
     }

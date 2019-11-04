@@ -200,8 +200,6 @@ public class AlwaysObject : MonoBehaviour
         }
     }
 
-
-
     public void Btn_BgmMuteCheck()
     {
         SoundOn(buttonClickClip);

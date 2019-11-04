@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 365721232662241466}
   - component: {fileID: 6788638177225177131}
   - component: {fileID: 5248302209979372800}
-  m_Layer: 13
+  m_Layer: 21
   m_Name: Telescope
   m_TagString: Untagged
   m_Icon: {fileID: 0}

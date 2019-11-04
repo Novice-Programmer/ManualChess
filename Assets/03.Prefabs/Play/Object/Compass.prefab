@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 39136087445597554}
   - component: {fileID: 2366441247456600438}
   - component: {fileID: 2724536575922375506}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

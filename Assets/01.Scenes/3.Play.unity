@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5714,11 +5714,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wineglass
       objectReference: {fileID: 0}
-    - target: {fileID: 5901567693536258798, guid: 46ea48fd0d5dc03498487d32b08ba470,
-        type: 3}
-      propertyPath: m_Layer
-      value: 21
-      objectReference: {fileID: 0}
     - target: {fileID: 2464048046801206663, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
       propertyPath: viewIdField
@@ -8367,11 +8362,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Telescope
-      objectReference: {fileID: 0}
-    - target: {fileID: 1034561912293028719, guid: b8ddc56d482119f4192f45df7322e636,
-        type: 3}
-      propertyPath: m_Layer
-      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 365721232662241466, guid: b8ddc56d482119f4192f45df7322e636,
         type: 3}
@@ -12087,11 +12077,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wineglass
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901567693536258798, guid: 46ea48fd0d5dc03498487d32b08ba470,
-        type: 3}
-      propertyPath: m_Layer
-      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2464048046801206663, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
@@ -19584,11 +19569,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 196231362670142560, guid: d9ca353570dd9a24e858cdef5b9cb55c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5652614654503466722, guid: d9ca353570dd9a24e858cdef5b9cb55c,
         type: 3}

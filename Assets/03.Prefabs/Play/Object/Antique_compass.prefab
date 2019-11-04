@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 3223012093272949554}
   - component: {fileID: 3682156045932723897}
   - component: {fileID: 8609676942803222752}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Antique_compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

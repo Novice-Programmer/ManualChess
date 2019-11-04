@@ -111,7 +111,7 @@ public class UIManager : MonoBehaviour
     }
 
     // 키 UI 위치 수정
-    public void PieceSetView(bool _check, Piece _selectPiece,float _playerMana)
+    public void PieceSetView(bool _check, Piece _selectPiece,int _playerMana,bool _playerTurn)
     {
         if (_check)
         {
@@ -141,18 +141,28 @@ public class UIManager : MonoBehaviour
             {
                 return;
             }
-            if (_selectPiece.attackMana > _playerMana)
+            if (_playerTurn)
+            {
+                if (_selectPiece.attackMana > _playerMana)
+                {
+                    attackF.alpha = 1.0f;
+                }
+                if (_selectPiece.skillMana > _playerMana || !_selectPiece.PieceMPCheck())
+                {
+                    skillF.alpha = 1.0f;
+                }
+                if (_selectPiece.moveMana > _playerMana)
+                {
+                    moveF.alpha = 1.0f;
+                }
+            }
+            else
             {
                 attackF.alpha = 1.0f;
-            }
-            if (_selectPiece.skillMana > _playerMana || !_selectPiece.PieceMPCheck())
-            {
                 skillF.alpha = 1.0f;
-            }
-            if (_selectPiece.moveMana > _playerMana)
-            {
                 moveF.alpha = 1.0f;
             }
+
         }
 
         else

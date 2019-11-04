@@ -1377,7 +1377,6 @@ MonoBehaviour:
   graveView: {fileID: 1820101822}
   graveCardViewC: {fileID: 1953635835}
   graveGroup: {fileID: 1892320002}
-  graveEffect: {fileID: 0}
   cardTransform: {fileID: 1867623473}
   gCard: {fileID: 5801837273746095860, guid: 54c7c7c4d6462b8458233502788efae5, type: 3}
   graveCard: {fileID: 5701744092083560301, guid: 354439698ad4c4142b1286375ebb3875,
@@ -7954,13 +7953,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994079116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.7, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0011474122}
+  m_LocalScale: {x: 1.5999999, y: 1.7000002, z: 1}
   m_Children:
   - {fileID: 3935819252021810761}
-  m_Father: {fileID: 3935819251288512818}
-  m_RootOrder: 0
+  m_Father: {fileID: 3935819251958593795}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -20650,42 +20649,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 313, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &3935819251288512813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3935819251288512818}
-  m_Layer: 5
-  m_Name: Buttons
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3935819251288512818
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935819251288512813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 994079117}
-  m_Father: {fileID: 3935819251958593795}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3935819251298342532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22747,7 +22710,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1849602118}
-  - {fileID: 3935819251288512818}
+  - {fileID: 994079117}
   - {fileID: 3935819252030755096}
   - {fileID: 3935819252577198871}
   - {fileID: 3935819252121549609}

@@ -14,9 +14,9 @@ public class TutorialManager : MonoBehaviour
     [Header("Panel")]
     public CanvasGroup turnPanel;
     public CanvasGroup manaPanel;
-    public CanvasGroup drowPanel2;
-    public CanvasGroup drowPanel1;
+    public CanvasGroup drowButtonPanel;
     public CanvasGroup drowPanel;
+    public CanvasGroup drowAllPanel;
     public CanvasGroup gravePanel;
     public CanvasGroup elsePanel;
     public GameObject winPanel;
@@ -193,7 +193,7 @@ public class TutorialManager : MonoBehaviour
         if(playNum == 9)
         {
             Panel_On();
-            drowPanel2.alpha = 0.0f;
+            drowButtonPanel.alpha = 0.0f;
         }
         if(playNum == 11)
         {
@@ -205,12 +205,12 @@ public class TutorialManager : MonoBehaviour
             playB = false;
             btn_Drow.enabled = true;
             manaPanel.alpha = 0.0f;
-            drowPanel1.alpha = 0.0f;
+            drowPanel.alpha = 0.0f;
         }
         if(playNum == 15)
         {
             drowCards.SetActive(true);
-            drowPanel.alpha = 0.0f;
+            drowAllPanel.alpha = 0.0f;
         }
 
         if(playNum == 16)
@@ -291,9 +291,9 @@ public class TutorialManager : MonoBehaviour
     {
         turnPanel.alpha = 1.0f;
         manaPanel.alpha = 1.0f;
+        drowAllPanel.alpha = 1.0f;
         drowPanel.alpha = 1.0f;
-        drowPanel1.alpha = 1.0f;
-        drowPanel2.alpha = 1.0f;
+        drowButtonPanel.alpha = 1.0f;
         gravePanel.alpha = 1.0f;
         elsePanel.alpha = 1.0f;
     }
@@ -302,9 +302,9 @@ public class TutorialManager : MonoBehaviour
     {
         turnPanel.alpha = 0.0f;
         manaPanel.alpha = 0.0f;
+        drowAllPanel.alpha = 0.0f;
         drowPanel.alpha = 0.0f;
-        drowPanel1.alpha = 0.0f;
-        drowPanel2.alpha = 0.0f;
+        drowButtonPanel.alpha = 0.0f;
         gravePanel.alpha = 0.0f;
         elsePanel.alpha = 0.0f;
     }
@@ -462,7 +462,7 @@ public class TutorialManager : MonoBehaviour
         {
             drowCards.SetActive(false);
             Panel_On();
-            drowPanel2.alpha = 0.0f;
+            drowButtonPanel.alpha = 0.0f;
             playB = true;
             playNum++;
             tutorialText.text = "";
@@ -482,7 +482,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    void Btn_DrowClick()
+    public void Btn_DrowClick()
     {
         StopCoroutine("TutorialPrint");
         btn_Drow.gameObject.SetActive(false);

@@ -376,7 +376,7 @@ public class GameManager : MonoBehaviour
                 SelectHandReset();
             }
             option = true;
-            AlwaysObject.Instance.SettingOn(null);
+            AlwaysObject.Instance.SettingOn(null, false);
         }
     }
 

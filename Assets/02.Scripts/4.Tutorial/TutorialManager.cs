@@ -32,6 +32,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject move;
     public Image enemyHP;
 
+    [Header("View")]
+    public Image drowBtnView;
+    public Image cardView;
+    public Image turnImgView;
+
     [Header("GameObject")]
     public GameObject drowCards;
     public GameObject handCard;
@@ -55,12 +60,14 @@ public class TutorialManager : MonoBehaviour
     public bool handB;
     public bool turnB;
     public bool endB;
+    public bool option;
     public int playNum;
     public int warningNum;
     public float textInputSpeed;
     public float textRemoveSpeed;
 
     [Header("Manager")]
+    public GameObject mainCanvas;
     public DeployRange deployRange;
     public Animator handMove;
     public Animator playerKingAnim;
@@ -118,6 +125,19 @@ public class TutorialManager : MonoBehaviour
         {
             turnB = false;
             StartCoroutine(EndTurn());
+        }
+        if (Input.GetAxis("Cancel") > 0.0f)
+        {
+            OptionCheck();
+        }
+    }
+
+    void OptionCheck()
+    {
+        if (!option)
+        {
+            AlwaysObject.Instance.SettingOn(mainCanvas, true);
+            option = true;
         }
     }
 
@@ -204,13 +224,16 @@ public class TutorialManager : MonoBehaviour
             Panel_On();
             playB = false;
             btn_Drow.enabled = true;
+            drowBtnView.gameObject.SetActive(true);
             manaPanel.alpha = 0.0f;
-            drowPanel.alpha = 0.0f;
+            drowAllPanel.alpha = 0.0f;
         }
         if(playNum == 15)
         {
+            Panel_On();
+            cardView.gameObject.SetActive(true);
             drowCards.SetActive(true);
-            drowAllPanel.alpha = 0.0f;
+            drowPanel.alpha = 0.0f;
         }
 
         if(playNum == 16)
@@ -250,12 +273,14 @@ public class TutorialManager : MonoBehaviour
             Panel_On();
             playB = false;
             turnB = true;
+            turnImgView.gameObject.SetActive(true);
             turnPanel.alpha = 0.0f;
         }
 
         if(playNum == 24)
         {
             playB = false;
+            turnImgView.gameObject.SetActive(false);
             StartCoroutine(PlayerTurn());
         }
 
@@ -459,11 +484,12 @@ public class TutorialManager : MonoBehaviour
     void CardClick(int cardNum)
     {
         StopCoroutine("TutorialPrint");
+        cardView.gameObject.SetActive(false);
         if (cardNum == 0)
         {
             drowCards.SetActive(false);
             Panel_On();
-            drowButtonPanel.alpha = 0.0f;
+            manaPanel.alpha = 0.0f;
             playB = true;
             playNum++;
             tutorialText.text = "";
@@ -485,6 +511,7 @@ public class TutorialManager : MonoBehaviour
 
     public void Btn_DrowClick()
     {
+        drowBtnView.gameObject.SetActive(false);
         StopCoroutine("TutorialPrint");
         btn_Drow.gameObject.SetActive(false);
         playNum++;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AlwaysObject : MonoBehaviour
 {
@@ -43,14 +44,15 @@ public class AlwaysObject : MonoBehaviour
     public Toggle toggle_sound; // 효과음 음소거
     private bool soundB;
 
+    [Header("AlwaysObject")]
     public GameObject obj_setting;
     public GameObject obj_panel;
     public GameObject obj_exitBtn;
     public Text txt_before;
-
+    public Text txt_exit;
     public AudioClip buttonClickClip;
-
     private GameObject obj_beforeCanvas;
+    public bool tutorialMod;
 
     // Start is called before the first frame update
     void Awake()
@@ -150,22 +152,32 @@ public class AlwaysObject : MonoBehaviour
 
     #region 캔버스
 
-    public void SettingOn(GameObject _beforeCanvas)
+    public void SettingOn(GameObject _beforeCanvas,bool _tutorialMod)
     {
         obj_beforeCanvas = _beforeCanvas;
         sld_sound.value = soundVolume;
-        if (obj_beforeCanvas != null)
+        tutorialMod = _tutorialMod;
+        if (obj_beforeCanvas != null && !tutorialMod)
         {
             obj_beforeCanvas.SetActive(false);
             txt_before.text = "이전으로";
             obj_panel.SetActive(false);
             obj_exitBtn.SetActive(false);
         }
+
         else
         {
             txt_before.text = "메뉴닫기";
             obj_panel.SetActive(true);
             obj_exitBtn.SetActive(true);
+            if (tutorialMod)
+            {
+                txt_exit.text = "튜토리얼 종료";
+            }
+            else
+            {
+                txt_exit.text = "게임 종료";
+            }
         }
         obj_setting.gameObject.SetActive(true);
     }
@@ -177,12 +189,18 @@ public class AlwaysObject : MonoBehaviour
         if (obj_beforeCanvas != null)
         {
             obj_beforeCanvas.SetActive(true);
+            if (tutorialMod)
+            {
+                obj_beforeCanvas.transform.parent.GetComponent<TutorialManager>().option = false;
+            }
         }
         else
         {
             GameManager.Instance.option = false;
         }
     }
+
+
 
     public void Btn_BgmMuteCheck()
     {
@@ -209,7 +227,14 @@ public class AlwaysObject : MonoBehaviour
     {
         SoundOn(buttonClickClip);
         obj_setting.gameObject.SetActive(false);
-        NetworkManager.Instance.OnLeftRoom();
+        if (!tutorialMod)
+        {
+            NetworkManager.Instance.OnLeftRoom();
+        }
+        else
+        {
+            SceneManager.LoadScene(obj_beforeCanvas.transform.parent.GetComponent<TutorialManager>().mainSceneNumber);
+        }
     }
 
     #endregion

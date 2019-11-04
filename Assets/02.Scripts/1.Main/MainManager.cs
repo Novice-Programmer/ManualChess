@@ -55,7 +55,7 @@ public class MainManager : MonoBehaviour
     public void Btn_OptionClick()
     {
         AlwaysObject.Instance.SoundOn(buttonClickClips);
-        AlwaysObject.Instance.SettingOn(mainCanvas);
+        AlwaysObject.Instance.SettingOn(mainCanvas, false);
     }
 
     public void Btn_ExitClick()

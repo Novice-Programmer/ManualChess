@@ -12,6 +12,7 @@ public abstract class Piece : MonoBehaviour
     [Header("Animation")]
     // 애니메이션 설정
     public Animator animator;
+    public List<string> animatorString;
 
     public WaitForSeconds ws;
 
@@ -151,6 +152,10 @@ public abstract class Piece : MonoBehaviour
             }
         }
         DataSetting();
+        if (pv.IsMine)
+        {
+
+        }
     }
 
     private void Start()
@@ -167,7 +172,7 @@ public abstract class Piece : MonoBehaviour
 
     public IEnumerator ActionAnim(int stateNum)
     {
-        ws = new WaitForSeconds(0.0f);
+        ws = new WaitForSeconds(0.5f);
         yield return ws;
         if (pv.IsMine)
         {
@@ -202,7 +207,7 @@ public abstract class Piece : MonoBehaviour
 
     public IEnumerator ActionReset()
     {
-        float exitTime = 0.3f;
+        float exitTime = 0.8f;
         bool _action = true;
         bool _die = false;
 
@@ -219,22 +224,6 @@ public abstract class Piece : MonoBehaviour
             {
                 yield return null;
             }
-        }
-
-        else if (animMove)
-        {
-            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
-            {
-                //전환 중일 때 실행되는 부분
-                yield return null;
-            }
-
-            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
-            {
-                //애니메이션 중일 때 실행되는 부분
-                yield return null;
-            }
-            //애니메이션 끝나고 난 후 실행되는 부분
         }
 
         else if (animAttack)
@@ -255,6 +244,7 @@ public abstract class Piece : MonoBehaviour
                 }
                 yield return null;
             }
+            animAttack = false;
         }
 
         else if (animSkill)
@@ -276,6 +266,24 @@ public abstract class Piece : MonoBehaviour
                 }
                 yield return null;
             }
+            animSkill = false;
+        }
+
+        else if (animMove)
+        {
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+            {
+                //전환 중일 때 실행되는 부분
+                yield return null;
+            }
+
+            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < exitTime)
+            {
+                //애니메이션 중일 때 실행되는 부분
+                yield return null;
+            }
+            //애니메이션 끝나고 난 후 실행되는 부분
+            animMove = false;
         }
 
         else if (animDamage)
@@ -289,16 +297,15 @@ public abstract class Piece : MonoBehaviour
             {
                 yield return null;
             }
+            animDamage = false;
         }
 
         if (_die)
         {
-            ActionBoolReset();
             PhotonNetwork.Destroy(pieceTransform.gameObject);
         }
         else
         {
-            ActionBoolReset();
             yield return new WaitForSeconds(1.5f);
             PieceSetting();
         }

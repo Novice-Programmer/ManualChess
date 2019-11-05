@@ -23,9 +23,9 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_AmbientIntensity: 0
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.1509434, g: 0.1495016, b: 0.13171947, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 185c3f4cf4a7875449e9d395cdd35d01, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -50,7 +50,7 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -1557,8 +1557,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_Bias: 1
+    m_NormalBias: 1
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -1584,7 +1584,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12582455
+    m_Bits: 12582423
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -2182,12 +2182,12 @@ GameObject:
   - component: {fileID: 309290211}
   - component: {fileID: 309290210}
   m_Layer: 5
-  m_Name: Line2
+  m_Name: MoveLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &309290209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3817,12 +3817,12 @@ GameObject:
   - component: {fileID: 575569560}
   - component: {fileID: 575569559}
   m_Layer: 5
-  m_Name: Line2
+  m_Name: AttackLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &575569558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4580,7 +4580,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.9811321, g: 0.65524155, b: 0.38412246, a: 1}
   m_Intensity: 400
-  m_Range: 40
+  m_Range: 100
   m_SpotAngle: 100
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -4616,7 +4616,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12582455
+    m_Bits: 12582423
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
@@ -5558,7 +5558,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &742807211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6193,12 +6193,12 @@ GameObject:
   - component: {fileID: 843552824}
   - component: {fileID: 843552823}
   m_Layer: 5
-  m_Name: Line2
+  m_Name: SkillLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &843552822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: fb064aeae20245d4ead7dbffce7901e1, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6707,9 +6707,12 @@ MonoBehaviour:
   attackTF: {fileID: 5000585508195438812}
   skillTF: {fileID: 5000585509488335492}
   moveTF: {fileID: 5000585508417518802}
-  attackMana: {fileID: 0}
-  skillMana: {fileID: 0}
-  moveMana: {fileID: 0}
+  atkActiveLine: {fileID: 575569557}
+  skiActiveLine: {fileID: 843552821}
+  movActiveLine: {fileID: 309290208}
+  attackMana: {fileID: 765126818}
+  skillMana: {fileID: 839464522}
+  moveMana: {fileID: 742807210}
   etcCanvas: {fileID: 965351896}
   gameTurnText: {fileID: 3935819252823298029}
   gameWin: {fileID: 3935819250958118647}
@@ -27454,7 +27457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 900, y: 0}
+  m_AnchoredPosition: {x: 864, y: -73}
   m_SizeDelta: {x: 250, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &5000585508621244975
@@ -27489,7 +27492,7 @@ GameObject:
   - component: {fileID: 5000585509026304056}
   - component: {fileID: 5000585509026304063}
   m_Layer: 5
-  m_Name: Line
+  m_Name: BackgroundLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28192,7 +28195,7 @@ GameObject:
   - component: {fileID: 5000585509867255061}
   - component: {fileID: 5000585509867255060}
   m_Layer: 5
-  m_Name: Line
+  m_Name: BackgroundLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28237,7 +28240,7 @@ GameObject:
   - component: {fileID: 5000585510136762080}
   - component: {fileID: 5000585510136762087}
   m_Layer: 5
-  m_Name: Line
+  m_Name: BackgroundLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

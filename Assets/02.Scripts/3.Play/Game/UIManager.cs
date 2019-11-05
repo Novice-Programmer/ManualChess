@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public GameObject attackTF;
     public GameObject skillTF;
     public GameObject moveTF;
+    public GameObject atkActiveLine;
+    public GameObject skiActiveLine;
+    public GameObject movActiveLine;
     public Text attackMana;
     public Text skillMana;
     public Text moveMana;
@@ -180,7 +183,10 @@ public class UIManager : MonoBehaviour
     // 키 확인
     public void KeyView(int _keyValue)
     {
-        if(_keyValue == 0)
+        atkActiveLine.SetActive(false);
+        skiActiveLine.SetActive(false);
+        movActiveLine.SetActive(false);
+        if (_keyValue == 0)
         {
             attackTF.gameObject.SetActive(false);
             skillTF.gameObject.SetActive(false);
@@ -188,16 +194,19 @@ public class UIManager : MonoBehaviour
         }
         else if(_keyValue == 1)
         {
+            movActiveLine.SetActive(true);
             skillTF.gameObject.SetActive(false);
             attackTF.gameObject.SetActive(false);
         }
         else if (_keyValue == 2)
         {
+            atkActiveLine.SetActive(true);
             skillTF.gameObject.SetActive(false);
             moveTF.gameObject.SetActive(false);
         }
         else if (_keyValue == 3)
         {
+            skiActiveLine.SetActive(true);
             attackTF.gameObject.SetActive(false);
             moveTF.gameObject.SetActive(false);
         }

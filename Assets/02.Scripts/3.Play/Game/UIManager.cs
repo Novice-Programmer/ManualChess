@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public GameObject attackTF;
     public GameObject skillTF;
     public GameObject moveTF;
+    public Text attackMana;
+    public Text skillMana;
+    public Text moveMana;
     public Canvas etcCanvas;
     private Camera etcCamera;
     private RectTransform rectParent;
@@ -125,6 +128,9 @@ public class UIManager : MonoBehaviour
             var localPos = Vector2.zero;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, etcCamera, out localPos);
             rectPiece.localPosition = localPos;
+            attackMana.text = ""+_selectPiece.attackMana;
+            skillMana.text = "" + _selectPiece.skillMana;
+            moveMana.text = "" + _selectPiece.moveMana;
             attackF.alpha = 0.0f;
             skillF.alpha = 0.0f;
             moveF.alpha = 0.0f;

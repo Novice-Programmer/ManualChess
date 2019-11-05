@@ -311,30 +311,6 @@ public class GameManager : MonoBehaviour
     {
         if (select)
         {
-            if (Input.GetKeyDown("d"))
-            {
-                uiManager.KeyView(1);
-                actionNum = 1;
-                moveP = true;
-                BoardLight.Instance.HideRange();
-                BoardLight.Instance.AllowedMoves(board.AllowedMoves);
-            }
-            else if (Input.GetKeyDown("a"))
-            {
-                uiManager.KeyView(2);
-                actionNum = 2;
-                attackP = true;
-                BoardLight.Instance.HideRange();
-                BoardLight.Instance.AllowedSkill(board.AllowedAttacks);
-            }
-            else if (Input.GetKeyDown("s"))
-            {
-                uiManager.KeyView(3);
-                actionNum = 3;
-                skillP = true;
-                BoardLight.Instance.HideRange();
-                BoardLight.Instance.AllowedAttack(board.AllowedSkills);
-            }
             if (Input.GetMouseButtonDown(1))
             {
                 uiManager.KeyView(0);
@@ -343,6 +319,37 @@ public class GameManager : MonoBehaviour
                     MovePiece(selectPiece, startDrag.x, startDrag.y);
                 }
                 PieceReset();
+            }
+            if (!playerTurn && selectPiece.isPlayer)
+            {
+                return;
+            }
+            else
+            {
+                if (Input.GetKeyDown("d"))
+                {
+                    uiManager.KeyView(1);
+                    actionNum = 1;
+                    moveP = true;
+                    BoardLight.Instance.HideRange();
+                    BoardLight.Instance.AllowedMoves(board.AllowedMoves);
+                }
+                else if (Input.GetKeyDown("a"))
+                {
+                    uiManager.KeyView(2);
+                    actionNum = 2;
+                    attackP = true;
+                    BoardLight.Instance.HideRange();
+                    BoardLight.Instance.AllowedSkill(board.AllowedAttacks);
+                }
+                else if (Input.GetKeyDown("s"))
+                {
+                    uiManager.KeyView(3);
+                    actionNum = 3;
+                    skillP = true;
+                    BoardLight.Instance.HideRange();
+                    BoardLight.Instance.AllowedAttack(board.AllowedSkills);
+                }
             }
         }
 
@@ -762,7 +769,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (selectPiece != null && selectPiece.isPlayer)
+            if (selectPiece != null && selectPiece.isPlayer && playerTurn)
             {
                 TryAction(startDrag, mouseOver, actionNum);
             }
@@ -798,6 +805,10 @@ public class GameManager : MonoBehaviour
                 board.ViewSelectBoard(x, y, false);
             }
             select = true;
+            if (!playerTurn && selectPiece.isPlayer)
+            {
+                AlwaysObject.Instance.InfoStart("플레이어의 턴에만 움직일 수 있습니다.");
+            }
             MoveHandReset();
             SelectHandReset();
         }

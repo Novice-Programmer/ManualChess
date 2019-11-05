@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1021,7 +1021,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 20
   m_SpotAngle: 20
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -4616,7 +4616,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12582423
+    m_Bits: 4193815
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
@@ -19483,7 +19483,7 @@ GameObject:
   - component: {fileID: 525719455211917979}
   - component: {fileID: 333862879123970657}
   - component: {fileID: 333862879123970656}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: turnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27085,7 +27085,7 @@ GameObject:
   - component: {fileID: 3123613715998754655}
   - component: {fileID: 7203519146895211675}
   - component: {fileID: 6349210425538334893}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28305,7 +28305,7 @@ GameObject:
   - component: {fileID: 1520758986103224906}
   - component: {fileID: 472846107255682600}
   - component: {fileID: 214396079866351535}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: buttonCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28366,7 +28366,7 @@ GameObject:
   - component: {fileID: 5388986917730260035}
   - component: {fileID: 8803178005042370689}
   - component: {fileID: 8452833798712615237}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: chain01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28433,7 +28433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9179004574253973999}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: ClockTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28465,7 +28465,7 @@ GameObject:
   - component: {fileID: 5258325230512028819}
   - component: {fileID: 7142111889197925219}
   - component: {fileID: 785698471421632552}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: BezierCurve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28497,7 +28497,7 @@ GameObject:
   - component: {fileID: 7323542918207889295}
   - component: {fileID: 3628513995953478345}
   - component: {fileID: 3077069488554454767}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: BezierCurve2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28774,7 +28774,7 @@ GameObject:
   - component: {fileID: 2350053709183258040}
   - component: {fileID: 221405883871196118}
   - component: {fileID: 5162617724760312315}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: chain02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43307,7 +43307,7 @@ GameObject:
   - component: {fileID: 7512946949212815662}
   - component: {fileID: 2745667765117197228}
   - component: {fileID: 4008926929437837865}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: clockBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43362,7 +43362,7 @@ GameObject:
   - component: {fileID: 1225935877362939556}
   - component: {fileID: 5368850451858091136}
   - component: {fileID: 6566856325763526653}
-  m_Layer: 23
+  m_Layer: 0
   m_Name: bridge02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -106,6 +106,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        base.OnDisconnected(cause);
+        SceneManager.LoadScene(mainSceneIndex);
+    }
+
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -418,7 +424,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         lobbyPanel.SetActive(false);
-        Debug.Log("발동:" + matching);
+
         if (matching)
         {
             matchPanel.SetActive(true);

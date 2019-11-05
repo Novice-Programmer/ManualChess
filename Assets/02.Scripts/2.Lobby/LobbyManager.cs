@@ -31,8 +31,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform playersContainer;
     public GameObject playerListingPrefab;
     public GameObject btn_start;
-    public Text[] chatText;
+    public List<Text> chatText;
+    public GameObject chatTextObject;
     public InputField chatInput;
+    public Transform content;
     public Text txt_roomNameDisplay;
     private int playerCount;
 
@@ -44,7 +46,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public GameObject loadingPanel;
     public Text txt_loadingPlayerName;
     public Text txt_loadingEnemyName;
-
 
     [Header("LobbyMgr")]
     public AudioSource bgmSource;
@@ -434,6 +435,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             {
                 btn_start.SetActive(false);
             }
+            for(int i = 0; i < content.childCount; i++)
+            {
+                Destroy(content.GetChild(0));
+            }
         }
         ClearPlayerListings();
         ListPlayers();
@@ -567,22 +572,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     void ChatRPC(string msg)
     {
         AlwaysObject.Instance.SoundOn(sendClips);
-        bool isInput = false;
-        for (int i = 0; i < chatText.Length; i++)
+        GameObject _chatText = Instantiate(chatTextObject, content);
+        _chatText.GetComponent<Text>().text = msg;
+        if (content.childCount > 30)
         {
-            if (chatText[i].text == "")
-            {
-                isInput = true;
-                chatText[i].text = msg;
-                break;
-            }
-        }
-        if (!isInput)
-        {
-            {
-                for (int i = 1; i < chatText.Length; i++) chatText[i - 1].text = chatText[i].text;
-                chatText[chatText.Length - 1].text = msg;
-            }
+            Destroy(content.GetChild(0).gameObject);
         }
     }
 

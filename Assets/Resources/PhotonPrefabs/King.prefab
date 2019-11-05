@@ -5883,6 +5883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceTransform: {fileID: 3658929526391294252}
   animator: {fileID: 3658929526381684374}
+  animOn: 0
+  aniList: 
   animAttack: 0
   animSkill: 0
   animMove: 0

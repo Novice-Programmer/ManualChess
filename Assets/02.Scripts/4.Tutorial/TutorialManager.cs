@@ -481,7 +481,7 @@ public class TutorialManager : MonoBehaviour
         winPanel.SetActive(true);
     }
 
-    void CardClick(int cardNum)
+    public void CardClick(int cardNum)
     {
         StopCoroutine("TutorialPrint");
         cardView.gameObject.SetActive(false);

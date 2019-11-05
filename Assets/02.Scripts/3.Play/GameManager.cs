@@ -897,7 +897,6 @@ public class GameManager : MonoBehaviour
                 if (board.AllowedMoves[(int)endDrag.x, (int)endDrag.y] && playerTurn && ManaCheck(decreaseMoveMana))
                 {
                     board.NetPieceAction(player, --actionNum, startDrag, endDrag);
-                    StartCoroutine(selectPiece.ActionAnim(1));
                 }
                 else
                 {

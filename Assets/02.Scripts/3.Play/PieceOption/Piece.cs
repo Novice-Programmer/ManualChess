@@ -12,7 +12,8 @@ public abstract class Piece : MonoBehaviour
     [Header("Animation")]
     // 애니메이션 설정
     public Animator animator;
-    public List<string> animatorString;
+    public bool animOn;
+    public List<int> aniList = new List<int>();
 
     public WaitForSeconds ws;
 
@@ -154,7 +155,7 @@ public abstract class Piece : MonoBehaviour
         DataSetting();
         if (pv.IsMine)
         {
-
+            StartCoroutine(ActionCheck());
         }
     }
 
@@ -168,46 +169,60 @@ public abstract class Piece : MonoBehaviour
         PointBar();
     }
 
+    IEnumerator ActionCheck()
+    {
+        while(!animDie)
+        {
+            if (!animOn)
+            {
+                if (aniList.Count > 0)
+                {
+                    var animNum = aniList[0];
+                    switch (animNum)
+                    {
+                        case 1:
+                            animator.SetTrigger("Move");
+                            animMove = true;
+                            break;
+                        case 2:
+                            ActionRotate();
+                            animator.SetTrigger("Attack");
+                            animAttack = true;
+                            break;
+                        case 3:
+                            ActionRotate();
+                            animator.SetTrigger("Skill");
+                            animSkill = true;
+                            break;
+                        case 4:
+                            animator.SetTrigger("Damage");
+                            animDamage = true;
+                            break;
+                        case 5:
+                            animator.SetTrigger("Die");
+                            animDie = true;
+                            break;
+                    }
+                    animOn = true;
+                    StartCoroutine(ActionReset());
+                }
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
     #region 애니메이션
 
     public IEnumerator ActionAnim(int stateNum)
     {
-        ws = new WaitForSeconds(0.5f);
+        ws = new WaitForSeconds(0.2f);
         yield return ws;
-        if (pv.IsMine)
-        {
-            switch (stateNum)
-            {
-                case 1:
-                    animator.SetTrigger("Move");
-                    animMove = true;
-                    break;
-                case 2:
-                    ActionRotate();
-                    animator.SetTrigger("Attack");
-                    animAttack = true;
-                    break;
-                case 3:
-                    ActionRotate();
-                    animator.SetTrigger("Skill");
-                    animSkill = true;
-                    break;
-                case 4:
-                    animator.SetTrigger("Damage");
-                    animDamage = true;
-                    break;
-                case 5:
-                    animator.SetTrigger("Die");
-                    animDie = true;
-                    break;
-            }
-            StartCoroutine(ActionReset());
-        }
+        aniList.Add(stateNum);
     }
 
     public IEnumerator ActionReset()
     {
-        float exitTime = 0.8f;
+        float exitTime = 0.3f;
         bool _action = true;
         bool _die = false;
 
@@ -302,12 +317,15 @@ public abstract class Piece : MonoBehaviour
 
         if (_die)
         {
+            aniList = null;
             PhotonNetwork.Destroy(pieceTransform.gameObject);
         }
         else
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
+            aniList.RemoveAt(0);
             PieceSetting();
+            animOn = false;
         }
     }
 

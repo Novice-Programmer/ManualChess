@@ -31,10 +31,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform playersContainer;
     public GameObject playerListingPrefab;
     public GameObject btn_start;
-    public List<Text> chatText;
     public GameObject chatTextObject;
     public InputField chatInput;
-    public Transform content;
+    public RectTransform content;
     public Text txt_roomNameDisplay;
     private int playerCount;
 
@@ -419,6 +418,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         lobbyPanel.SetActive(false);
+        Debug.Log("발동:" + matching);
         if (matching)
         {
             matchPanel.SetActive(true);
@@ -435,9 +435,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             {
                 btn_start.SetActive(false);
             }
-            for(int i = 0; i < content.childCount; i++)
+
+            for (int i = 0; i < content.childCount; i++)
             {
-                Destroy(content.GetChild(0));
+                Destroy(content.GetChild(i).gameObject);
             }
         }
         ClearPlayerListings();

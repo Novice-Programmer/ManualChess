@@ -139,7 +139,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-
+        AlwaysObject.Instance.InfoStart("상대방이 나갔습니다.");
         StartCoroutine(GameManager.Instance.GameWin());
     }
 

@@ -58,6 +58,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private PhotonView pv;
     private string playerName = "";
+    private bool disConn;
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +110,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
+        if (!disConn)
+        {
+            AlwaysObject.Instance.InfoStart("접속이 끊겼습니다.");
+        }
         SceneManager.LoadScene(mainSceneIndex);
     }
 
@@ -182,6 +187,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void Btn_MainOnClick()
     {
         AlwaysObject.Instance.SoundOn(buttonClickClips);
+        disConn = true;
         StartCoroutine(MainSceneChange());
     }
 

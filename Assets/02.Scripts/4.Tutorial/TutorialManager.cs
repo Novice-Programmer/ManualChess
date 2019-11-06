@@ -519,7 +519,7 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine("TutorialPrint");
     }
 
-    void Btn_EndTutorialClick()
+    public void Btn_EndTutorialClick()
     {
         EndTutorial();
     }

@@ -13,20 +13,15 @@ public class ChatManager : MonoBehaviourPunCallbacks
     public Button btn_chatView;
     public Button btn_chatExit;
     public Animator chatViewAnim;
-    public GameObject chatTextContainer;
-    public Text[] chatText;
+    public GameObject chatTextObject;
+    public RectTransform content;
     public InputField chatInput;
     private bool chatView;
     // Start is called before the first frame update
     void Start()
     {
         pv = GetComponent<PhotonView>();
-        chatText = new Text[chatTextContainer.transform.childCount];
         chatCG = chatPanel.GetComponent<CanvasGroup>();
-        for (int i = 0; i < chatTextContainer.transform.childCount; i++)
-        {
-            chatText[i] = chatTextContainer.transform.GetChild(i).GetComponent<Text>();
-        }
     }
 
     // Update is called once per frame
@@ -102,25 +97,14 @@ public class ChatManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void ChatRPC(string msg,bool player)
     {
-        bool isInput = false;
-        for (int i = 0; i < chatText.Length; i++)
+        GameObject _chatText = Instantiate(chatTextObject, content);
+        _chatText.GetComponent<Text>().text = msg;
+        if (content.childCount > 30)
         {
-            if (chatText[i].text == "")
-            {
-                isInput = true;
-                chatText[i].text = msg;
-                break;
-            }
-        }
-        if (!isInput)
-        {
-            {
-                for (int i = 1; i < chatText.Length; i++) chatText[i - 1].text = chatText[i].text;
-                chatText[chatText.Length - 1].text = msg;
-            }
+            Destroy(content.GetChild(0).gameObject);
         }
 
-        if(GameManager.Instance.player != player && !chatView)
+        if (GameManager.Instance.player != player && !chatView)
         {
             chatViewAnim.SetTrigger("ChatLight");
             AlwaysObject.Instance.InfoStart("새로운 채팅이 입력되었습니다.");

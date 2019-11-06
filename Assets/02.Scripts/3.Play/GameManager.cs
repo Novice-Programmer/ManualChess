@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Photon.Pun;
-using Photon.Realtime;
 
 public class GameManager : MonoBehaviour
 {
@@ -206,17 +203,17 @@ public class GameManager : MonoBehaviour
     {
         uiManager.GameLose(userData.userName);
         Shake.shake.ShakeKing(playerKing.transform, playerLayerNum);
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(6.0f);
         gameState = false;
-        StartCoroutine(NetworkManager.Instance.DisconnectAndLoad());
+        NetworkManager.Instance.DisconnectPlayer();
     }
 
     public IEnumerator GameWin()
     {
         uiManager.GameWin(userData.userName);
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(7.5f);
         gameState = false;
-        StartCoroutine(NetworkManager.Instance.DisconnectAndLoad());
+        NetworkManager.Instance.DisconnectPlayer();
     }
 
     #endregion

@@ -133,18 +133,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
+        SceneManager.LoadScene(1);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-        DisconnectPlayer();
+
+        StartCoroutine(GameManager.Instance.GameWin());
     }
 
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
-        StartCoroutine(DisconnectAndLoad());
+
+        DisconnectPlayer();
     }
 
     public void DisconnectPlayer()

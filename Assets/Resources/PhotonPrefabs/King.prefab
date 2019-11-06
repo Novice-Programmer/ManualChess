@@ -5564,7 +5564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3658929526391294252}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3658929526385858644
 SkinnedMeshRenderer:
@@ -5842,6 +5842,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7000562084034315866}
   - {fileID: 6132856674439484445}
   - {fileID: 6132856673331407152}
   - {fileID: 3658929526391294320}
@@ -5933,6 +5934,11 @@ MonoBehaviour:
   skillShakeRange: 0
   skillShakeForce: 0
   orderNum: 0
+  charViewT: {fileID: 7000562084034315866}
+  charViewA: {fileID: 4244198025573158135, guid: bff225dfc0e637c4d89ca98cc7b92c5f,
+    type: 3}
+  charViewB: {fileID: 4244198025573158135, guid: 4eb13266524427c4baf995fe86507261,
+    type: 3}
   selectTexture: {fileID: 2800000, guid: a1949dcd186d3b84e95e0c863c4f6676, type: 3}
   piecePosition: {x: 0, y: -0.34, z: 0}
   aPieceRotate: {x: 0, y: 0, z: 0, w: 1}
@@ -7026,7 +7032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3658929526391294252}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3658929526385858646
 SkinnedMeshRenderer:
@@ -7342,7 +7348,7 @@ Transform:
   - {fileID: 3658929526391294180}
   - {fileID: 3658929526391294178}
   m_Father: {fileID: 3658929526391294252}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3658929526391067998
 GameObject:
@@ -48954,7 +48960,7 @@ Transform:
   m_Children:
   - {fileID: 6132856673572407574}
   m_Father: {fileID: 3658929526391294252}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6132856673331407153
 MonoBehaviour:
@@ -54000,7 +54006,7 @@ Transform:
   m_Children:
   - {fileID: 6132856672648690135}
   m_Father: {fileID: 3658929526391294252}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5902013586281947516
 MonoBehaviour:
@@ -67941,3 +67947,33 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &8943550040892114932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7000562084034315866}
+  m_Layer: 0
+  m_Name: CharViewPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7000562084034315866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943550040892114932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3658929526391294252}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

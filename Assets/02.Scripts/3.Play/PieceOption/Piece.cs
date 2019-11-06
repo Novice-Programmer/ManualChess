@@ -91,13 +91,15 @@ public abstract class Piece : MonoBehaviour
     [Header("ETC")]
     private readonly int turnCreaseMana = 1; // 턴마다 증가하는 마나량
     public int orderNum; // 카드로 바뀔때의 번호
+    public Transform charViewT;
+    public GameObject charViewA;
+    public GameObject charViewB;
 
     [Header("PieceSet")]
     public Texture selectTexture;
     public Vector3 piecePosition; // 현재 자신 위치
     public Quaternion aPieceRotate = Quaternion.Euler(0.0f, 0.0f, 0.0f); // 위치 회전
     public Quaternion bPieceRotate = Quaternion.Euler(0.0f, 180.0f, 0.0f); // 위치 회전
-
 
     // 체력,마나 게이지 바 변수
     [Header("Bar")]
@@ -121,7 +123,6 @@ public abstract class Piece : MonoBehaviour
 
     [Header("Photon")]
     public PhotonView pv;
-
 
     private void OnEnable()
     {
@@ -472,6 +473,7 @@ public abstract class Piece : MonoBehaviour
             gamePlayer = !GameManager.Instance.player;
         }
         PieceSetting();
+        CharViewSetting();
         BarSetting();
         DamageSetting();
         PieceAdd();
@@ -492,6 +494,21 @@ public abstract class Piece : MonoBehaviour
                 transform.rotation = bPieceRotate;
             }
         }
+    }
+
+    public void CharViewSetting()
+    {
+        GameObject charView;
+
+        if (tag == "APiece")
+        {
+            charView = charViewA;
+        }
+        else
+        {
+            charView = charViewB;
+        }
+        Instantiate(charView, charViewT);
     }
 
     // 체력 , 마나 바 UI 설정
@@ -753,7 +770,7 @@ public abstract class Piece : MonoBehaviour
     }
 
     // 이동 범위
-    public virtual bool[,] PossibleMove(Piece[,] pieces, int playerMana)
+    public virtual bool[,] PossibleMove(Piece[,] pieces, int playerMana, bool range)
     {
         return new bool[9, 9];
     }
@@ -776,7 +793,7 @@ public abstract class Piece : MonoBehaviour
     }
 
     // 공격 범위
-    public virtual bool[,] PossibleAttack(Piece[,] pieces, int playerMana)
+    public virtual bool[,] PossibleAttack(Piece[,] pieces, int playerMana, bool range)
     {
         return new bool[9, 9];
     }
@@ -789,7 +806,7 @@ public abstract class Piece : MonoBehaviour
     }
 
     // 스킬 사용 범위
-    public virtual bool[,] PossibleSkill(Piece[,] pieces, int playerMana)
+    public virtual bool[,] PossibleSkill(Piece[,] pieces, int playerMana, bool range)
     {
         return new bool[9, 9];
     }
@@ -816,9 +833,9 @@ public abstract class Piece : MonoBehaviour
     }
 
     // 공격 가능 확인
-    public bool ValidAttack(Piece[,] pieces, int x2, int y2)
+    public bool ValidAttack(Piece[,] pieces, bool _range, int x2, int y2)
     {
-        if (pieces[x2, y2] != null && pieces[x2, y2].isPlayer != isPlayer)
+        if ((pieces[x2, y2] != null && pieces[x2, y2].isPlayer != isPlayer) || _range)
         {
             return true;
         }
@@ -829,9 +846,9 @@ public abstract class Piece : MonoBehaviour
     }
 
     // 스킬 가능 확인
-    public bool ValidSkill(Piece[,] pieces, int x2, int y2)
+    public bool ValidSkill(Piece[,] pieces, bool _range, int x2, int y2)
     {
-        if (pieces[x2, y2] != null && pieces[x2, y2].isPlayer !=isPlayer)
+        if ((pieces[x2, y2] != null && pieces[x2, y2].isPlayer != isPlayer) || _range)
         {
             return true;
         }

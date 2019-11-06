@@ -6,12 +6,18 @@ public class BoardLight : MonoBehaviour
 {
     public static BoardLight Instance { set; get; } // 다른 소스에서 사용하기 위해 전역 설정
     public GameObject moveRangePrefab;
+    public GameObject moveTargetRangePrefab;
     public GameObject attackRangePrefab;
+    public GameObject attackTargetRangePrefab;
     public GameObject skillRangePrefab;
+    public GameObject skillTargetRangePrefab;
     public GameObject deathEffectPrefab;
-    private List<GameObject> movePrefabs; // 이동 범위
-    private List<GameObject> attackPrefabs; // 스킬 범위
-    private List<GameObject> skillPrefabs; // 스킬 범위
+    private List<GameObject> moveList; // 이동 범위
+    private List<GameObject> moveTargetList;
+    private List<GameObject> attackList; // 스킬 범위
+    private List<GameObject> attackTargetList;
+    private List<GameObject> skillList; // 스킬 범위
+    private List<GameObject> skillTargetList;
     private List<GameObject> deathPrefabs; // 죽음 범위
 
     private void Start()
@@ -23,45 +29,81 @@ public class BoardLight : MonoBehaviour
     private void StartSet()
     {
         Instance = this;
-        movePrefabs = new List<GameObject>();
-        attackPrefabs = new List<GameObject>();
-        skillPrefabs = new List<GameObject>();
+        moveList = new List<GameObject>();
+        attackList = new List<GameObject>();
+        skillList = new List<GameObject>();
+        moveTargetList = new List<GameObject>();
+        attackTargetList = new List<GameObject>();
+        skillTargetList = new List<GameObject>();
         deathPrefabs = new List<GameObject>();
     }
 
     // 타일 효과 생성
     private GameObject GetMoveRange()
     {
-        GameObject _move = movePrefabs.Find(l => !l.activeSelf);
+        GameObject _move = moveList.Find(l => !l.activeSelf);
         if (_move == null)
         {
             _move = Instantiate(moveRangePrefab);
-            movePrefabs.Add(_move);
+            moveList.Add(_move);
         }
         return _move;
+    }
+
+    private GameObject GetMoveTargetRange()
+    {
+        GameObject _moveTarget = moveTargetList.Find(l => !l.activeSelf);
+        if(_moveTarget == null)
+        {
+            _moveTarget = Instantiate(moveTargetRangePrefab);
+            moveTargetList.Add(_moveTarget);
+        }
+        return _moveTarget;
     }
 
     // 라이트 효과 생성
     private GameObject GetAttackRange()
     {
-        GameObject _attack = attackPrefabs.Find(l => !l.activeSelf);
+        GameObject _attack = attackList.Find(l => !l.activeSelf);
         if (_attack == null)
         {
             _attack = Instantiate(attackRangePrefab);
-            attackPrefabs.Add(_attack);
+            attackList.Add(_attack);
         }
         return _attack;
     }
 
+    private GameObject GetAttackTargetRange()
+    {
+        GameObject _attackTarget = attackTargetList.Find(l => !l.activeSelf);
+        if (_attackTarget == null)
+        {
+            _attackTarget = Instantiate(attackTargetRangePrefab);
+            attackTargetList.Add(_attackTarget);
+        }
+        return _attackTarget;
+    }
+
     private GameObject GetSkillRange()
     {
-        GameObject _skill = skillPrefabs.Find(l => !l.activeSelf);
+        GameObject _skill = skillList.Find(l => !l.activeSelf);
         if (_skill == null)
         {
             _skill = Instantiate(skillRangePrefab);
-            skillPrefabs.Add(_skill);
+            skillList.Add(_skill);
         }
         return _skill;
+    }
+
+    private GameObject GetSkillTargetRange()
+    {
+        GameObject _skillTarget = skillTargetList.Find(l => !l.activeSelf);
+        if (_skillTarget == null)
+        {
+            _skillTarget = Instantiate(skillTargetRangePrefab);
+            skillTargetList.Add(_skillTarget);
+        }
+        return _skillTarget;
     }
 
     // 죽음 효과 생성
@@ -79,25 +121,41 @@ public class BoardLight : MonoBehaviour
     // 모든 효과 숨기기
     public void HideRange()
     {
-        foreach (GameObject _move in movePrefabs)
+        foreach (GameObject _move in moveList)
             _move.SetActive(false);
-        foreach (GameObject _attack in attackPrefabs)
+        foreach (GameObject _attack in attackList)
             _attack.SetActive(false);
-        foreach (GameObject _skill in skillPrefabs)
+        foreach (GameObject _skill in skillList)
             _skill.SetActive(false);
         foreach (GameObject _death in deathPrefabs)
             _death.SetActive(false);
+        foreach (GameObject _moveTarget in moveTargetList)
+            _moveTarget.SetActive(false);
+        foreach (GameObject _attackTarget in attackTargetList)
+            _attackTarget.SetActive(false);
+        foreach (GameObject _skillTarget in skillTargetList)
+            _skillTarget.SetActive(false);
     }
 
     // 타일 제외 효과 숨기기
     public void HideLightRange()
     {
-        foreach (GameObject _attack in attackPrefabs)
+        foreach (GameObject _move in moveList)
+            _move.SetActive(false);
+        foreach (GameObject _attack in attackList)
             _attack.SetActive(false);
-        foreach (GameObject _skill in skillPrefabs)
+        foreach (GameObject _skill in skillList)
             _skill.SetActive(false);
         foreach (GameObject death in deathPrefabs)
             death.SetActive(false);
+    }
+
+    public void HideTarget()
+    {
+        foreach (GameObject _attack in attackList)
+            _attack.SetActive(false);
+        foreach (GameObject _skill in skillList)
+            _skill.SetActive(false);
     }
 
     // 이동 가능 범위 표시
@@ -110,6 +168,22 @@ public class BoardLight : MonoBehaviour
                 if (_moves[i, j])
                 {
                     GameObject effect = GetMoveRange();
+                    effect.SetActive(true);
+                    effect.transform.position = new Vector3(i + 0.5f, 1.5f, j + 0.5f);
+                }
+            }
+        }
+    }
+
+    public void AllowedMoveTarget(bool[,] _moveTarget)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (_moveTarget[i, j])
+                {
+                    GameObject effect = GetMoveTargetRange();
                     effect.SetActive(true);
                     effect.transform.position = new Vector3(i + 0.5f, 1.5f, j + 0.5f);
                 }
@@ -142,6 +216,38 @@ public class BoardLight : MonoBehaviour
                 if (_skills[i, j])
                 {
                     GameObject effect = GetSkillRange();
+                    effect.SetActive(true);
+                    effect.transform.position = new Vector3(i + 0.5f, 1.5f, j + 0.5f);
+                }
+            }
+        }
+    }
+
+    public void AllowedAttackTarget(bool[,] _attacksTarget)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (_attacksTarget[i, j])
+                {
+                    GameObject effect = GetAttackTargetRange();
+                    effect.SetActive(true);
+                    effect.transform.position = new Vector3(i + 0.5f, 1.5f, j + 0.5f);
+                }
+            }
+        }
+    }
+
+    public void AllowedSkillTarget(bool[,] _skillsTarget)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (_skillsTarget[i, j])
+                {
+                    GameObject effect = GetSkillTargetRange();
                     effect.SetActive(true);
                     effect.transform.position = new Vector3(i + 0.5f, 1.5f, j + 0.5f);
                 }

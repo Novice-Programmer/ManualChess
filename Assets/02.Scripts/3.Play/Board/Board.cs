@@ -26,9 +26,12 @@ public class Board : MonoBehaviour
     public Piece[,] boardPiece = new Piece[9, 9]; // 보드에 저장된 피스
 
     public bool[,] AllowedMoves { set; get; } // 이동가능 범위
+    public bool[,] AllowedMoveTarget { set; get; }
     public bool[,] AllowedAttacks { set; get; } // 공격가능 범위
+    public bool[,] AllowedAttackTarget { set; get; }
     public bool[,] AllowedAttackRange { set; get; } // 공격 범위
     public bool[,] AllowedSkills { set; get; } // 스킬 사용 범위
+    public bool[,] AllowedSkillTarget { set; get; }
     public bool[,] AllowedSkillRange { set; get; } // 스킬 공격 범위
     public bool[,] DeathPieces { set; get; } // 공격 또는 스킬 사용시에 죽는 피스들
 

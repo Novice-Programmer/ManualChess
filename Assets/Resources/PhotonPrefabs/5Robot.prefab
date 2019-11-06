@@ -492,7 +492,7 @@ Transform:
   m_Children:
   - {fileID: 8290576807246024816}
   m_Father: {fileID: 8562019949125178887}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3722457127765265374
 MonoBehaviour:
@@ -782,7 +782,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8562019949125178887}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &6535883693953075071
 SkinnedMeshRenderer:
@@ -941,7 +941,7 @@ Transform:
   - {fileID: 1758190458607779448}
   - {fileID: 454787220032264962}
   m_Father: {fileID: 8562019949125178887}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4353269700914253425
 GameObject:
@@ -1004,6 +1004,36 @@ Transform:
   m_Children:
   - {fileID: 4304790600779517983}
   m_Father: {fileID: 154084919351607376}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4404864329859251338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7002843602109359339}
+  m_Layer: 0
+  m_Name: CharViewPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7002843602109359339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404864329859251338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8562019949125178887}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4584159558229464636
@@ -1071,6 +1101,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7002843602109359339}
   - {fileID: 3722457127765265375}
   - {fileID: 5219195084429571778}
   - {fileID: 6853940553414316903}
@@ -1110,6 +1141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceTransform: {fileID: 8562019949125178887}
   animator: {fileID: 1754262032154016637}
+  animOn: 0
+  aniList: 
   animAttack: 0
   animSkill: 0
   animMove: 0
@@ -1158,6 +1191,11 @@ MonoBehaviour:
   skillShakeRange: 30
   skillShakeForce: 100
   orderNum: 5
+  charViewT: {fileID: 7002843602109359339}
+  charViewA: {fileID: 4244198025573158135, guid: bff225dfc0e637c4d89ca98cc7b92c5f,
+    type: 3}
+  charViewB: {fileID: 4244198025573158135, guid: 4eb13266524427c4baf995fe86507261,
+    type: 3}
   selectTexture: {fileID: 2800000, guid: a07402a9e11f75d4595d82e5ca60d32a, type: 3}
   piecePosition: {x: 0, y: -0.34, z: 0}
   aPieceRotate: {x: 0, y: 0, z: 0, w: 1}

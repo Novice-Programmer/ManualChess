@@ -121,11 +121,11 @@ public class King : Piece
         }
     }
 
-    public override bool[,] PossibleMove(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleMove(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] move = new bool[9, 9];
 
-        if (moveMana <= playerMana || !isPlayer)
+        if (moveMana <= playerMana || !isPlayer || range)
         {
             for (int x = 0; x <= 1; x++)
             {
@@ -159,11 +159,11 @@ public class King : Piece
         return move;
     }
 
-    public override bool[,] PossibleAttack(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleAttack(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] attack = new bool[9, 9];
 
-        if (attackMana <= playerMana || !isPlayer)
+        if (attackMana <= playerMana || !isPlayer || range)
         {
             for (int x = 0; x <= 1; x++)
             {
@@ -173,22 +173,22 @@ public class King : Piece
                     {
                         if (CurrentZ + z <= 8)
                         {
-                            attack[CurrentX + x, CurrentZ + z] = ValidAttack(pieces, CurrentX + x, CurrentZ + z);
+                            attack[CurrentX + x, CurrentZ + z] = ValidAttack(pieces, range, CurrentX + x, CurrentZ + z);
                         }
                         if (CurrentZ - z >= 0)
                         {
-                            attack[CurrentX + x, CurrentZ - z] = ValidAttack(pieces, CurrentX + x, CurrentZ - z);
+                            attack[CurrentX + x, CurrentZ - z] = ValidAttack(pieces, range, CurrentX + x, CurrentZ - z);
                         }
                     }
                     if (CurrentX - x >= 0)
                     {
                         if (CurrentZ + z <= 8)
                         {
-                            attack[CurrentX - x, CurrentZ + z] = ValidAttack(pieces, CurrentX - x, CurrentZ + z);
+                            attack[CurrentX - x, CurrentZ + z] = ValidAttack(pieces, range, CurrentX - x, CurrentZ + z);
                         }
                         if (CurrentZ - z >= 0)
                         {
-                            attack[CurrentX - x, CurrentZ - z] = ValidAttack(pieces, CurrentX - x, CurrentZ - z);
+                            attack[CurrentX - x, CurrentZ - z] = ValidAttack(pieces, range, CurrentX - x, CurrentZ - z);
                         }
                     }
                 }
@@ -197,11 +197,11 @@ public class King : Piece
         return attack;
     }
 
-    public override bool[,] PossibleSkill(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleSkill(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] skill = new bool[9, 9];
 
-        if (skillMana <= playerMana && pieceMP >= maxMP || !isPlayer)
+        if (skillMana <= playerMana && pieceMP >= maxMP || !isPlayer || range)
         {
             for (int x = 0; x <= 1; x++)
             {
@@ -211,22 +211,22 @@ public class King : Piece
                     {
                         if (CurrentZ + z <= 8)
                         {
-                            skill[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, CurrentX + x, CurrentZ + z);
+                            skill[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, range, CurrentX + x, CurrentZ + z);
                         }
                         if (CurrentZ - z >= 0)
                         {
-                            skill[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, CurrentX + x, CurrentZ - z);
+                            skill[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, range, CurrentX + x, CurrentZ - z);
                         }
                     }
                     if (CurrentX - x >= 0)
                     {
                         if (CurrentZ + z <= 8)
                         {
-                            skill[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, CurrentX - x, CurrentZ + z);
+                            skill[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, range, CurrentX - x, CurrentZ + z);
                         }
                         if (CurrentZ - z >= 0)
                         {
-                            skill[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, CurrentX - x, CurrentZ - z);
+                            skill[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, range, CurrentX - x, CurrentZ - z);
                         }
                     }
                 }
@@ -244,35 +244,35 @@ public class King : Piece
             {
                 if (TargetX + x <= 8)
                 {
-                    skillRange[TargetX + x, TargetZ] = ValidSkill(pieces, TargetX + x, TargetZ);
+                    skillRange[TargetX + x, TargetZ] = ValidSkill(pieces, false, TargetX + x, TargetZ);
                     if (TargetZ + z <= 8)
                     {
-                        skillRange[TargetX + x, TargetZ + z] = ValidSkill(pieces, TargetX + x, TargetZ + z);
+                        skillRange[TargetX + x, TargetZ + z] = ValidSkill(pieces, false, TargetX + x, TargetZ + z);
                     }
                     if (TargetZ - z >= 0)
                     {
-                        skillRange[TargetX + x, TargetZ - z] = ValidSkill(pieces, TargetX + x, TargetZ - z);
+                        skillRange[TargetX + x, TargetZ - z] = ValidSkill(pieces, false, TargetX + x, TargetZ - z);
                     }
                 }
                 if (TargetX - x >= 0)
                 {
-                    skillRange[TargetX - x, TargetZ] = ValidSkill(pieces, TargetX - x, TargetZ);
+                    skillRange[TargetX - x, TargetZ] = ValidSkill(pieces, false, TargetX - x, TargetZ);
                     if (TargetZ + z <= 8)
                     {
-                        skillRange[TargetX - x, TargetZ + z] = ValidSkill(pieces, TargetX - x, TargetZ + z);
+                        skillRange[TargetX - x, TargetZ + z] = ValidSkill(pieces, false, TargetX - x, TargetZ + z);
                     }
                     if (TargetZ - z >= 0)
                     {
-                        skillRange[TargetX - x, TargetZ - z] = ValidSkill(pieces, TargetX - x, TargetZ - z);
+                        skillRange[TargetX - x, TargetZ - z] = ValidSkill(pieces, false, TargetX - x, TargetZ - z);
                     }
                 }
                 if (TargetZ + z <= 8)
                 {
-                    skillRange[TargetX, TargetZ + z] = ValidSkill(pieces, TargetX, TargetZ + z);
+                    skillRange[TargetX, TargetZ + z] = ValidSkill(pieces, false, TargetX, TargetZ + z);
                 }
                 if (TargetZ - z >= 0)
                 {
-                    skillRange[TargetX, TargetZ - z] = ValidSkill(pieces, TargetX, TargetZ - z);
+                    skillRange[TargetX, TargetZ - z] = ValidSkill(pieces, false, TargetX, TargetZ - z);
                 }
             }
         }

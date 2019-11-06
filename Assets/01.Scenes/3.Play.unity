@@ -4579,7 +4579,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 0.9811321, g: 0.65524155, b: 0.38412246, a: 1}
-  m_Intensity: 400
+  m_Intensity: 200
   m_Range: 100
   m_SpotAngle: 100
   m_InnerSpotAngle: 1
@@ -8273,9 +8273,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveRangePrefab: {fileID: 4635792834889860197, guid: 3d4d63614ea5bf54db7d7b8a65869d3b,
     type: 3}
+  moveTargetRangePrefab: {fileID: 3099604578827759270, guid: e299d6cb913b6e146bbf572fe6f218cf,
+    type: 3}
   attackRangePrefab: {fileID: 2493296815233143119, guid: 2d4d4d659692bdf4182b64931e93b05c,
     type: 3}
+  attackTargetRangePrefab: {fileID: 4434784217209639203, guid: 912c5645fd88bec418dc84e5197b8097,
+    type: 3}
   skillRangePrefab: {fileID: 6163444271825353122, guid: 93ff7c967ed73d4418284c38390cc35a,
+    type: 3}
+  skillTargetRangePrefab: {fileID: 4441317623668757587, guid: 4a8c78660d5665b448efcd722423b636,
     type: 3}
   deathEffectPrefab: {fileID: 4967192974116253160, guid: 837143977c149d945b1267423fe6833c,
     type: 3}

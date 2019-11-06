@@ -66,11 +66,11 @@ public class Zombie : Piece
         }
     }
 
-    public override bool[,] PossibleMove(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleMove(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] move = new bool[9, 9];
 
-        if (moveMana <= playerMana || !isPlayer)
+        if (moveMana <= playerMana || !isPlayer || range)
         {
             for (int x = 0; x <= 1; x++)
             {
@@ -106,20 +106,20 @@ public class Zombie : Piece
         return move;
     }
 
-    public override bool[,] PossibleAttack(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleAttack(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] attack = new bool[9, 9];
-        if (attackMana <= playerMana || !isPlayer)
+        if (attackMana <= playerMana || !isPlayer || range)
         {
             if (CurrentZ + 1 <= 8)
             {
                 if (CurrentX - 1 >= 0)
                 {
-                    attack[CurrentX - 1, CurrentZ + 1] = ValidAttack(pieces, CurrentX - 1, CurrentZ + 1);
+                    attack[CurrentX - 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ + 1);
                 }
                 if (CurrentX + 1 <= 8)
                 {
-                    attack[CurrentX + 1, CurrentZ + 1] = ValidAttack(pieces, CurrentX + 1, CurrentZ + 1);
+                    attack[CurrentX + 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ + 1);
                 }
             }
 
@@ -127,11 +127,11 @@ public class Zombie : Piece
             {
                 if (CurrentX - 1 >= 0)
                 {
-                    attack[CurrentX - 1, CurrentZ - 1] = ValidAttack(pieces, CurrentX - 1, CurrentZ - 1);
+                    attack[CurrentX - 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ - 1);
                 }
                 if (CurrentX + 1 <= 8)
                 {
-                    attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, CurrentX + 1, CurrentZ - 1);
+                    attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ - 1);
                 }
 
             }
@@ -139,10 +139,10 @@ public class Zombie : Piece
         return attack;
     }
 
-    public override bool[,] PossibleSkill(Piece[,] pieces, int playerMana)
+    public override bool[,] PossibleSkill(Piece[,] pieces, int playerMana, bool range)
     {
         bool[,] skill = new bool[9, 9];
-        if (skillMana <= playerMana && pieceMP >= maxMP || !isPlayer)
+        if (skillMana <= playerMana && pieceMP >= maxMP || !isPlayer || range)
         {
             for (int x = 0; x <= 1; x++)
             {
@@ -152,23 +152,23 @@ public class Zombie : Piece
                     {
                         if (CurrentX - x >= 0)
                         {
-                            skill[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, CurrentX - x, CurrentZ + z);
+                            skill[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, range, CurrentX - x, CurrentZ + z);
                         }
 
                         if (CurrentX + x <= 8)
                         {
-                            skill[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, CurrentX + x, CurrentZ + z);
+                            skill[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, range, CurrentX + x, CurrentZ + z);
                         }
                     }
                     if (CurrentZ - z >= 0)
                     {
                         if (CurrentX + x <= 8)
                         {
-                            skill[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, CurrentX + x, CurrentZ - z);
+                            skill[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, range, CurrentX + x, CurrentZ - z);
                         }
                         if (CurrentX - x >= 0)
                         {
-                            skill[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, CurrentX - x, CurrentZ - z);
+                            skill[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, range, CurrentX - x, CurrentZ - z);
                         }
                     }
                 }
@@ -188,23 +188,23 @@ public class Zombie : Piece
                 {
                     if (CurrentX - x >= 0)
                     {
-                        _skillRange[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, CurrentX - x, CurrentZ + z);
+                        _skillRange[CurrentX - x, CurrentZ + z] = ValidSkill(pieces, false, CurrentX - x, CurrentZ + z);
                     }
 
                     if (CurrentX + x <= 8)
                     {
-                        _skillRange[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, CurrentX + x, CurrentZ + z);
+                        _skillRange[CurrentX + x, CurrentZ + z] = ValidSkill(pieces, false, CurrentX + x, CurrentZ + z);
                     }
                 }
                 if (CurrentZ - z >= 0)
                 {
                     if (CurrentX + x <= 8)
                     {
-                        _skillRange[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, CurrentX + x, CurrentZ - z);
+                        _skillRange[CurrentX + x, CurrentZ - z] = ValidSkill(pieces, false, CurrentX + x, CurrentZ - z);
                     }
                     if (CurrentX - x >= 0)
                     {
-                        _skillRange[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, CurrentX - x, CurrentZ - z);
+                        _skillRange[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, false, CurrentX - x, CurrentZ - z);
                     }
                 }
             }

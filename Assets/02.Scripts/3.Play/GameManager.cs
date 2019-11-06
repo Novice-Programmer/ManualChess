@@ -332,7 +332,7 @@ public class GameManager : MonoBehaviour
                     actionNum = 1;
                     moveP = true;
                     BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedMoves(board.AllowedMoves);
+                    BoardLight.Instance.AllowedMoveTarget(board.AllowedMoveTarget);
                 }
                 else if (Input.GetKeyDown("a"))
                 {
@@ -340,7 +340,7 @@ public class GameManager : MonoBehaviour
                     actionNum = 2;
                     attackP = true;
                     BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedSkill(board.AllowedAttacks);
+                    BoardLight.Instance.AllowedAttackTarget(board.AllowedAttackTarget);
                 }
                 else if (Input.GetKeyDown("s"))
                 {
@@ -348,7 +348,7 @@ public class GameManager : MonoBehaviour
                     actionNum = 3;
                     skillP = true;
                     BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedAttack(board.AllowedSkills);
+                    BoardLight.Instance.AllowedSkillTarget(board.AllowedSkillTarget);
                 }
             }
         }
@@ -790,13 +790,19 @@ public class GameManager : MonoBehaviour
         {
             PieceReset();
             Piece p = board.boardPiece[x, y];
-            board.AllowedMoves = p.PossibleMove(board.boardPiece, (int)playerMana);
-            board.AllowedAttacks = p.PossibleAttack(board.boardPiece, (int)playerMana);
-            board.AllowedSkills = p.PossibleSkill(board.boardPiece, (int)playerMana);
+            board.AllowedMoves = p.PossibleMove(board.boardPiece, playerMana, false);
+            board.AllowedMoveTarget = p.PossibleMove(board.boardPiece, playerMana, true);
+            board.AllowedAttacks = p.PossibleAttack(board.boardPiece, playerMana, false);
+            board.AllowedAttackTarget = p.PossibleAttack(board.boardPiece, playerMana, true);
+            board.AllowedSkills = p.PossibleSkill(board.boardPiece, playerMana, false);
+            board.AllowedSkillTarget = p.PossibleSkill(board.boardPiece, playerMana, true);
             BoardLight.Instance.HideRange();
             BoardLight.Instance.AllowedMoves(board.AllowedMoves);
+            BoardLight.Instance.AllowedMoveTarget(board.AllowedMoveTarget);
             BoardLight.Instance.AllowedSkill(board.AllowedSkills);
+            BoardLight.Instance.AllowedAttackTarget(board.AllowedAttackTarget);
             BoardLight.Instance.AllowedAttack(board.AllowedAttacks);
+            BoardLight.Instance.AllowedSkillTarget(board.AllowedSkillTarget);
             selectPiece = p;
             uiManager.KeyView(4);
             startDrag = mouseOver;
@@ -864,6 +870,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     board.DeathPieces = new bool[9, 9];
+                    BoardLight.Instance.HideTarget();
                 }
                 BoardLight.Instance.DeathPieceCheck(board.DeathPieces);
             }
@@ -900,7 +907,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    if (!board.AllowedMoves[(int)endDrag.x, (int)endDrag.y])
+                    if (!board.AllowedMoves[(int)endDrag.x, (int)endDrag.y] && ManaTestCheck(decreaseMoveMana))
                     {
                         AlwaysObject.Instance.InfoStart("배치할 수 없는 구역입니다.");
                     }
@@ -918,7 +925,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (!board.AllowedAttacks[(int)endDrag.x, (int)endDrag.y])
+                if (!board.AllowedAttacks[(int)endDrag.x, (int)endDrag.y] && ManaTestCheck(decreaseAttackMana))
                 {
                     AlwaysObject.Instance.InfoStart("공격 범위가 아닙니다.");
                 }
@@ -934,7 +941,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (!board.AllowedSkills[(int)endDrag.x, (int)endDrag.y])
+                if (!board.AllowedSkills[(int)endDrag.x, (int)endDrag.y] && ManaTestCheck(decreaseSkillMana))
                 {
                     AlwaysObject.Instance.InfoStart("스킬 범위가 아닙니다.");
                 }
@@ -1177,6 +1184,7 @@ public class GameManager : MonoBehaviour
         }
         startHandDrag = Vector3.zero;
         endHandDrag = Vector3.zero;
+        NetworkManager.Instance.networkAction.HandNoneSelect(player);
     }
 
     private void SelectHandReset()

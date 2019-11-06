@@ -91,6 +91,7 @@ public class Robot : Piece
             {
                 move[CurrentX - 1, CurrentZ] = ValidMove(pieces, CurrentX - 1, CurrentZ);
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -120,6 +121,7 @@ public class Robot : Piece
             {
                 attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -151,6 +153,7 @@ public class Robot : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -169,6 +172,7 @@ public class Robot : Piece
         }
 
         skillRange[TargetX, TargetZ] = ValidSkill(pieces, false, TargetX, TargetZ);
+        skillRange[CurrentX, CurrentZ] = false;
         return skillRange;
     }
 

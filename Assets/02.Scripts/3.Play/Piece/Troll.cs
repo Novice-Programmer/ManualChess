@@ -114,6 +114,7 @@ public class Troll : Piece
                     }
                 }
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -146,6 +147,7 @@ public class Troll : Piece
                     }
                 }
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -183,6 +185,7 @@ public class Troll : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
 
         return skill;
@@ -206,6 +209,7 @@ public class Troll : Piece
                 }
             }
         }
+        _skillRange[CurrentX,CurrentZ] = false;
 
         return _skillRange;
     }

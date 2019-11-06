@@ -184,6 +184,7 @@ public class Knight : Piece
                 attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
                 attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ);
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -276,6 +277,7 @@ public class Knight : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }

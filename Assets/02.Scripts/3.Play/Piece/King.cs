@@ -155,6 +155,7 @@ public class King : Piece
                     }
                 }
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -193,6 +194,7 @@ public class King : Piece
                     }
                 }
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -231,6 +233,7 @@ public class King : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -276,6 +279,7 @@ public class King : Piece
                 }
             }
         }
+        skillRange[CurrentX, CurrentZ] = false;
         skillRange[TargetX, TargetZ] = true;
         return skillRange;
     }

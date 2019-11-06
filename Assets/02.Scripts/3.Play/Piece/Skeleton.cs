@@ -115,6 +115,7 @@ public class Skeleton : Piece
             {
                 move[CurrentX - 2, CurrentZ] = ValidMove(pieces, CurrentX - 2, CurrentZ);
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -154,6 +155,7 @@ public class Skeleton : Piece
                     attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ - 1);
                 }
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -192,6 +194,7 @@ public class Skeleton : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -224,10 +227,10 @@ public class Skeleton : Piece
                     {
                         skillRange[CurrentX - x, CurrentZ - z] = ValidSkill(pieces, false, CurrentX - x, CurrentZ - z);
                     }
-
                 }
             }
         }
+        skillRange[CurrentX, CurrentZ] = false;
         return skillRange;
     }
 

@@ -133,8 +133,8 @@ public class Zombie : Piece
                 {
                     attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ - 1);
                 }
-
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -173,6 +173,7 @@ public class Zombie : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -209,6 +210,7 @@ public class Zombie : Piece
                 }
             }
         }
+        _skillRange[CurrentX, CurrentZ] = false;
         return _skillRange;
     }
 

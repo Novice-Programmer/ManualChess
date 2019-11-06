@@ -98,6 +98,7 @@ public class Goblin : Piece
                     move[CurrentX - 1, CurrentZ - 1] = ValidMove(pieces, CurrentX - 1, CurrentZ - 1);
                 }
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -121,6 +122,7 @@ public class Goblin : Piece
                     attack[CurrentX, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX, CurrentZ - 1);
                 }
             }
+            attack[CurrentX, CurrentZ] = false;
         }
         return attack;
     }
@@ -158,6 +160,7 @@ public class Goblin : Piece
                     skill[CurrentX - 1, CurrentZ - 1] = ValidSkill(pieces, range, CurrentX - 1, CurrentZ - 1);
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -192,8 +195,8 @@ public class Goblin : Piece
             {
                 skillRange[CurrentX - 1, CurrentZ - 1] = ValidSkill(pieces, false, CurrentX - 1, CurrentZ - 1);
             }
-
         }
+        skillRange[CurrentX, CurrentZ] = false;
         return skillRange;
     }
 

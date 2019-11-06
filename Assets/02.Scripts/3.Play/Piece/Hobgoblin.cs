@@ -115,9 +115,9 @@ public class Hobgoblin : Piece
                     {
                         move[CurrentX - 1, CurrentZ - 1] = ValidMove(pieces, CurrentX - 1, CurrentZ - 1);
                     }
-
                 }
             }
+            move[CurrentX, CurrentZ] = false;
         }
         return move;
     }
@@ -141,6 +141,7 @@ public class Hobgoblin : Piece
                     attack[CurrentX, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX, CurrentZ - 1);
                 }
             }
+            attack[CurrentX, CurrentZ] = false;
         }
 
         return attack;
@@ -182,6 +183,7 @@ public class Hobgoblin : Piece
                     }
                 }
             }
+            skill[CurrentX, CurrentZ] = false;
         }
         return skill;
     }
@@ -227,6 +229,7 @@ public class Hobgoblin : Piece
                 }
             }
         }
+        skillRange[CurrentX, CurrentZ] = false;
         skillRange[TargetX, TargetZ] = true;
         return skillRange;
     }

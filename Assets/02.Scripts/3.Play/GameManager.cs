@@ -257,12 +257,18 @@ public class GameManager : MonoBehaviour
                 deployRange.DeployRangeNoneView();
                 board.NoneViewSelectBoard();
             }
-            if (playerTurn && Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Turn")))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Turn")))
             {
-                if (Input.GetMouseButtonDown(0) && !drowSelect)
+                if (Input.GetMouseButtonDown(0) && !drowSelect && playerTurn)
                 {
                     NetTurnChange();
                 }
+                turn.TimeView();
+            }
+
+            else
+            {
+                turn.TimeNoneView();
             }
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Graveyard")))
             {

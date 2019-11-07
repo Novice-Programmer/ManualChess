@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class Turn : MonoBehaviour
 {
     public GameObject timerA;
     public GameObject timerB;
     public GameObject turnCylinder;
+    public TextMesh timeTextA;
+    public TextMesh timeTextB;
+    private TextMesh timeText;
 
     private Vector3 aVector;
     private Vector3 bVector;
@@ -17,25 +19,51 @@ public class Turn : MonoBehaviour
 
     public float maxTime;
     public bool turnEnd;
+    private bool player;
+
+    public void OnEnable()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            timeText = timeTextA;
+            player = true;
+        }
+        else
+        {
+            timeText = timeTextB;
+            player = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (NetworkManager.Instance.gamePlay)
         {
+            int time = Mathf.FloorToInt(NetworkManager.Instance.time);
+            timeText.text = "" + time;
             if (PhotonNetwork.IsMasterClient)
             {
-                TimeSet();
+                TimeSet(time);
             }
         }
     }
 
-    private void TimeSet()
+    public void TimeView()
     {
-        int tQ = Mathf.FloorToInt(NetworkManager.Instance.time);
-        Quaternion tQC = Quaternion.Euler(-90.0f - tQ * (360 / maxTime), -90.0f, 90);
+        timeText.gameObject.SetActive(true);
+    }
+    
+    public void TimeNoneView()
+    {
+        timeText.gameObject.SetActive(false);
+    }
+
+    private void TimeSet(int time)
+    {
+        Quaternion tQC = Quaternion.Euler(-90.0f - time * (360 / maxTime), -90.0f, 90);
         timerA.transform.rotation = tQC;
-        Quaternion tQC2 = Quaternion.Euler(-90.0f + tQ * (360 / maxTime), -90.0f, 90);
+        Quaternion tQC2 = Quaternion.Euler(-90.0f + time * (360 / maxTime), -90.0f, 90);
         timerB.transform.rotation = tQC2;
         if (NetworkManager.Instance.time >= maxTime)
         {
@@ -57,7 +85,7 @@ public class Turn : MonoBehaviour
     public void TurnObjectSet(bool playerTurn)
     {
         NetworkManager.Instance.time = 0.0f;
-        if (PhotonNetwork.IsMasterClient)
+        if (player)
         {
             if (playerTurn)
             {

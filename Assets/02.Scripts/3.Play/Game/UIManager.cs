@@ -224,7 +224,7 @@ public class UIManager : MonoBehaviour
 
     public void TurnSet(int _turn)
     {
-        gameTurnText.text = _turn + "턴";
+        gameTurnText.text = "" + _turn;
     }
 
     public void TurnViewSet(bool _playerTurn)
@@ -301,12 +301,12 @@ public class UIManager : MonoBehaviour
         if (_kingHP > 0)
         {
             kingHP.GetComponent<Image>().fillAmount = _kingHP / _kingMaxHP;
-            kingHPText.text = _kingHP + " / " + (int)_kingMaxHP;
+            kingHPText.text = "" + _kingHP;
         }
         else
         {
             kingHP.GetComponent<Image>().fillAmount = 0.0f;
-            kingHPText.text = 0 + " / " + (int)_kingMaxHP;
+            kingHPText.text = "" + 0;
         }
     }
 
@@ -478,25 +478,25 @@ public class UIManager : MonoBehaviour
         if (_enemyHP > 0)
         {
             enemyKingHP.GetComponent<Image>().fillAmount = (float)_enemyHP / enemyMaxHP;
-            enemyHpText.text = _enemyHP + " / " + enemyMaxHP;
+            enemyHpText.text = "" + _enemyHP;
         }
         else
         {
             enemyKingHP.GetComponent<Image>().fillAmount = 0.0f;
-            enemyHpText.text = 0 + " / " + enemyMaxHP;
+            enemyHpText.text = "" + 0;
         }
     }
 
     public void GameWin(string userName)
     {
         gameWin.SetActive(true);
-        gameWinText.text = userName + "승리";
+        gameWinText.text = userName + " 승리";
     }
 
     public void GameLose(string userName)
     {
         gameLose.SetActive(true);
-        gameLoseText.text = userName + "패배";
+        gameLoseText.text = userName + " 패배";
     }
 
     #endregion

@@ -63,7 +63,7 @@ public class Card : CardSet
         card_Image.sprite = card_Images[orderNum];
         card_Name.text = thisPieceData.piece_Name;
         card_Dir.text = thisPieceData.piece_Dir;
-        card_Damage.text = "" + thisPieceData.piece_Damage;
+        card_Damage.text = "" + thisPieceData.piece_AttackDamage;
         card_HP.text = "" + thisPieceData.piece_HP;
         card_Mana = thisPieceData.piece_DrowMana;
         card_DrowMana.text = "" + card_Mana;

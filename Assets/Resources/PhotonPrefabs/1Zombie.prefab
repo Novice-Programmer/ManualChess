@@ -21163,8 +21163,8 @@ MonoBehaviour:
   action: 1
   pieceHP: 23
   pieceMP: 0
-  maxHP: 0
-  maxMP: 0
+  maxHP: 23
+  maxMP: 4
   drowMana: 1
   fieldMana: 1
   moveMana: 1
@@ -21176,11 +21176,11 @@ MonoBehaviour:
   attackRange: 1
   targetRange: 1
   skillMana: 1
-  skillDamage: 14
+  skillDamage: 18
   skillRange: 1
   skillAttackRange: 1
-  skillReduce: 0
-  skillReduceDamage: 0
+  skillReduce: 1
+  skillReduceDamage: 9
   skillShakeRange: 30
   skillShakeForce: 100
   orderNum: 1
@@ -21195,7 +21195,7 @@ MonoBehaviour:
   bPieceRotate: {x: 0, y: 1, z: 0, w: 0}
   barPrefabs: {fileID: 4171373863332658753, guid: df8e740e559c642488c650ad614e9ebe,
     type: 3}
-  barAddset: {x: 0, y: 0.8, z: 0}
+  barAddset: {x: 0, y: 1.1, z: 0}
   damagePrefabs: {fileID: 7090749480454283877, guid: b877db675d3df2c4d828b1ac07c4a4fa,
     type: 3}
   damageAddset: {x: 0, y: 0.5, z: 0}

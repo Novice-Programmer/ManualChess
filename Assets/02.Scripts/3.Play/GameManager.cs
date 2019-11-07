@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
     private bool attackP;
     private bool skillP;
 
+    [Header("View")]
+    public Piece viewPiece;
+    public PieceData viewPieceData;
+
     [Header("Hand")]
     public PlayerHand selectHand;
     public Vector3 selectHandV;
@@ -256,6 +260,7 @@ public class GameManager : MonoBehaviour
             {
                 deployRange.DeployRangeNoneView();
                 board.NoneViewSelectBoard();
+                viewPieceData.NoneView();
             }
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Turn")))
             {
@@ -766,6 +771,17 @@ public class GameManager : MonoBehaviour
         mouseOver.x = mouseX;
         mouseOver.y = mouseZ;
         MouseCursor.mouseCursor.NoneCursor();
+        if (board.boardPiece[mouseX, mouseZ] != null)
+        {
+            viewPiece = board.boardPiece[mouseX, mouseZ];
+            viewPieceData.DataViewSet(viewPiece);
+            viewPieceData.DataView();
+        }
+        else
+        {
+            viewPiece = null;
+            viewPieceData.NoneView();
+        }
         if (selectPiece != null)
         {
             DeathPieceView(hit);

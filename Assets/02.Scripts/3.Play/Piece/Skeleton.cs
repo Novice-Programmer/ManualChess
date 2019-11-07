@@ -246,31 +246,28 @@ public class Skeleton : Piece
             actionRange[pieceX + 1, pieceZ - 1] = 2;
             actionRange[pieceX - 1, pieceZ + 1] = 2;
             actionRange[pieceX + 1, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ] = 1;
         }
         else if (action == 1)
         {
-            actionRange[pieceX - 1, pieceZ - 1] = 2;
-            actionRange[pieceX + 1, pieceZ - 1] = 2;
-            actionRange[pieceX, pieceZ - 1] = 2;
-            actionRange[pieceX - 1, pieceZ + 1] = 2;
-            actionRange[pieceX + 1, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ] = 1;
+            actionRange[pieceX - 1, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ - 1] = 3;
+            actionRange[pieceX, pieceZ - 1] = 3;
+            actionRange[pieceX - 1, pieceZ + 1] = 3;
+            actionRange[pieceX + 1, pieceZ + 1] = 3;
+            actionRange[pieceX, pieceZ + 1] = 3;
         }
         else if (action == 2)
         {
-            actionRange[pieceX - 1, pieceZ - 1] = 2;
-            actionRange[pieceX + 1, pieceZ - 1] = 2;
-            actionRange[pieceX, pieceZ - 1] = 2;
-            actionRange[pieceX - 1, pieceZ] = 2;
-            actionRange[pieceX - 1, pieceZ + 1] = 2;
-            actionRange[pieceX + 1, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ + 1] = 2;
-            actionRange[pieceX + 1, pieceZ] = 2;
-            actionRange[pieceX, pieceZ] = 1;
+            actionRange[pieceX - 1, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ - 1] = 3;
+            actionRange[pieceX, pieceZ - 1] = 3;
+            actionRange[pieceX - 1, pieceZ] = 3;
+            actionRange[pieceX - 1, pieceZ + 1] = 3;
+            actionRange[pieceX + 1, pieceZ + 1] = 3;
+            actionRange[pieceX, pieceZ + 1] = 3;
+            actionRange[pieceX + 1, pieceZ] = 3;
         }
-
+        actionRange[pieceX, pieceZ] = 1;
         return actionRange;
     }
 }

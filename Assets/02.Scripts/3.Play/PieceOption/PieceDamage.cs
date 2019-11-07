@@ -7,7 +7,7 @@ public class PieceDamage : MonoBehaviour
     private Camera etcCamera;
     private Canvas etcCanvas;
     private RectTransform rectParent;
-    private RectTransform rectBar;
+    private RectTransform rectDamage;
 
     public Vector3 offset = Vector3.zero;
     public Vector3 addset = Vector3.zero;
@@ -18,7 +18,7 @@ public class PieceDamage : MonoBehaviour
         etcCanvas = GetComponentInParent<Canvas>();
         etcCamera = etcCanvas.worldCamera;
         rectParent = etcCanvas.GetComponent<RectTransform>();
-        rectBar = this.gameObject.GetComponent<RectTransform>();
+        rectDamage = this.gameObject.GetComponent<RectTransform>();
     }
 
     void LateUpdate()
@@ -35,6 +35,6 @@ public class PieceDamage : MonoBehaviour
         }
         var localPos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, etcCamera, out localPos);
-        rectBar.localPosition = localPos;
+        rectDamage.localPosition = localPos;
     }
 }

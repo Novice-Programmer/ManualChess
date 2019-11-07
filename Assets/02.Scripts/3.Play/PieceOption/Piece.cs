@@ -678,7 +678,8 @@ public abstract class Piece : MonoBehaviour
         {
             piece_Name = piece_Name,
             piece_Dir = piece_Dir,
-            piece_Damage = attackDamage,
+            piece_AttackDamage = attackDamage,
+            piece_SkillDamage = skillDamage,
             piece_HP = maxHP,
             piece_DrowMana = drowMana,
             piece_FieldMana = fieldMana,

@@ -75,7 +75,7 @@ public class PlayerHand : CardSet
         playerHand_ImageBackground.sprite = card_Images[orderNum];
         playerHand_Name.text = thisPieceData.piece_Name;
         playerHand_Dir.text = thisPieceData.piece_Dir;
-        playerHand_Damage.text = "" + thisPieceData.piece_Damage;
+        playerHand_Damage.text = "" + thisPieceData.piece_AttackDamage;
         playerHand_HP.text = "" + thisPieceData.piece_HP;
         playerHand_fieldMana = thisPieceData.piece_FieldMana;
         playerHand_Mana.text = "" + playerHand_fieldMana;

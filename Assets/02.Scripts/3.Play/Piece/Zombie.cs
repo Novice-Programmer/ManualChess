@@ -220,7 +220,7 @@ public class Zombie : Piece
         int pieceX = 1;
         int pieceZ = 1;
 
-        if (action == 0 || action == 2)
+        if (action == 0)
         {
             actionRange[pieceX + 1, pieceZ] = 2;
             actionRange[pieceX - 1, pieceZ] = 2;
@@ -234,10 +234,22 @@ public class Zombie : Piece
 
         else if (action == 1)
         {
-            actionRange[pieceX + 1, pieceZ - 1] = 2;
-            actionRange[pieceX + 1, pieceZ + 1] = 2;
-            actionRange[pieceX - 1, pieceZ - 1] = 2;
-            actionRange[pieceX - 1, pieceZ + 1] = 2;
+            actionRange[pieceX + 1, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ + 1] = 3;
+            actionRange[pieceX - 1, pieceZ - 1] = 3;
+            actionRange[pieceX - 1, pieceZ + 1] = 3;
+        }
+
+        else if (action == 2)
+        {
+            actionRange[pieceX + 1, pieceZ] = 3;
+            actionRange[pieceX - 1, pieceZ] = 3;
+            actionRange[pieceX, pieceZ + 1] = 3;
+            actionRange[pieceX, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ + 1] = 3;
+            actionRange[pieceX - 1, pieceZ - 1] = 3;
+            actionRange[pieceX - 1, pieceZ + 1] = 3;
         }
 
         actionRange[pieceX, pieceZ] = 1;

@@ -212,13 +212,11 @@ public class Goblin : Piece
             actionRange[pieceX + 1, pieceZ - 1] = 2;
             actionRange[pieceX - 1, pieceZ + 1] = 2;
             actionRange[pieceX - 1, pieceZ - 1] = 2;
-            actionRange[pieceX, pieceZ] = 1;
         }
 
         else if (action == 1)
         {
-            actionRange[pieceX, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ] = 1;
+            actionRange[pieceX, pieceZ + 1] = 3;
         }
 
         else if (action == 2)
@@ -227,15 +225,14 @@ public class Goblin : Piece
             {
                 for (int z = 0; z <= 1; z++)
                 {
-                    actionRange[pieceX + x, pieceZ + z] = 2;
-                    actionRange[pieceX + x, pieceZ - z] = 2;
-                    actionRange[pieceX - x, pieceZ + z] = 2;
-                    actionRange[pieceX - x, pieceZ - z] = 2;
+                    actionRange[pieceX + x, pieceZ + z] = 3;
+                    actionRange[pieceX + x, pieceZ - z] = 3;
+                    actionRange[pieceX - x, pieceZ + z] = 3;
+                    actionRange[pieceX - x, pieceZ - z] = 3;
                 }
             }
-            actionRange[pieceX, pieceZ] = 1;
         }
-
+        actionRange[pieceX, pieceZ] = 1;
         return actionRange;
     }
 }

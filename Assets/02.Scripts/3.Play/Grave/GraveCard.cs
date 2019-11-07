@@ -29,7 +29,7 @@ public class GraveCard : CardSet
         gcard_ImageBackground.sprite = card_Images[orderNum];
         gcard_Name.text = thisPieceData.piece_Name;
         gcard_Dir.text = thisPieceData.piece_Dir;
-        gcard_Damage.text = "" + thisPieceData.piece_Damage;
+        gcard_Damage.text = "" + thisPieceData.piece_AttackDamage;
         gcard_HP.text = "" + thisPieceData.piece_HP;
         gcard_DrowMana = thisPieceData.piece_DrowMana;
         gcard_Mana.text = "" + gcard_DrowMana;

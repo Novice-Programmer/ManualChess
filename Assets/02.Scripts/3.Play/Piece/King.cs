@@ -290,7 +290,7 @@ public class King : Piece
         int pieceX = 1;
         int pieceZ = 1;
 
-        if (action == 0 || action == 1 || action == 2)
+        if (action == 0)
         {
             actionRange[pieceX + 1, pieceZ] = 2;
             actionRange[pieceX - 1, pieceZ] = 2;
@@ -300,9 +300,20 @@ public class King : Piece
             actionRange[pieceX + 1, pieceZ + 1] = 2;
             actionRange[pieceX - 1, pieceZ - 1] = 2;
             actionRange[pieceX - 1, pieceZ + 1] = 2;
-            actionRange[pieceX, pieceZ] = 1;
         }
 
+        else
+        {
+            actionRange[pieceX + 1, pieceZ] = 3;
+            actionRange[pieceX - 1, pieceZ] = 3;
+            actionRange[pieceX, pieceZ + 1] = 3;
+            actionRange[pieceX, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ - 1] = 3;
+            actionRange[pieceX + 1, pieceZ + 1] = 3;
+            actionRange[pieceX - 1, pieceZ - 1] = 3;
+            actionRange[pieceX - 1, pieceZ + 1] = 3;
+        }
+        actionRange[pieceX, pieceZ] = 1;
         return actionRange;
     }
 }

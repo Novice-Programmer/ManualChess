@@ -80,17 +80,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            GameObject _kingB = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingB, Quaternion.identity);
+            GameObject _kingB = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "KingB"), kingB, Quaternion.identity);
             for (int i = 0; i < HandManager.Instance.pieceName.Length; i++)
             {
                 kingB += new Vector3(1.0f, 0.0f, 0.0f);
-                GameObject _piece = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", HandManager.Instance.pieceName[i]), kingB, Quaternion.identity);
+                GameObject _piece = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", HandManager.Instance.pieceName[i] + "B"), kingB, Quaternion.identity);
             }
         }
     }
 
     public void SummonPiece(string pieceName, Vector3 selectV)
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            pieceName += "B";
+        }
         Vector3 offSet = new Vector3(0.5f, 1.8f, 0.5f);
         GameObject _piece = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", pieceName), selectV + offSet, Quaternion.identity);
     }

@@ -801,8 +801,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b01dfc4ab6f01324593d2b4ab010b0da, type: 2}
-  - {fileID: 2100000, guid: 21a448017f2ce064695cc71f2e60aaf2, type: 2}
+  - {fileID: 2100000, guid: 6dd7e75ba614612409e65624776e1d96, type: 2}
+  - {fileID: 2100000, guid: a864387ed3f320148925a3cb13e271d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 3509112625698223943}
   - component: {fileID: 4126787428262561719}
   m_Layer: 0
-  m_Name: 5Robot
+  m_Name: 5RobotB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

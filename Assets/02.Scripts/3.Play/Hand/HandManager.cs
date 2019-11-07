@@ -83,6 +83,10 @@ public class HandManager : MonoBehaviour
             thisHand = NetworkManager.Instance.HandAdd(_tr, player);
             thisHand.GetComponent<PlayerHand>().PlayerHandSet(orderNum, pieceObjs[orderNum]);
         }
+        else
+        {
+            AlwaysObject.Instance.InfoStart("상대편이 카드를 뽑았습니다.");
+        }
     }
 
     // 네트워크 : 필드 소환
@@ -108,6 +112,10 @@ public class HandManager : MonoBehaviour
         {
             NetworkManager.Instance.SummonPiece(pieceName[orderNum], selectV);
             _playerHands[handNum].RemoveHand();
+        }
+        else
+        {
+            AlwaysObject.Instance.InfoStart("상대편이 말을 소환하였습니다.");
         }
     }
 

@@ -414,7 +414,7 @@ public abstract class Piece : MonoBehaviour
         }
         if (_effect != null)
         {
-            _effect = Instantiate(_effect, pieceTransform.position + _effectV, pieceTransform.rotation, pieceTransform);
+            _effect = Instantiate(_effect, pieceTransform.position + _effectV, pieceTransform.rotation);
             if (_effectT == 0)
             {
                 Destroy(_effect, 3.0f);

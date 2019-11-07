@@ -926,6 +926,10 @@ public class GameManager : MonoBehaviour
                 {
                     AlwaysObject.Instance.InfoStart("공격 범위가 아닙니다.");
                 }
+                else if (!selectPiece.action)
+                {
+                    AlwaysObject.Instance.InfoStart("이번 턴에 행동을 하였습니다.");
+                }
             }
             PieceReset();
         }
@@ -938,9 +942,17 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (!board.AllowedSkills[(int)endDrag.x, (int)endDrag.y] && ManaTestCheck(decreaseSkillMana))
+                if(!board.boardPiece[(int)endDrag.x, (int)endDrag.y].PieceMPCheck())
+                {
+                    AlwaysObject.Instance.InfoStart("피스의 마나가 최대일때만 사용 가능합니다.");
+                }
+                else if (!board.AllowedSkills[(int)endDrag.x, (int)endDrag.y] && ManaTestCheck(decreaseSkillMana))
                 {
                     AlwaysObject.Instance.InfoStart("스킬 범위가 아닙니다.");
+                }
+                else if (!selectPiece.action)
+                {
+                    AlwaysObject.Instance.InfoStart("이번 턴에 행동을 하였습니다.");
                 }
             }
             PieceReset();

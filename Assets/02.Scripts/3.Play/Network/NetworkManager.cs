@@ -66,16 +66,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void ReadySet()
     {
-        Vector3 kingA = new Vector3(4.5f, 1.8f, 0.5f);
-        Vector3 kingB = new Vector3(4.5f, 1.8f, 8.5f);
+        Vector3 kingA = new Vector3(0.5f, 1.8f, 4.5f);
+        Vector3 kingB = new Vector3(0.5f, 1.8f, 5.5f);
         Vector3 kingQ = new Vector3(0.0f, 180.0f, 0.0f);
         if (PhotonNetwork.IsMasterClient)
         {
             GameObject _kingA = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingA, Quaternion.identity);
+            for(int i = 0; i < HandManager.Instance.pieceName.Length; i++)
+            {
+                kingA += new Vector3(1.0f, 0.0f, 0.0f);
+                GameObject _piece = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", HandManager.Instance.pieceName[i]), kingA, Quaternion.identity);
+            }
         }
         else
         {
             GameObject _kingB = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "King"), kingB, Quaternion.identity);
+            for (int i = 0; i < HandManager.Instance.pieceName.Length; i++)
+            {
+                kingB += new Vector3(1.0f, 0.0f, 0.0f);
+                GameObject _piece = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", HandManager.Instance.pieceName[i]), kingB, Quaternion.identity);
+            }
         }
     }
 

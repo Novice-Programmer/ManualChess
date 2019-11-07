@@ -208,7 +208,7 @@ public abstract class Piece : MonoBehaviour
                     StartCoroutine(ActionReset());
                 }
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -216,14 +216,14 @@ public abstract class Piece : MonoBehaviour
 
     public IEnumerator ActionAnim(int stateNum)
     {
-        ws = new WaitForSeconds(0.2f);
+        ws = new WaitForSeconds(0.0f);
         yield return ws;
         aniList.Add(stateNum);
     }
 
     public IEnumerator ActionReset()
     {
-        float exitTime = 0.3f;
+        float exitTime = 0.8f;
         bool _action = true;
         bool _die = false;
 
@@ -323,7 +323,7 @@ public abstract class Piece : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             aniList.RemoveAt(0);
             PieceSetting();
             animOn = false;

@@ -91,6 +91,8 @@ public class ChatManager : MonoBehaviourPunCallbacks
         }
         string msg = PhotonNetwork.NickName + " : " + chatInput.text;
         pv.RPC("ChatRPC", RpcTarget.All, PhotonNetwork.NickName + " : " + chatInput.text, GameManager.Instance.player);
+        chatInput.ActivateInputField();
+        chatInput.Select();
         chatInput.text = "";
     }
 

@@ -723,13 +723,13 @@ public class GameManager : MonoBehaviour
         {
             if (player)
             {
-                if (HandManager.Instance.aHandsNum < 8)
+                if (HandManager.Instance.aHandsNum < 9)
                 {
                     return true;
                 }
                 else
                 {
-                    if (HandManager.Instance.aHandsNum >= 8)
+                    if (HandManager.Instance.aHandsNum >= 9)
                     {
                         AlwaysObject.Instance.InfoStart("패가 최대입니다.");
                     }
@@ -738,13 +738,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (HandManager.Instance.bHandsNum < 8)
+                if (HandManager.Instance.bHandsNum < 9)
                 {
                     return true;
                 }
                 else
                 {
-                    if (HandManager.Instance.bHandsNum >= 8)
+                    if (HandManager.Instance.bHandsNum >= 9)
                     {
                         AlwaysObject.Instance.InfoStart("패가 최대입니다.");
                     }
@@ -770,8 +770,8 @@ public class GameManager : MonoBehaviour
         board.ViewSelectBoard(mouseX, mouseZ, select);
         mouseOver.x = mouseX;
         mouseOver.y = mouseZ;
-        MouseCursor.mouseCursor.NoneCursor();
-        if (board.boardPiece[mouseX, mouseZ] != null)
+        MouseCursor.Instance.NoneCursor();
+        if (board.boardPiece[mouseX, mouseZ] != null && !select)
         {
             viewPiece = board.boardPiece[mouseX, mouseZ];
             viewPieceData.DataViewSet(viewPiece);
@@ -863,11 +863,11 @@ public class GameManager : MonoBehaviour
                     board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedSkillRange, false);
                     if (selectPiece.ActionDeathCheck(board.boardPiece, false))
                     {
-                        MouseCursor.mouseCursor.DeathCursor();
+                        MouseCursor.Instance.DeathCursor();
                     }
                     else
                     {
-                        MouseCursor.mouseCursor.SkillCursor();
+                        MouseCursor.Instance.SkillCursor();
                     }
                     BoardLight.Instance.AllowedSkill(board.AllowedSkillRange);
                 }
@@ -878,11 +878,11 @@ public class GameManager : MonoBehaviour
                     board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedAttackRange, true);
                     if (selectPiece.ActionDeathCheck(board.boardPiece, true))
                     {
-                        MouseCursor.mouseCursor.DeathCursor();
+                        MouseCursor.Instance.DeathCursor();
                     }
                     else
                     {
-                        MouseCursor.mouseCursor.AttackCursor();
+                        MouseCursor.Instance.AttackCursor();
                     }
                     BoardLight.Instance.AllowedAttack(board.AllowedAttackRange);
                 }
@@ -1111,6 +1111,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                AlwaysObject.Instance.InfoStart("묘지가 최대입니다.");
             }
         }
         MoveHandReset();
@@ -1238,6 +1239,10 @@ public class GameManager : MonoBehaviour
                     graveSelect = true;
                     uiManager.GravePanelView();
                     Graveyard.Instance.GraveyardView();
+                }
+                else
+                {
+                    AlwaysObject.Instance.InfoStart("현재 묘지에 카드가 없습니다.");
                 }
             }
         }

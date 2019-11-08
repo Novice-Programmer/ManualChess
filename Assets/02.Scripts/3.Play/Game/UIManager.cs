@@ -63,7 +63,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Network")]
     public Text userName;
+    public Outline userNameline;
     public Text enemyName;
+    public Outline enemyNameline;
     public Text enemyHpText;
     public GameObject enemyKingHP;
     public GameObject enemyMana;
@@ -437,11 +439,27 @@ public class UIManager : MonoBehaviour
 
     public void UserInfoSet(UserData userData)
     {
+        if (GameManager.Instance.player)
+        {
+            userNameline.effectColor = new Color(255.0f,0.0f,0.0f);
+        }
+        else
+        {
+            userNameline.effectColor = new Color(0.0f, 0.0f, 255.0f);
+        }
         userName.text = userData.userName;
     }
 
     public void EnemyInfoSet(UserData enemyData)
     {
+        if (GameManager.Instance.player)
+        {
+            enemyNameline.effectColor = new Color(0.0f, 0.0f, 255.0f);
+        }
+        else
+        {
+            enemyNameline.effectColor = new Color(255.0f, 0.0f, 0.0f);
+        }
         enemyName.text = enemyData.userName;
     }
 

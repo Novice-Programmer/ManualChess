@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 25428701}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 804298980}
   m_RootOrder: 0
@@ -3190,7 +3190,7 @@ Transform:
   m_GameObject: {fileID: 342929736}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1693197293}
   m_RootOrder: 0
@@ -3622,7 +3622,7 @@ Transform:
   m_GameObject: {fileID: 428581004}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 149865151}
   m_RootOrder: 0
@@ -3968,7 +3968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526237148}
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 3, y: 11, z: -17}
+  m_LocalPosition: {x: 3, y: 8, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 633279763}
@@ -5829,7 +5829,7 @@ Transform:
   m_GameObject: {fileID: 680469987}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 2067493078}
   m_RootOrder: 0
@@ -8283,7 +8283,9 @@ MonoBehaviour:
   turnViewCanvas: {fileID: 3935819251392718392}
   turnViewText: {fileID: 3935819251761951054}
   userName: {fileID: 3935819251152816795}
+  userNameline: {fileID: 3935819251152816790}
   enemyName: {fileID: 3935819252194072426}
+  enemyNameline: {fileID: 3935819252194072424}
   enemyHpText: {fileID: 576531124}
   enemyKingHP: {fileID: 601652818}
   enemyMana: {fileID: 1548696225}
@@ -8659,7 +8661,7 @@ Transform:
   m_GameObject: {fileID: 947135451}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1246269514}
   m_RootOrder: 0
@@ -9173,7 +9175,7 @@ Transform:
   m_GameObject: {fileID: 959997667}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 365277}
   m_RootOrder: 0
@@ -11527,7 +11529,7 @@ Transform:
   m_GameObject: {fileID: 1238502413}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 2031374764}
   m_RootOrder: 0
@@ -12245,7 +12247,7 @@ Transform:
   m_GameObject: {fileID: 1342898307}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 993265738}
   m_RootOrder: 0
@@ -12438,7 +12440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362228289}
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 4, y: 11, z: -8}
+  m_LocalPosition: {x: 4, y: 8, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 804298980}
@@ -12888,7 +12890,7 @@ Transform:
   m_GameObject: {fileID: 1419498990}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 79086658}
   m_RootOrder: 0
@@ -13201,7 +13203,7 @@ RectTransform:
   m_GameObject: {fileID: 1457540009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.09, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1510299242}
   m_RootOrder: 0
@@ -14269,7 +14271,7 @@ Transform:
   m_GameObject: {fileID: 1582802333}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1345782274}
   m_RootOrder: 0
@@ -14521,7 +14523,7 @@ Transform:
   m_GameObject: {fileID: 1617545490}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 671295566}
   m_RootOrder: 0
@@ -15300,7 +15302,7 @@ Transform:
   m_GameObject: {fileID: 1714191310}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1659162401}
   m_RootOrder: 0
@@ -15857,7 +15859,7 @@ Transform:
   m_GameObject: {fileID: 1769361567}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 992424678}
   m_RootOrder: 0
@@ -16193,7 +16195,7 @@ Transform:
   m_GameObject: {fileID: 1791315147}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1535260366}
   m_RootOrder: 0
@@ -17166,7 +17168,7 @@ Transform:
   m_GameObject: {fileID: 1859264240}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 633279763}
   m_RootOrder: 0
@@ -17960,7 +17962,7 @@ Transform:
   m_GameObject: {fileID: 1940974934}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 1688370389}
   m_RootOrder: 0
@@ -19272,7 +19274,7 @@ Transform:
   m_GameObject: {fileID: 2081792827}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.010000003}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.010000003}
   m_Children: []
   m_Father: {fileID: 859677981}
   m_RootOrder: 0
@@ -22363,7 +22365,7 @@ Transform:
   m_GameObject: {fileID: 2128740070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.01}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.01}
   m_Children: []
   m_Father: {fileID: 1066243931}
   m_RootOrder: 0
@@ -23479,7 +23481,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3935819251941322868}
   m_HandleRect: {fileID: 3935819251941322871}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -23631,7 +23633,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 1, a: 1}
+  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!222 &3935819251152816794
@@ -25719,7 +25721,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 957136713}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 9
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -26833,7 +26835,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 1, a: 1}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!114 &3935819252194072426

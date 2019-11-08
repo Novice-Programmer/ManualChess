@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MouseCursor : MonoBehaviour
 {
-    public static MouseCursor mouseCursor { set; get; }
+    public static MouseCursor Instance { set; get; }
     private Texture2D cursorTexture;
     public Texture2D attackTexture;
     public Texture2D skillTexture;
@@ -18,80 +18,115 @@ public class MouseCursor : MonoBehaviour
     private Vector2 hotSpot;
     public void Start()
     {
-        mouseCursor = this;
-        StartCoroutine("CursorCheck");
-    }
-
-    public void Update()
-    {
+        Instance = this;
         StartCoroutine("CursorCheck");
     }
 
     IEnumerator CursorCheck()
     {
-        yield return new WaitForEndOfFrame();
-        if (attackCursor)
+        while (!GameManager.Instance.gameState)
         {
-            cursorTexture = attackTexture;
-        }
-        else if (skillCursor)
-        {
-            cursorTexture = skillTexture;
-        }
-        else if (healCursor)
-        {
-            cursorTexture = healTexture;
-        }
-        else if (deathCursor)
-        {
-            cursorTexture = deathTexture;
-        }
-        else
-        {
-            cursorTexture = noneTexture;
-            noneCursor = true;
+            yield return null;
         }
 
-        if (noneCursor)
+        while (GameManager.Instance.gameState)
         {
-            hotSpot.x = cursorTexture.width / 3;
-            hotSpot.y = cursorTexture.height / 5;
+            yield return new WaitForSeconds(0.05f);
+            if (attackCursor)
+            {
+                cursorTexture = attackTexture;
+            }
+            else if (skillCursor)
+            {
+                cursorTexture = skillTexture;
+            }
+            else if (healCursor)
+            {
+                cursorTexture = healTexture;
+            }
+            else if (deathCursor)
+            {
+                cursorTexture = deathTexture;
+            }
+            else
+            {
+                cursorTexture = noneTexture;
+                noneCursor = true;
+            }
+
+            if (noneCursor)
+            {
+                hotSpot.x = cursorTexture.width / 3;
+                hotSpot.y = cursorTexture.height / 5;
+            }
+            else
+            {
+                hotSpot.x = cursorTexture.width / 2;
+                hotSpot.y = cursorTexture.height / 2;
+            }
+            Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
         }
-        else
-        {
-            hotSpot.x = cursorTexture.width / 2;
-            hotSpot.y = cursorTexture.height / 2;
-        }
-        Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
     }
 
     public void AttackCursor()
     {
-        CursorValueReset();
+        CursorValueReset(0);
         attackCursor = true;
     }
     public void SkillCursor()
     {
-        CursorValueReset();
+        CursorValueReset(1);
         skillCursor = true;
     }
 
     public void DeathCursor()
     {
-        CursorValueReset();
+        CursorValueReset(3);
         deathCursor = true;
     }
 
     public void NoneCursor()
     {
-        CursorValueReset();
+        CursorValueReset(-1);
     }
 
-    public void CursorValueReset()
+    public void CursorValueReset(int actionNum)
     {
-        attackCursor = false;
-        skillCursor = false;
-        healCursor = false;
-        deathCursor = false;
+        if (actionNum == 0)
+        {
+            attackCursor = true;
+            skillCursor = false;
+            healCursor = false;
+            deathCursor = false;
+        }
+        else if(actionNum == 1)
+        {
+            attackCursor = false;
+            skillCursor = true;
+            healCursor = false;
+            deathCursor = false;
+        }
+        else if(actionNum == 2)
+        {
+            attackCursor = false;
+            skillCursor = false;
+            healCursor = true;
+            deathCursor = false;
+        }
+        else if(actionNum == 3)
+        {
+            attackCursor = false;
+            skillCursor = false;
+            healCursor = false;
+            deathCursor = true;
+        }
+
+        else
+        {
+            attackCursor = false;
+            skillCursor = false;
+            healCursor = false;
+            deathCursor = false;
+        }
     }
 }

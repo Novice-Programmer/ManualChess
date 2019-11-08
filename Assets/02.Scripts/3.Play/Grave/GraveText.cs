@@ -21,7 +21,7 @@ public class GraveText : MonoBehaviour
     {
         if (_graveNum == 32)
         {
-            graveText.text = _graveNum + " Max";
+            graveText.text = "Max";
         }
         else
         {

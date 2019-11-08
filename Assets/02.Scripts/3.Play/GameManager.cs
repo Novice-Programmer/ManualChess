@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
         PlayerCheck();
         deployRange.DeployRangeSet(isPlayer);
         board.PieceValueChange(turnValue);
+        turn.StartSet(player);
         turn.TurnObjectSet(playerTurn);
         uiManager.TurnObjectSet(playerTurn, playerMana, playerAbleMana, turnValue);
         gameState = true;
@@ -206,7 +207,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator GameOver()
     {
         uiManager.GameLose(userData.userName);
-        Shake.shake.ShakeKing(playerKing.transform, playerLayerNum);
+        NetworkManager.Instance.networkAction.ShakeKing(playerKing.transform.position, playerLayerNum);
         yield return new WaitForSeconds(6.0f);
         gameState = false;
         NetworkManager.Instance.DisconnectPlayer();
@@ -328,35 +329,38 @@ public class GameManager : MonoBehaviour
                 }
                 PieceReset();
             }
-            if (!playerTurn && selectPiece.isPlayer)
+            if (selectPiece != null)
             {
-                return;
-            }
-            else
-            {
-                if (Input.GetKeyDown("d"))
+                if (!playerTurn && selectPiece.isPlayer)
                 {
-                    uiManager.KeyView(1);
-                    actionNum = 1;
-                    moveP = true;
-                    BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedMoveTarget(board.AllowedMoveTarget);
+                    return;
                 }
-                else if (Input.GetKeyDown("a"))
+                else
                 {
-                    uiManager.KeyView(2);
-                    actionNum = 2;
-                    attackP = true;
-                    BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedAttackTarget(board.AllowedAttackTarget);
-                }
-                else if (Input.GetKeyDown("s"))
-                {
-                    uiManager.KeyView(3);
-                    actionNum = 3;
-                    skillP = true;
-                    BoardLight.Instance.HideRange();
-                    BoardLight.Instance.AllowedSkillTarget(board.AllowedSkillTarget);
+                    if (Input.GetKeyDown("d"))
+                    {
+                        uiManager.KeyView(1);
+                        actionNum = 1;
+                        moveP = true;
+                        BoardLight.Instance.HideRange();
+                        BoardLight.Instance.AllowedMoveTarget(board.AllowedMoveTarget);
+                    }
+                    else if (Input.GetKeyDown("a"))
+                    {
+                        uiManager.KeyView(2);
+                        actionNum = 2;
+                        attackP = true;
+                        BoardLight.Instance.HideRange();
+                        BoardLight.Instance.AllowedAttackTarget(board.AllowedAttackTarget);
+                    }
+                    else if (Input.GetKeyDown("s"))
+                    {
+                        uiManager.KeyView(3);
+                        actionNum = 3;
+                        skillP = true;
+                        BoardLight.Instance.HideRange();
+                        BoardLight.Instance.AllowedSkillTarget(board.AllowedSkillTarget);
+                    }
                 }
             }
         }
@@ -771,6 +775,10 @@ public class GameManager : MonoBehaviour
         mouseOver.x = mouseX;
         mouseOver.y = mouseZ;
         MouseCursor.Instance.NoneCursor();
+        if (mouseX >= 9 || mouseX < 0 || mouseZ >= 9 || mouseZ < 0)
+        {
+            return;
+        }
         if (board.boardPiece[mouseX, mouseZ] != null && !select)
         {
             viewPiece = board.boardPiece[mouseX, mouseZ];
@@ -849,64 +857,53 @@ public class GameManager : MonoBehaviour
         {
             selectPiece.transform.position = hit + Vector3.up;
         }
-        if (mouseOver.x <= 8 && mouseOver.y <= 8 && mouseOver.x >= 0 && mouseOver.y >= 0)
+        if (selectPiece.isPlayer && board.boardPiece[(int)mouseOver.x, (int)mouseOver.y] != null && (skillP || attackP))
         {
-            if (selectPiece.isPlayer && board.boardPiece[(int)mouseOver.x, (int)mouseOver.y] != null && (skillP || attackP))
+            Piece target = board.boardPiece[(int)mouseOver.x, (int)mouseOver.y];
+            selectPiece.TargetX = target.CurrentX;
+            selectPiece.TargetZ = target.CurrentZ;
+            if (skillP && board.AllowedSkills[(int)mouseOver.x, (int)mouseOver.y] && ManaTestCheck(-selectPiece.skillMana))
             {
-                Piece target = board.boardPiece[(int)mouseOver.x, (int)mouseOver.y];
-                selectPiece.TargetX = target.CurrentX;
-                selectPiece.TargetZ = target.CurrentZ;
-                if (skillP && board.AllowedSkills[(int)mouseOver.x, (int)mouseOver.y] && ManaTestCheck(-selectPiece.skillMana))
+                BoardLight.Instance.HideLightRange();
+                board.AllowedSkillRange = selectPiece.PossibleSkillRange(board.boardPiece);
+                board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedSkillRange, false);
+                if (selectPiece.ActionDeathCheck(board.boardPiece, false))
                 {
-                    BoardLight.Instance.HideLightRange();
-                    board.AllowedSkillRange = selectPiece.PossibleSkillRange(board.boardPiece);
-                    board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedSkillRange, false);
-                    if (selectPiece.ActionDeathCheck(board.boardPiece, false))
-                    {
-                        MouseCursor.Instance.DeathCursor();
-                    }
-                    else
-                    {
-                        MouseCursor.Instance.SkillCursor();
-                    }
-                    BoardLight.Instance.AllowedSkill(board.AllowedSkillRange);
-                }
-                else if (attackP && board.AllowedAttacks[(int)mouseOver.x, (int)mouseOver.y] && ManaTestCheck(-selectPiece.attackMana))
-                {
-                    BoardLight.Instance.HideLightRange();
-                    board.AllowedAttackRange = selectPiece.PossibleTarget(board.boardPiece);
-                    board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedAttackRange, true);
-                    if (selectPiece.ActionDeathCheck(board.boardPiece, true))
-                    {
-                        MouseCursor.Instance.DeathCursor();
-                    }
-                    else
-                    {
-                        MouseCursor.Instance.AttackCursor();
-                    }
-                    BoardLight.Instance.AllowedAttack(board.AllowedAttackRange);
+                    MouseCursor.Instance.DeathCursor();
                 }
                 else
                 {
-                    board.DeathPieces = new bool[9, 9];
-                    BoardLight.Instance.HideTarget();
+                    MouseCursor.Instance.SkillCursor();
                 }
-                BoardLight.Instance.DeathPieceCheck(board.DeathPieces);
+                BoardLight.Instance.AllowedSkill(board.AllowedSkillRange);
             }
-
+            else if (attackP && board.AllowedAttacks[(int)mouseOver.x, (int)mouseOver.y] && ManaTestCheck(-selectPiece.attackMana))
+            {
+                BoardLight.Instance.HideLightRange();
+                board.AllowedAttackRange = selectPiece.PossibleTarget(board.boardPiece);
+                board.DeathPieces = selectPiece.DeathPieceCheck(board.boardPiece, board.AllowedAttackRange, true);
+                if (selectPiece.ActionDeathCheck(board.boardPiece, true))
+                {
+                    MouseCursor.Instance.DeathCursor();
+                }
+                else
+                {
+                    MouseCursor.Instance.AttackCursor();
+                }
+                BoardLight.Instance.AllowedAttack(board.AllowedAttackRange);
+            }
+            else
+            {
+                board.DeathPieces = new bool[9, 9];
+                BoardLight.Instance.HideTarget();
+            }
+            BoardLight.Instance.DeathPieceCheck(board.DeathPieces);
         }
     }
 
     private void TryAction(Vector2 _startDrag, Vector2 _endDrag, int actionNum)
     {
         endDrag = _endDrag;
-
-        if (endDrag.x < 0 || endDrag.x >= board.boardPiece.Length || endDrag.y < 0 || endDrag.y >= board.boardPiece.Length)
-        {
-            MovePiece(selectPiece, startDrag.x, startDrag.y);
-            PieceReset();
-            return;
-        }
 
         if (endDrag == startDrag)
         {

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class Turn : MonoBehaviour
 {
@@ -21,17 +20,16 @@ public class Turn : MonoBehaviour
     public bool turnEnd;
     private bool player;
 
-    public void OnEnable()
+    public void StartSet(bool _player)
     {
-        if (PhotonNetwork.IsMasterClient)
+        player = _player;
+        if (_player)
         {
             timeText = timeTextA;
-            player = true;
         }
         else
         {
             timeText = timeTextB;
-            player = false;
         }
     }
 
@@ -42,7 +40,7 @@ public class Turn : MonoBehaviour
         {
             int time = Mathf.FloorToInt(NetworkManager.Instance.time);
             timeText.text = "" + time;
-            if (PhotonNetwork.IsMasterClient)
+            if (player)
             {
                 TimeSet(time);
             }
@@ -92,9 +90,21 @@ public class Turn : MonoBehaviour
                 turnCylinder.transform.rotation = aTurnQua;
             }
 
-            else if (!playerTurn)
+            else
             {
                 turnCylinder.transform.rotation = bTurnQua;
+            }
+        }
+        else
+        {
+            if (playerTurn)
+            {
+                turnCylinder.transform.rotation = bTurnQua;
+            }
+
+            else
+            {
+                turnCylinder.transform.rotation = aTurnQua;
             }
         }
         turnEnd = false;

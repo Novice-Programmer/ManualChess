@@ -46,12 +46,12 @@ public class PieceData : MonoBehaviour
 
     public void DataView()
     {
-        GetComponent<CanvasGroup>().alpha = 1.0f;
+        gameObject.GetComponent<CanvasGroup>().alpha = 1.0f;
     }
 
     public void NoneView()
     {
-        GetComponent<CanvasGroup>().alpha = 0.0f;
+        gameObject.GetComponent<CanvasGroup>().alpha = 0.0f;
     }
 
     public void DataViewSet(Piece viewPiece)

@@ -131,12 +131,10 @@ public abstract class Piece : MonoBehaviour
         {
             if (pv.IsMine)
             {
-                gameObject.tag = "APiece";
                 gameObject.layer = 18;
             }
             else
             {
-                gameObject.tag = "BPiece";
                 gameObject.layer = 19;
             }
         }
@@ -144,12 +142,10 @@ public abstract class Piece : MonoBehaviour
         {
             if (pv.IsMine)
             {
-                gameObject.tag = "BPiece";
                 gameObject.layer = 19;
             }
             else
             {
-                gameObject.tag = "APiece";
                 gameObject.layer = 18;
             }
         }
@@ -277,7 +273,7 @@ public abstract class Piece : MonoBehaviour
                 {
                     ActionRotate();
                     _action = false;
-                    Shake.shake.ShakeTarget(pieceTransform, skillShakeRange, skillShakeForce);
+                    NetworkManager.Instance.networkAction.ShakeObject(pieceTransform.position, skillShakeRange, skillShakeForce);
                     ActionTarget(false);
                 }
                 yield return null;
@@ -673,7 +669,6 @@ public abstract class Piece : MonoBehaviour
     // 카드 정보
     public CardData DataGet()
     {
-        DataSetting();
         CardData cardData = new CardData
         {
             piece_Name = piece_Name,

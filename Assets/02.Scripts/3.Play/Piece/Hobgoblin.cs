@@ -20,7 +20,7 @@ public class Hobgoblin : Piece
         drowMana = 2;
         fieldMana = 2;
 
-        moveMana = 2;
+        moveMana = 1;
         spaceMana = 0;
         moveRange = 1;
         spaceRange = 0;

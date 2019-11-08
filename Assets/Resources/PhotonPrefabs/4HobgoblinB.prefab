@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 9125802882589939980}
   m_Layer: 0
   m_Name: 4HobgoblinB
-  m_TagString: Untagged
+  m_TagString: BPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

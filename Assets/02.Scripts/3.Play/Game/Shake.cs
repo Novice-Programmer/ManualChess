@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Shake : MonoBehaviour
 {
-    public static Shake shake { set; get; }
+    public static Shake Instance { set; get; }
 
     private void Start()
     {
-        shake = this;
+        Instance = this;
     }
 
-    public void ShakeTarget(Transform _tr,float _range,float _force)
+    public void ShakeTarget(Vector3 _pos, float _range, float _force)
     {
-        Collider[] colls = Physics.OverlapSphere(_tr.position, _range, 1 << 21);
+        Collider[] colls = Physics.OverlapSphere(_pos, _range, 1 << 21);
 
-        foreach(var coll in colls)
+        foreach (var coll in colls)
         {
             var _rb = coll.GetComponent<Rigidbody>();
-            _rb.AddExplosionForce(_force, _tr.position, _range, 30.0f);
+            _rb.AddExplosionForce(_force, _pos, _range, 30.0f);
         }
     }
 
-    public void ShakeKing(Transform _tr,int playerLayerNum)
+    public void ShakeKing(Vector3 _pos, int playerLayerNum)
     {
-        Collider[] colls = Physics.OverlapSphere(_tr.position, 1000.0f, 1 << 21);
-        Collider[] colls2 = Physics.OverlapSphere(_tr.position, 1000.0f, 1 << playerLayerNum);
+        Collider[] colls = Physics.OverlapSphere(_pos, 1000.0f, 1 << 21);
+        Collider[] colls2 = Physics.OverlapSphere(_pos, 1000.0f, 1 << playerLayerNum);
 
         foreach (var coll in colls)
         {
@@ -35,16 +35,20 @@ public class Shake : MonoBehaviour
             {
                 _rb.isKinematic = false;
             }
-            _rb.AddExplosionForce(1000.0f, _tr.position, 1000.0f, 300.0f);
+            _rb.AddExplosionForce(1000.0f, _pos, 1000.0f, 300.0f);
         }
-        foreach (var coll in colls2)
+
+        if (GameManager.Instance.playerLayerNum == playerLayerNum)
         {
-            var _rb = coll.GetComponent<Rigidbody>();
-            var _bx = coll.GetComponent<BoxCollider>();
-            _rb.mass = 0.1f;
-            _rb.isKinematic = false;
-            _bx.isTrigger = false;
-            _rb.AddExplosionForce(1000.0f, _tr.position, 1000.0f, 30.0f);
+            foreach (var coll in colls2)
+            {
+                var _rb = coll.GetComponent<Rigidbody>();
+                var _bx = coll.GetComponent<BoxCollider>();
+                _rb.mass = 0.1f;
+                _rb.isKinematic = false;
+                _bx.isTrigger = false;
+                _rb.AddExplosionForce(1000.0f, _pos, 1000.0f, 30.0f);
+            }
         }
     }
 

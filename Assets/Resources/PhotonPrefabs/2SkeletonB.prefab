@@ -14454,7 +14454,7 @@ GameObject:
   - component: {fileID: 3952902430206587388}
   m_Layer: 0
   m_Name: 2SkeletonB
-  m_TagString: APiece
+  m_TagString: BPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

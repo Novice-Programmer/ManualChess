@@ -34,10 +34,10 @@ public class Goblin : Piece
         skillDamage = 13;
         skillRange = 1;
         skillAttackRange = 1;
-        skillShakeRange = 30.0f;
-        skillShakeForce = 100.0f;
         skillReduce = true;
         skillReduceDamage = 7;
+        skillShakeRange = 30.0f;
+        skillShakeForce = 100.0f;
 
         orderNum = 0;
 

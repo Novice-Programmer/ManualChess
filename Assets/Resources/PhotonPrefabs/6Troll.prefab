@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 4645582648996509422}
   m_Layer: 0
   m_Name: 6Troll
-  m_TagString: Untagged
+  m_TagString: APiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

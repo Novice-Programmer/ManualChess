@@ -1718,15 +1718,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -1793,7 +1792,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785312
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &136774943 stripped
 Transform:
@@ -2595,15 +2597,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -2675,7 +2676,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.3785307
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &241119675 stripped
 Transform:
@@ -3070,7 +3074,7 @@ MonoBehaviour:
   playerHandObj: {fileID: 7370491640914046988, guid: 2027cd796d3c199458cfc03918e24c39,
     type: 3}
   pieceObjs:
-  - {fileID: 4691553275499081502, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
+  - {fileID: 7624215034178766656, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
   - {fileID: 6593007732161254484, guid: 5634ce38981d04b46b026b3020c600f7, type: 3}
   - {fileID: 1948642527820320804, guid: d9504c5b4a7b2f94db6ee23d700d39d5, type: 3}
   - {fileID: 1916716568350916708, guid: 6bab575474800614e89b6f8843e160e4, type: 3}
@@ -4663,15 +4667,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 27
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -4743,7 +4746,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.3785315
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &591780876 stripped
 Transform:
@@ -6149,15 +6155,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -6229,7 +6234,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.3785312
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &733367453 stripped
 Transform:
@@ -6738,15 +6746,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5901567693536258798, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
       propertyPath: m_Name
       value: Wineglass
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464048046801206663, guid: 46ea48fd0d5dc03498487d32b08ba470,
-        type: 3}
-      propertyPath: viewIdField
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9119070757085634280, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
@@ -6813,8 +6820,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ea48fd0d5dc03498487d32b08ba470, type: 3}
 --- !u!4 &764079300 stripped
 Transform:
@@ -7654,15 +7660,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -7729,7 +7734,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785315
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &876070135 stripped
 Transform:
@@ -8550,15 +8558,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -8625,7 +8632,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785312
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &938599032 stripped
 Transform:
@@ -8735,15 +8745,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -8810,7 +8819,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785317
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &954674585 stripped
 Transform:
@@ -9427,15 +9439,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -9502,7 +9513,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785307
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &965810378 stripped
 Transform:
@@ -9714,15 +9728,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -9789,7 +9802,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785315
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &984633137 stripped
 Transform:
@@ -10680,15 +10696,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1034561912293028719, guid: b8ddc56d482119f4192f45df7322e636,
         type: 3}
       propertyPath: m_Name
       value: Telescope
-      objectReference: {fileID: 0}
-    - target: {fileID: 365721232662241466, guid: b8ddc56d482119f4192f45df7322e636,
-        type: 3}
-      propertyPath: viewIdField
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1030891310282982681, guid: b8ddc56d482119f4192f45df7322e636,
         type: 3}
@@ -10945,15 +10960,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -11020,7 +11034,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785317
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &1117305326 stripped
 Transform:
@@ -13273,15 +13290,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -15027,15 +15043,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5901567693536258798, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
       propertyPath: m_Name
       value: Wineglass
-      objectReference: {fileID: 0}
-    - target: {fileID: 2464048046801206663, guid: 46ea48fd0d5dc03498487d32b08ba470,
-        type: 3}
-      propertyPath: viewIdField
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9119070757085634280, guid: 46ea48fd0d5dc03498487d32b08ba470,
         type: 3}
@@ -15097,7 +15112,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 46ea48fd0d5dc03498487d32b08ba470, type: 3}
 --- !u!4 &1659780888 stripped
 Transform:
@@ -15420,15 +15438,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -15495,7 +15512,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785312
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &1724169131 stripped
 Transform:
@@ -15514,15 +15534,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -15589,7 +15608,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.3785312
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &1732198717 stripped
 Transform:
@@ -18485,15 +18507,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -18565,7 +18586,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.378531
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &1986071556 stripped
 Transform:
@@ -22686,8 +22710,6 @@ GameObject:
   - component: {fileID: 846063696357249297}
   - component: {fileID: 2678373664872726474}
   - component: {fileID: 525719455211917979}
-  - component: {fileID: 333862879123970657}
-  - component: {fileID: 333862879123970656}
   m_Layer: 0
   m_Name: turnButton
   m_TagString: Untagged
@@ -22695,43 +22717,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &333862879123970656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333862879123970655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
---- !u!114 &333862879123970657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333862879123970655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 333862879123970656}
-  viewIdField: 5
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!33 &472846107255682600
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -22788,15 +22773,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3466491386370549706, guid: 46cacbe3a7359e04d98600a67e46b577,
         type: 3}
       propertyPath: m_Name
       value: Compass
-      objectReference: {fileID: 0}
-    - target: {fileID: 39136087445597554, guid: 46cacbe3a7359e04d98600a67e46b577,
-        type: 3}
-      propertyPath: viewIdField
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7853650537392237285, guid: 46cacbe3a7359e04d98600a67e46b577,
         type: 3}
@@ -23013,15 +22997,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 196231362670142560, guid: d9ca353570dd9a24e858cdef5b9cb55c,
         type: 3}
       propertyPath: m_Name
       value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 5652614654503466722, guid: d9ca353570dd9a24e858cdef5b9cb55c,
-        type: 3}
-      propertyPath: viewIdField
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 915172156006541075, guid: d9ca353570dd9a24e858cdef5b9cb55c,
         type: 3}
@@ -29388,15 +29371,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4878927426700785091, guid: b7a7a054d45762c4bb3d2410edea86ad,
         type: 3}
       propertyPath: m_Name
       value: Rum_bottle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212297689171807889, guid: b7a7a054d45762c4bb3d2410edea86ad,
-        type: 3}
-      propertyPath: viewIdField
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8081021537072348310, guid: b7a7a054d45762c4bb3d2410edea86ad,
         type: 3}
@@ -30792,15 +30774,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4371589433524436377, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
       propertyPath: m_Name
       value: Coin0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704065272397189585, guid: cd8995f27655aa94799ece81c56174bb,
-        type: 3}
-      propertyPath: viewIdField
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 788227471190642570, guid: cd8995f27655aa94799ece81c56174bb,
         type: 3}
@@ -30857,7 +30838,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd8995f27655aa94799ece81c56174bb, type: 3}
 --- !u!4 &5743021035390022655 stripped
 Transform:
@@ -45739,6 +45723,10 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: viewIdField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8676916249686208124, guid: 2a8c84d48f144a243bd5e4b8df07ddd8,
         type: 3}
       propertyPath: m_Name
@@ -45798,11 +45786,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.201
-      objectReference: {fileID: 0}
-    - target: {fileID: 3223012093272949554, guid: 2a8c84d48f144a243bd5e4b8df07ddd8,
-        type: 3}
-      propertyPath: viewIdField
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a8c84d48f144a243bd5e4b8df07ddd8, type: 3}

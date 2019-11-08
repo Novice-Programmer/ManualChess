@@ -106,6 +106,18 @@ public class NetworkAction : MonoBehaviourPunCallbacks
         HandManager.Instance.HandNoneSelect(receivePlayer);
     }
 
+    [PunRPC]
+    void ShakeObjectRPC(Vector3 receiveV, float receiveF1, float receiveF2)
+    {
+        Shake.Instance.ShakeTarget(receiveV, receiveF1, receiveF2);
+    }
+
+    [PunRPC]
+    void ShakeKingRPC(Vector3 receiveV, int receiveI)
+    {
+        Shake.Instance.ShakeKing(receiveV, receiveI);
+    }
+
     #endregion
 
     #region ActionSend
@@ -180,6 +192,16 @@ public class NetworkAction : MonoBehaviourPunCallbacks
     public void HandNoneSelect(bool sendPlayer)
     {
         pv.RPC("HandNoneSelectRPC", RpcTarget.All, sendPlayer);
+    }
+
+    public void ShakeObject(Vector3 _sendV, float _sendF1, float _sendF2)
+    {
+        pv.RPC("ShakeObjectRPC", RpcTarget.All, _sendV, _sendF1, _sendF2);
+    }
+
+    public void ShakeKing(Vector3 _sendV, int _sendI)
+    {
+        pv.RPC("ShakeKingRPC", RpcTarget.All, _sendV, _sendI);
     }
 
     #endregion

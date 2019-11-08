@@ -1540,7 +1540,7 @@ Transform:
   m_GameObject: {fileID: 7370491640914046988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 1.1, z: 0.01}
+  m_LocalScale: {x: 0.7, y: 1.1, z: 0.1}
   m_Children:
   - {fileID: 3381948555200089183}
   - {fileID: 1250733053689869309}
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 41b4dfb377c81df4fa0dccfe554854a7, type: 3}
   - {fileID: 21300000, guid: 2770eadc2a4f5014bab902ad7ee6ad58, type: 3}
   card_data:
-  - {fileID: 7319081094483094180, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
+  - {fileID: 5568560816798253818, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
   - {fileID: 6593007732161254490, guid: 5634ce38981d04b46b026b3020c600f7, type: 3}
   - {fileID: 1948642528407397584, guid: d9504c5b4a7b2f94db6ee23d700d39d5, type: 3}
   - {fileID: 4895503927616284552, guid: 6bab575474800614e89b6f8843e160e4, type: 3}

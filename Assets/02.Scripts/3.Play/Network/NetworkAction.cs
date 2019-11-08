@@ -213,7 +213,7 @@ public class NetworkAction : MonoBehaviourPunCallbacks
         hands = new int[_handsCount];
         for (int i = 0; i < _handsCount; i++)
         {
-            hands[i] = Random.Range(0, _maxNum);
+            hands[i] = Random.Range(1, _maxNum);
         }
     }
 

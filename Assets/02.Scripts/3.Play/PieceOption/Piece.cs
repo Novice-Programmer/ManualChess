@@ -17,6 +17,12 @@ public abstract class Piece : MonoBehaviour
 
     public WaitForSeconds ws;
 
+    private readonly int hashMove = Animator.StringToHash("Move");
+    private readonly int hashAttack = Animator.StringToHash("Attack");
+    private readonly int hashSkill = Animator.StringToHash("Skill");
+    private readonly int hashDamage = Animator.StringToHash("Damage");
+    private readonly int hashDie = Animator.StringToHash("Die");
+
     public bool animAttack;
     public bool animSkill;
     public bool animMove;
@@ -178,25 +184,25 @@ public abstract class Piece : MonoBehaviour
                     switch (animNum)
                     {
                         case 1:
-                            animator.SetTrigger("Move");
+                            animator.SetBool(hashMove, true);
                             animMove = true;
                             break;
                         case 2:
                             ActionRotate();
-                            animator.SetTrigger("Attack");
+                            animator.SetBool(hashAttack, true);
                             animAttack = true;
                             break;
                         case 3:
                             ActionRotate();
-                            animator.SetTrigger("Skill");
+                            animator.SetBool(hashSkill, true);
                             animSkill = true;
                             break;
                         case 4:
-                            animator.SetTrigger("Damage");
+                            animator.SetBool(hashDamage, true);
                             animDamage = true;
                             break;
                         case 5:
-                            animator.SetTrigger("Die");
+                            animator.SetBool(hashDie, true);
                             animDie = true;
                             break;
                     }
@@ -204,7 +210,7 @@ public abstract class Piece : MonoBehaviour
                     StartCoroutine(ActionReset());
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -256,6 +262,7 @@ public abstract class Piece : MonoBehaviour
                 }
                 yield return null;
             }
+            animator.SetBool(hashAttack, false);
             animAttack = false;
         }
 
@@ -273,11 +280,12 @@ public abstract class Piece : MonoBehaviour
                 {
                     ActionRotate();
                     _action = false;
-                    NetworkManager.Instance.networkAction.ShakeObject(pieceTransform.position, skillShakeRange, skillShakeForce);
                     ActionTarget(false);
                 }
                 yield return null;
             }
+            animator.SetBool(hashSkill, false);
+            NetworkManager.Instance.networkAction.ShakeObject(pieceTransform.position, skillShakeRange, skillShakeForce);
             animSkill = false;
         }
 
@@ -295,6 +303,7 @@ public abstract class Piece : MonoBehaviour
                 yield return null;
             }
             //애니메이션 끝나고 난 후 실행되는 부분
+            animator.SetBool(hashMove, false);
             animMove = false;
         }
 
@@ -309,6 +318,7 @@ public abstract class Piece : MonoBehaviour
             {
                 yield return null;
             }
+            animator.SetBool(hashDamage, false);
             animDamage = false;
         }
 
@@ -382,6 +392,10 @@ public abstract class Piece : MonoBehaviour
         DamageEffectView(_piece, _atk);
         yield return new WaitForSeconds(1.0f);
         damage.SetActive(true);
+        if (pv.IsMine)
+        {
+            StartCoroutine(ActionAnim(4));
+        }
         yield return new WaitForSeconds(1.5f);
         damage.SetActive(false);
     }

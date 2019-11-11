@@ -21090,7 +21090,7 @@ GameObject:
   - component: {fileID: 6593007732161254490}
   - component: {fileID: 6593007732161254491}
   - component: {fileID: 6593007732161254488}
-  - component: {fileID: 6593007732161254489}
+  - component: {fileID: 4772416267671686069}
   - component: {fileID: 3013827918767220559}
   - component: {fileID: 6476518136698856419}
   m_Layer: 0
@@ -21128,7 +21128,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fe2eb0b4e90413643a3ddc78c368140f, type: 3}
   m_Controller: {fileID: 9100000, guid: d440367f235a4ac4c81fbebf769e160f, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -21235,7 +21235,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 6593007732161254488}
-  - {fileID: 6593007732161254489}
+  - {fileID: 4772416267671686069}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -21254,7 +21254,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &6593007732161254489
+--- !u!114 &4772416267671686069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21274,16 +21274,16 @@ MonoBehaviour:
     Name: Attack
   - Type: 4
     SynchronizeType: 1
-    Name: Move
+    Name: Die
   - Type: 4
     SynchronizeType: 1
     Name: Skill
   - Type: 4
     SynchronizeType: 1
-    Name: Damage
+    Name: Move
   - Type: 4
     SynchronizeType: 1
-    Name: Die
+    Name: Damage
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

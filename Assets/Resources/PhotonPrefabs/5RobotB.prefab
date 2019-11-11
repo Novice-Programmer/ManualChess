@@ -1207,7 +1207,7 @@ MonoBehaviour:
   damagePrefabs: {fileID: 7090749480454283877, guid: b877db675d3df2c4d828b1ac07c4a4fa,
     type: 3}
   damageAddset: {x: 0, y: 0.5, z: 0}
-  pv: {fileID: 0}
+  pv: {fileID: 2645802500747534888}
 --- !u!114 &2645802500747534888
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -700,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -60, y: -70}
+  m_AnchoredPosition: {x: -60, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8668740136143580503
@@ -1409,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 60, y: -70}
+  m_AnchoredPosition: {x: 60, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8668740136700908632
@@ -2176,7 +2176,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 280, y: 500}
+  m_SizeDelta: {x: 280, y: 490}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8668740137246771430
 MonoBehaviour:
@@ -2193,7 +2193,7 @@ MonoBehaviour:
   orderNum: 0
   selectNum: 0
   card_Images:
-  - {fileID: 21300000, guid: 4d3eb579e6c3df641bb08f56ba49c1e6, type: 3}
+  - {fileID: 21300000, guid: 726010efe23c90448a3390da6419ba82, type: 3}
   - {fileID: 21300000, guid: 814fcdbd2f1da77499362fd6f6143e9c, type: 3}
   - {fileID: 21300000, guid: 4f8f7be033a128c4f8d473218f3edb14, type: 3}
   - {fileID: 21300000, guid: 110ee8ecd7d686b458d26eaa3e2eba78, type: 3}
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 19166807a1e577c449da75e55f8a3c8e, type: 3}
   - {fileID: 21300000, guid: 3a550967692c4cd45aae93f73043e12f, type: 3}
   card_data:
-  - {fileID: 1577070620269821310, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
+  - {fileID: 6391094771266297019, guid: 89e0e34b00ab36f4ca52a8b1517b6437, type: 3}
   - {fileID: 6593007732161254490, guid: 5634ce38981d04b46b026b3020c600f7, type: 3}
   - {fileID: 1948642528407397584, guid: d9504c5b4a7b2f94db6ee23d700d39d5, type: 3}
   - {fileID: 4895503927616284552, guid: 6bab575474800614e89b6f8843e160e4, type: 3}

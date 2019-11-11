@@ -201,10 +201,6 @@ public class Board : MonoBehaviour
             {
                 if (_range[x, z])
                 {
-                    if (boardPiece[x, z].pv.IsMine)
-                    {
-                        StartCoroutine(boardPiece[x, z].ActionAnim(4));
-                    }
                     int _reDamage = _damage;
                     if (x != targetV.x || z != targetV.y)
                     {

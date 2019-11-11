@@ -21128,7 +21128,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fe2eb0b4e90413643a3ddc78c368140f, type: 3}
   m_Controller: {fileID: 9100000, guid: d440367f235a4ac4c81fbebf769e160f, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -21270,22 +21270,22 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Attack
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Move
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Skill
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Damage
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Die
   m_SynchronizeLayers:
-  - SynchronizeType: 1
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!65 &3013827918767220559
 BoxCollider:

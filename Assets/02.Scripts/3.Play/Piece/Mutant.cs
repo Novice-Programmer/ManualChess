@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Goblin : Piece
+public class Mutant : Piece
 {
     public override void DataSetting()
     {
         ws = new WaitForSeconds(0.1f);
         pieceTransform = transform;
-        piece_Name = "고블린";
-        piece_Dir = "장난을 좋아하는 종족";
+        piece_Name = "실험체";
+        piece_Dir = "생화학 병기";
         level = 0;
         pieceHP = 25;
         pieceMP = 0;

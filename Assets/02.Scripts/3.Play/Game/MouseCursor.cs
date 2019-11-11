@@ -9,11 +9,13 @@ public class MouseCursor : MonoBehaviour
     public Texture2D skillTexture;
     public Texture2D healTexture;
     public Texture2D deathTexture;
+    public Texture2D moveTexture;
     public Texture2D noneTexture;
     public bool attackCursor;
     public bool skillCursor;
     public bool healCursor;
     public bool deathCursor;
+    public bool moveCursor;
     private bool noneCursor;
     private Vector2 hotSpot;
     public void Start()
@@ -48,13 +50,17 @@ public class MouseCursor : MonoBehaviour
             {
                 cursorTexture = deathTexture;
             }
+            else if (moveCursor)
+            {
+                cursorTexture = moveTexture;
+            }
             else
             {
                 cursorTexture = noneTexture;
                 noneCursor = true;
             }
 
-            if (noneCursor)
+            if (noneCursor || moveCursor)
             {
                 hotSpot.x = cursorTexture.width / 3;
                 hotSpot.y = cursorTexture.height / 5;
@@ -71,23 +77,25 @@ public class MouseCursor : MonoBehaviour
     public void AttackCursor()
     {
         CursorValueReset(0);
-        attackCursor = true;
     }
     public void SkillCursor()
     {
         CursorValueReset(1);
-        skillCursor = true;
     }
 
     public void DeathCursor()
     {
         CursorValueReset(3);
-        deathCursor = true;
     }
 
     public void NoneCursor()
     {
         CursorValueReset(-1);
+    }
+
+    public void MoveCursor()
+    {
+        CursorValueReset(4);
     }
 
     public void CursorValueReset(int actionNum)
@@ -98,6 +106,7 @@ public class MouseCursor : MonoBehaviour
             skillCursor = false;
             healCursor = false;
             deathCursor = false;
+            moveCursor = false;
         }
         else if(actionNum == 1)
         {
@@ -105,6 +114,7 @@ public class MouseCursor : MonoBehaviour
             skillCursor = true;
             healCursor = false;
             deathCursor = false;
+            moveCursor = false;
         }
         else if(actionNum == 2)
         {
@@ -112,6 +122,7 @@ public class MouseCursor : MonoBehaviour
             skillCursor = false;
             healCursor = true;
             deathCursor = false;
+            moveCursor = false;
         }
         else if(actionNum == 3)
         {
@@ -119,6 +130,16 @@ public class MouseCursor : MonoBehaviour
             skillCursor = false;
             healCursor = false;
             deathCursor = true;
+            moveCursor = false;
+        }
+
+        else if(actionNum == 4)
+        {
+            attackCursor = false;
+            skillCursor = false;
+            healCursor = false;
+            deathCursor = false;
+            moveCursor = true;
         }
 
         else
@@ -127,6 +148,7 @@ public class MouseCursor : MonoBehaviour
             skillCursor = false;
             healCursor = false;
             deathCursor = false;
+            moveCursor = false;
         }
     }
 }

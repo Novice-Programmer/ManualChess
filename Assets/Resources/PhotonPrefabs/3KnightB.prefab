@@ -11082,7 +11082,7 @@ MonoBehaviour:
   action: 1
   pieceHP: 33
   pieceMP: 0
-  maxHP: 0
+  maxHP: 33
   maxMP: 0
   drowMana: 3
   fieldMana: 1

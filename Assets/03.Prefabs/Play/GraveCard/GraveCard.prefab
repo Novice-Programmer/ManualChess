@@ -1544,7 +1544,7 @@ MonoBehaviour:
   orderNum: 0
   selectNum: 0
   card_Images:
-  - {fileID: 21300000, guid: afecef7f740da1c44bcfb6ce60070593, type: 3}
+  - {fileID: 21300000, guid: 1d6d1da689986ab4a84e75669d08f98c, type: 3}
   - {fileID: 21300000, guid: 7007202c320bbfd4299567eb68e15495, type: 3}
   - {fileID: 21300000, guid: e6c161b14019faa4db0023ce970ff4bf, type: 3}
   - {fileID: 21300000, guid: 9c50b02fcb8dc39448d2c92c8bf96829, type: 3}
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 41b4dfb377c81df4fa0dccfe554854a7, type: 3}
   - {fileID: 21300000, guid: 2770eadc2a4f5014bab902ad7ee6ad58, type: 3}
   card_data:
-  - {fileID: 1577070620269821310, guid: 2a90676bd161b9e4a91a8014aa8a35ba, type: 3}
+  - {fileID: 6391094771266297019, guid: 89e0e34b00ab36f4ca52a8b1517b6437, type: 3}
   - {fileID: 6593007732161254490, guid: 5634ce38981d04b46b026b3020c600f7, type: 3}
   - {fileID: 1948642528407397584, guid: d9504c5b4a7b2f94db6ee23d700d39d5, type: 3}
   - {fileID: 4895503927616284552, guid: 6bab575474800614e89b6f8843e160e4, type: 3}

@@ -853,10 +853,6 @@ public class GameManager : MonoBehaviour
 
     private void DeathPieceView(Vector3 hit)
     {
-        if (selectPiece.isPlayer && moveP && playerTurn && ManaTestCheck(selectPiece.MoveManaCheck(startDrag, mouseOver)))
-        {
-            selectPiece.transform.position = hit + Vector3.up;
-        }
         if (selectPiece.isPlayer && board.boardPiece[(int)mouseOver.x, (int)mouseOver.y] != null && (skillP || attackP))
         {
             Piece target = board.boardPiece[(int)mouseOver.x, (int)mouseOver.y];
@@ -898,6 +894,12 @@ public class GameManager : MonoBehaviour
                 BoardLight.Instance.HideTarget();
             }
             BoardLight.Instance.DeathPieceCheck(board.DeathPieces);
+        }
+
+        if (selectPiece.isPlayer && moveP && playerTurn && ManaTestCheck(selectPiece.MoveManaCheck(startDrag, mouseOver)))
+        {
+            selectPiece.transform.position = hit + Vector3.up;
+            MouseCursor.Instance.MoveCursor();
         }
     }
 
@@ -998,6 +1000,7 @@ public class GameManager : MonoBehaviour
         attackP = false;
         skillP = false;
         actionNum = -1;
+        MouseCursor.Instance.NoneCursor();
         BoardLight.Instance.HideRange();
     }
     #endregion

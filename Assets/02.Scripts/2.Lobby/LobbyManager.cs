@@ -438,7 +438,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         else
         {
             roomPanel.SetActive(true);
-            txt_roomNameDisplay.text = PhotonNetwork.CurrentRoom.Name;
+            string room_name = PhotonNetwork.CurrentRoom.Name;
+            if(room_name.Length > 10)
+            {
+                room_name = room_name.Substring(0, 10) + "...";
+            }
+            txt_roomNameDisplay.text = room_name;
             if (PhotonNetwork.IsMasterClient)
             {
                 btn_start.SetActive(true);

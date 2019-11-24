@@ -247,13 +247,16 @@ public class AlwaysObject : MonoBehaviour
 
     private IEnumerator Loading()
     {
+        float t=0.0f;
         while (loading)
         {
-            for (int i = 0; i < 1; i++)
+            t += Time.deltaTime;
+            loadingString += ".";
+            loadingText.text = loadingString;
+            yield return new WaitForSeconds(0.3f);
+            if(t >= 5.0f)
             {
-                loadingString += ".";
-                loadingText.text = loadingString;
-                yield return new WaitForSeconds(0.3f);
+                break;
             }
         }
         loadingText.text = "";

@@ -595,7 +595,7 @@ public class GameManager : MonoBehaviour
     // 마나 확인
     public bool ManaCheck(int checkMana)
     {
-        float resultMana = playerMana + checkMana;
+        float resultMana = playerAbleMana - playerUseMana + checkMana;
         if (resultMana >= 0 && playerUseMana - checkMana <= playerAbleMana)
         {
             return true;
@@ -616,7 +616,7 @@ public class GameManager : MonoBehaviour
 
     public bool ManaTestCheck(int checkMana)
     {
-        float resultMana = playerMana + checkMana;
+        float resultMana = playerAbleMana - playerUseMana + checkMana;
         if (resultMana >= 0 && playerUseMana - checkMana <= playerAbleMana)
         {
             return true;

@@ -170,19 +170,49 @@ public class Knight : Piece
         {
             if (tag == "APiece")
             {
-                attack[CurrentX - 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ + 1);
-                attack[CurrentX, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX, CurrentZ + 1);
-                attack[CurrentX + 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ + 1);
-                attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
-                attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ);
+                if (CurrentX + 1 <= 8)
+                {
+                    attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ);
+                    if (CurrentZ + 1 <= 8)
+                    {
+                        attack[CurrentX + 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ + 1);
+                    }
+                }
+                if (CurrentX - 1 >= 0)
+                {
+                    attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
+                    if (CurrentZ + 1 <= 8)
+                    {
+                        attack[CurrentX - 1, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ + 1);
+                    }
+                }
+                if (CurrentZ + 1 <= 8)
+                {
+                    attack[CurrentX, CurrentZ + 1] = ValidAttack(pieces, range, CurrentX, CurrentZ + 1);
+                }
             }
             else
             {
-                attack[CurrentX - 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ - 1);
-                attack[CurrentX, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX, CurrentZ - 1);
-                attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ - 1);
-                attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
-                attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ);
+                if (CurrentX + 1 <= 8)
+                {
+                    attack[CurrentX + 1, CurrentZ] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ);
+                    if (CurrentZ - 1 >= 0)
+                    {
+                        attack[CurrentX + 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX + 1, CurrentZ - 1);
+                    }
+                }
+                if (CurrentX - 1 >= 0)
+                {
+                    attack[CurrentX - 1, CurrentZ] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ);
+                    if (CurrentZ -1 >= 0)
+                    {
+                        attack[CurrentX - 1, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX - 1, CurrentZ - 1);
+                    }
+                }
+                if (CurrentZ - 1 >= 0)
+                {
+                    attack[CurrentX, CurrentZ - 1] = ValidAttack(pieces, range, CurrentX, CurrentZ - 1);
+                }
             }
             attack[CurrentX, CurrentZ] = false;
         }
@@ -269,11 +299,11 @@ public class Knight : Piece
                 {
                     if (CurrentX + 1 <= 8)
                     {
-                        skill[CurrentX + 1, CurrentZ - 2] = ValidSkill(pieces, range, CurrentX + 1, CurrentZ + 2);
+                        skill[CurrentX + 1, CurrentZ + 2] = ValidSkill(pieces, range, CurrentX + 1, CurrentZ + 2);
                     }
                     if (CurrentX - 1 >= 0)
                     {
-                        skill[CurrentX - 1, CurrentZ - 2] = ValidSkill(pieces, range, CurrentX - 1, CurrentZ + 2);
+                        skill[CurrentX - 1, CurrentZ + 2] = ValidSkill(pieces, range, CurrentX - 1, CurrentZ + 2);
                     }
                 }
             }
